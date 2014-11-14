@@ -1,0 +1,133 @@
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import 'font-awesome/scss/font-awesome';
+@import 'stylesheets/bourbon/bourbon';
+@import 'stylesheets/neat/neat';
+@import 'stylesheets/base/base';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+// Component styles are injected through grunt
+// injector
+@import 'main/main.scss';
+@import 'stylesheets/base/_base.scss';
+@import 'stylesheets/base/_buttons.scss';
+@import 'stylesheets/base/_forms.scss';
+@import 'stylesheets/base/_grid-settings.scss';
+@import 'stylesheets/base/_lists.scss';
+@import 'stylesheets/base/_tables.scss';
+@import 'stylesheets/base/_typography.scss';
+@import 'stylesheets/base/_variables.scss';
+@import 'stylesheets/base/extends/_button.scss';
+@import 'stylesheets/base/extends/_clearfix.scss';
+@import 'stylesheets/base/extends/_errors.scss';
+@import 'stylesheets/base/extends/_flashes.scss';
+@import 'stylesheets/base/extends/_hide-text.scss';
+@import 'stylesheets/bourbon/_bourbon-deprecated-upcoming.scss';
+@import 'stylesheets/bourbon/_bourbon.scss';
+@import 'stylesheets/bourbon/addons/_button.scss';
+@import 'stylesheets/bourbon/addons/_clearfix.scss';
+@import 'stylesheets/bourbon/addons/_directional-values.scss';
+@import 'stylesheets/bourbon/addons/_ellipsis.scss';
+@import 'stylesheets/bourbon/addons/_font-family.scss';
+@import 'stylesheets/bourbon/addons/_hide-text.scss';
+@import 'stylesheets/bourbon/addons/_html5-input-types.scss';
+@import 'stylesheets/bourbon/addons/_position.scss';
+@import 'stylesheets/bourbon/addons/_prefixer.scss';
+@import 'stylesheets/bourbon/addons/_retina-image.scss';
+@import 'stylesheets/bourbon/addons/_size.scss';
+@import 'stylesheets/bourbon/addons/_timing-functions.scss';
+@import 'stylesheets/bourbon/addons/_triangle.scss';
+@import 'stylesheets/bourbon/addons/_word-wrap.scss';
+@import 'stylesheets/bourbon/css3/_animation.scss';
+@import 'stylesheets/bourbon/css3/_appearance.scss';
+@import 'stylesheets/bourbon/css3/_backface-visibility.scss';
+@import 'stylesheets/bourbon/css3/_background-image.scss';
+@import 'stylesheets/bourbon/css3/_background.scss';
+@import 'stylesheets/bourbon/css3/_border-image.scss';
+@import 'stylesheets/bourbon/css3/_border-radius.scss';
+@import 'stylesheets/bourbon/css3/_box-sizing.scss';
+@import 'stylesheets/bourbon/css3/_calc.scss';
+@import 'stylesheets/bourbon/css3/_columns.scss';
+@import 'stylesheets/bourbon/css3/_filter.scss';
+@import 'stylesheets/bourbon/css3/_flex-box.scss';
+@import 'stylesheets/bourbon/css3/_font-face.scss';
+@import 'stylesheets/bourbon/css3/_font-feature-settings.scss';
+@import 'stylesheets/bourbon/css3/_hidpi-media-query.scss';
+@import 'stylesheets/bourbon/css3/_hyphens.scss';
+@import 'stylesheets/bourbon/css3/_image-rendering.scss';
+@import 'stylesheets/bourbon/css3/_keyframes.scss';
+@import 'stylesheets/bourbon/css3/_linear-gradient.scss';
+@import 'stylesheets/bourbon/css3/_perspective.scss';
+@import 'stylesheets/bourbon/css3/_placeholder.scss';
+@import 'stylesheets/bourbon/css3/_radial-gradient.scss';
+@import 'stylesheets/bourbon/css3/_transform.scss';
+@import 'stylesheets/bourbon/css3/_transition.scss';
+@import 'stylesheets/bourbon/css3/_user-select.scss';
+@import 'stylesheets/bourbon/functions/_assign.scss';
+@import 'stylesheets/bourbon/functions/_color-lightness.scss';
+@import 'stylesheets/bourbon/functions/_flex-grid.scss';
+@import 'stylesheets/bourbon/functions/_golden-ratio.scss';
+@import 'stylesheets/bourbon/functions/_grid-width.scss';
+@import 'stylesheets/bourbon/functions/_modular-scale.scss';
+@import 'stylesheets/bourbon/functions/_px-to-em.scss';
+@import 'stylesheets/bourbon/functions/_px-to-rem.scss';
+@import 'stylesheets/bourbon/functions/_strip-units.scss';
+@import 'stylesheets/bourbon/functions/_tint-shade.scss';
+@import 'stylesheets/bourbon/functions/_transition-property-name.scss';
+@import 'stylesheets/bourbon/functions/_unpack.scss';
+@import 'stylesheets/bourbon/helpers/_convert-units.scss';
+@import 'stylesheets/bourbon/helpers/_gradient-positions-parser.scss';
+@import 'stylesheets/bourbon/helpers/_is-num.scss';
+@import 'stylesheets/bourbon/helpers/_linear-angle-parser.scss';
+@import 'stylesheets/bourbon/helpers/_linear-gradient-parser.scss';
+@import 'stylesheets/bourbon/helpers/_linear-positions-parser.scss';
+@import 'stylesheets/bourbon/helpers/_linear-side-corner-parser.scss';
+@import 'stylesheets/bourbon/helpers/_radial-arg-parser.scss';
+@import 'stylesheets/bourbon/helpers/_radial-gradient-parser.scss';
+@import 'stylesheets/bourbon/helpers/_radial-positions-parser.scss';
+@import 'stylesheets/bourbon/helpers/_render-gradients.scss';
+@import 'stylesheets/bourbon/helpers/_shape-size-stripper.scss';
+@import 'stylesheets/bourbon/helpers/_str-to-num.scss';
+@import 'stylesheets/bourbon/settings/_asset-pipeline.scss';
+@import 'stylesheets/bourbon/settings/_prefixer.scss';
+@import 'stylesheets/bourbon/settings/_px-to-em.scss';
+@import 'stylesheets/neat/_neat-helpers.scss';
+@import 'stylesheets/neat/_neat.scss';
+@import 'stylesheets/neat/functions/_new-breakpoint.scss';
+@import 'stylesheets/neat/functions/_private.scss';
+@import 'stylesheets/neat/grid/_box-sizing.scss';
+@import 'stylesheets/neat/grid/_direction-context.scss';
+@import 'stylesheets/neat/grid/_display-context.scss';
+@import 'stylesheets/neat/grid/_fill-parent.scss';
+@import 'stylesheets/neat/grid/_media.scss';
+@import 'stylesheets/neat/grid/_omega.scss';
+@import 'stylesheets/neat/grid/_outer-container.scss';
+@import 'stylesheets/neat/grid/_pad.scss';
+@import 'stylesheets/neat/grid/_private.scss';
+@import 'stylesheets/neat/grid/_row.scss';
+@import 'stylesheets/neat/grid/_shift.scss';
+@import 'stylesheets/neat/grid/_span-columns.scss';
+@import 'stylesheets/neat/grid/_to-deprecate.scss';
+@import 'stylesheets/neat/grid/_visual-grid.scss';
+@import 'stylesheets/neat/settings/_disable-warnings.scss';
+@import 'stylesheets/neat/settings/_grid.scss';
+@import 'stylesheets/neat/settings/_visual-grid.scss';
+// endinjector
