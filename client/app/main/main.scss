@@ -116,6 +116,10 @@ pane {
   }
 }
 
+#masterView {
+  transition:
+}
+
 .active.ng-leave, .active.ng-enter {
   @include cubic-bezier('1s');
 }
