@@ -3,9 +3,14 @@
 angular.module('dnApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('main', {
+
+      .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
-      });
+        templateUrl: 'app/main/home.html',
+      })
+
+      .state('contact', {
+        url: '/contact',
+        templateUrl: 'app/main/contact.html'
+      })
   });
