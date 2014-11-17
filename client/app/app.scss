@@ -17,11 +17,18 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+.container {
+  margin: 0 auto;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
         max-width: 730px;
     }
+}
+* {
+    @include box-sizing(border-box);
 }
 
 // Component styles are injected through grunt
@@ -130,4 +137,5 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'stylesheets/neat/settings/_disable-warnings.scss';
 @import 'stylesheets/neat/settings/_grid.scss';
 @import 'stylesheets/neat/settings/_visual-grid.scss';
+@import 'works/works.scss';
 // endinjector
