@@ -6,8 +6,8 @@
 'use strict';
 
 var Work = require('../api/work/work.model');
-var User = require('../api/user/user.model');
-var Photo = require('../api/photo/photo.model');
+// var User = require('../api/user/user.model');
+// var Photo = require('../api/photo/photo.model');
 
 Work.find({}).remove(function() {
   Work.create({
@@ -42,20 +42,20 @@ Work.find({}).remove(function() {
   );
 });
 
-User.find({}).remove(function() {
-  User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
-      console.log('finished populating users');
-    }
-  );
-});
+// User.find({}).remove(function() {
+//   User.create({
+//     provider: 'local',
+//     name: 'Test User',
+//     email: 'test@test.com',
+//     password: 'test'
+//   }, {
+//     provider: 'local',
+//     role: 'admin',
+//     name: 'Admin',
+//     email: 'admin@admin.com',
+//     password: 'admin'
+//   }, function() {
+//       console.log('finished populating users');
+//     }
+//   );
+// });

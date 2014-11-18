@@ -16,6 +16,9 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 $visual-grid: true;
+$max-width: 87em !global;
+$gutter: golden-ratio(1em, 1) !global;
+$column: golden-ratio(1em, 5) !global;
 
  $gloveH: 50vh;
  $gloveW: 50vw;
@@ -28,13 +31,14 @@ $visual-grid: true;
 }
 
 .container {
-  margin: 0 auto;
+  @include outer-container;
+  // margin: 0 auto;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 730px;
+        // max-width: 730px;
     }
 }
 

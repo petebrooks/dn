@@ -5,6 +5,6 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/dnmean-test'
+    uri: 'mongodb://localhost/dnapp-test'
   }
 };
