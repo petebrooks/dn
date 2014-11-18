@@ -4,7 +4,9 @@ angular.module('dnApp')
   .directive('infoBox', function() {
     return {
       restrict: 'E',
-      scope: {},
+      scope: {
+        name: '@'
+      },
       transclude: true,
       templateUrl: 'components/info_directive/info-box.html',
       link: function(scope, el, attrs) {
@@ -12,23 +14,6 @@ angular.module('dnApp')
           console.log('close');
           scope.hidden = true;
         };
-      }
-    };
-  })
-
-  .directive('pane', function($animate) {
-    return {
-      restrict: 'E',
-      scope: {
-        name: '@'
-      },
-      templateUrl: 'components/pane_directive/pane.html',
-      link: function(scope, el, attrs) {
-        el.on('click', function() {
-          console.log(attrs.name);
-          // debugger
-          $animate.addClass(el, 'active');
-        });
       }
     };
   });

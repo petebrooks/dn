@@ -1,0 +1,38 @@
+info-box {
+  @include outer-container
+
+  .box {
+  }
+
+  .title {
+    @include clearfix;
+    position: relative;
+    h3 {
+      float: left;
+    }
+    i {
+      vertical-align: middle;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0.5rem;
+    }
+  }
+  .info {
+    @include clearfix;
+    border: 1px solid black;
+    min-height: 70vh;
+    width: 100%;
+    padding: 2rem;
+    // @include column-count(2);
+    // @include column-gap(0);
+    p {
+    }
+  }
+}
+
+#masterUI.ng-enter {
+  .box {
+    @include zoomIn(1s);
+  }
+}

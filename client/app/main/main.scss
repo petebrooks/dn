@@ -28,6 +28,26 @@ $slide-out-neg: -1000px;
   100% {opacity: 0; transform: translate($slide-out-poz, $slide-out-poz);}
 }
 
+@include keyframes(slideInUpLeft) {
+  0% {opacity: 0; transform: translate($slide-out-neg, $slide-out-neg);}
+  100% {opacity: 100; transform: translate(0, 0);}
+}
+
+@include keyframes(slideInUpRight) {
+  0% {opacity: 0; transform: translate($slide-out-poz, $slide-out-neg);}
+  100% {opacity: 100; transform: translate(0, 0);}
+}
+
+@include keyframes(slideInBottomLeft) {
+  0% {opacity: 0; transform: translate($slide-out-neg, $slide-out-poz);}
+  100% {opacity: 100; transform: translate(0, 0);}
+}
+
+@include keyframes(slideInBottomRight) {
+  0% {opacity: 0; transform: translate($slide-out-poz, $slide-out-poz);}
+  100% {opacity: 100; transform: translate(0, 0);}
+}
+
 @mixin slideOutUpLeft($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
   @include animation-name(slideOutUpLeft);
   @include duration($duration);
@@ -64,15 +84,40 @@ $slide-out-neg: -1000px;
   @include visibility($visibility);
 }
 
-@mixin center-children {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin slideInUpLeft($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideInUpLeft);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
 }
 
-@mixin center-children-vertical {
-    display: flex;
-    align-items: center;
+@mixin slideInUpRight($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideInUpRight);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}
+
+@mixin slideInBottomLeft($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideInBottomLeft);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}
+
+@mixin slideInBottomRight($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideInBottomRight);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
 }
 
 @mixin pane-resize-add {
@@ -111,23 +156,23 @@ $slide-out-neg: -1000px;
 
 /////////////////// Main Styles
 
-pane {
+glove {
   @include center-children;
   position: fixed;
   width: 50vw;
   height: 50vh;
   float: left;
   color: $splash-font-color;
-  h1 {
+  // h1 {
     // display: inline-block;
     // text-align: center;x
-  }
+  // }
   &:hover {
     color: $splash-hover-color;
   }
-  &.pane-resize-add, &.pane-resize-remove {
-    @include cubic-bezier(0.25s);
-  }
+  // &.pane-resize-add, &.pane-resize-remove {
+  //   @include cubic-bezier(0.25s);
+  // }
 
   &[name="Works"] {
     @include quadrant('top', 'left');
@@ -137,28 +182,28 @@ pane {
   &[name="Contact"] {
     @include quadrant('bottom', 'right');
     background: aqua;
-    @include pane-resize-add {
-      width: 100vw;
-      left: 0;
-    }
-    @include pane-resize-remove {
-      width: 50vw;
-      left: 50vw;
-    }
+    // @include pane-resize-add {
+    //   width: 100vw;
+    //   left: 0;
+    // }
+    // @include pane-resize-remove {
+    //   width: 50vw;
+    //   left: 50vw;
+    // }
   }
 
   &[name="Statement"] {
     @include quadrant('top', 'right');
     background: oldlace;
-    @include pane-resize-add { height: 100vh; }
-    @include pane-resize-remove { height: 50vh; }
+    // @include pane-resize-add { height: 100vh; }
+    // @include pane-resize-remove { height: 50vh; }
   }
 
   &[name="Bio"] {
     @include quadrant('bottom', 'left');
     background: powderblue;
-    @include pane-resize-add { width: 100vw; }
-    @include pane-resize-remove { width: 50vw; }
+    // @include pane-resize-add { width: 100vw; }
+    // @include pane-resize-remove { width: 50vw; }
   }
 
   .info {
@@ -189,7 +234,7 @@ pane {
   // }
 }
 
-pane {
+glove {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -197,23 +242,40 @@ pane {
   z-index: 10;
 }
 
-#masterUI, pane {
+#masterUI, glove {
   transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
   @include cubic-bezier('5s');
 }
 
 #masterUI.ng-leave {
-  pane {
-    &.active {
-      width: 100%;
-      height: 20vh;
-    }
+  glove {
+    // &.active {
+    //   width: 100%;
+    //   height: 20vh;
+    // }
     &.inactive {
       &[name="Works"] { @include slideOutUpLeft(1s); }
       &[name="Contact"] { @include slideOutBottomRight(1s); }
       &[name="Statement"] { @include slideOutUpRight(1s); }
       &[name="Bio"] { @include slideOutBottomLeft(1s); }
     }
+  }
+}
+
+#masterUI.ng-enter {
+  glove {
+    &[name="Works"] { @include slideInUpLeft(1s); }
+    &[name="Contact"] { @include slideInBottomRight(1s); }
+    &[name="Statement"] { @include slideInUpRight(1s); }
+    &[name="Bio"] { @include slideInBottomLeft(1s); }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  glove {
+    position: static;
+    width: 100%;
+    height: 25vh;
   }
 }
 

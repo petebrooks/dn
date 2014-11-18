@@ -1,15 +1,23 @@
 
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
-@import 'font-awesome/scss/font-awesome';
-@import 'stylesheets/bourbon/bourbon';
-@import 'stylesheets/neat/neat';
-@import 'stylesheets/base/base';
-@import 'stylesheets/animate/animate';
+@import 'font-awesome/scss/font-awesome',
+  'stylesheets/bourbon/bourbon',
+  'stylesheets/neat/neat',
+  'stylesheets/base/base',
+
+  'animate.css-scss/_properties',
+  'animate.css-scss/_fading-entrances/fading-entrances',
+  'animate.css-scss/_zooming-entrances/zooming-entrances';
+
 
 /**
  * App-wide Styles
  */
+$visual-grid: true;
+
+ $gloveH: 50vh;
+ $gloveW: 50vw;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -28,81 +36,26 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
         max-width: 730px;
     }
 }
+
 * {
     @include box-sizing(border-box);
 }
 
+@mixin center-children {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin center-children-vertical {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 // Component styles are injected through grunt
 // injector
-@import 'main/info-box.scss';
 @import 'main/main.scss';
-@import 'stylesheets/animate/_attention/_bounce.scss';
-@import 'stylesheets/animate/_attention/_flash.scss';
-@import 'stylesheets/animate/_attention/_pulse.scss';
-@import 'stylesheets/animate/_attention/_shake.scss';
-@import 'stylesheets/animate/_attention/_swing.scss';
-@import 'stylesheets/animate/_attention/_tada.scss';
-@import 'stylesheets/animate/_attention/_wobble.scss';
-@import 'stylesheets/animate/_attention/attention.scss';
-@import 'stylesheets/animate/_bouncing-entrances/_bounceIn.scss';
-@import 'stylesheets/animate/_bouncing-entrances/_bounceInDown.scss';
-@import 'stylesheets/animate/_bouncing-entrances/_bounceInLeft.scss';
-@import 'stylesheets/animate/_bouncing-entrances/_bounceInRight.scss';
-@import 'stylesheets/animate/_bouncing-entrances/_bounceInUp.scss';
-@import 'stylesheets/animate/_bouncing-entrances/bouncing-entrances.scss';
-@import 'stylesheets/animate/_bouncing-exits/_bounceOut.scss';
-@import 'stylesheets/animate/_bouncing-exits/_bounceOutDown.scss';
-@import 'stylesheets/animate/_bouncing-exits/_bounceOutLeft.scss';
-@import 'stylesheets/animate/_bouncing-exits/_bounceOutRight.scss';
-@import 'stylesheets/animate/_bouncing-exits/_bounceOutUp.scss';
-@import 'stylesheets/animate/_bouncing-exits/bouncing-exits.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeIn.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInDown.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInDownBig.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInLeft.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInLeftBig.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInRight.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInRightBig.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInUp.scss';
-@import 'stylesheets/animate/_fading-entrances/_fadeInUpBig.scss';
-@import 'stylesheets/animate/_fading-entrances/fading-entrances.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOut.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutDown.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutDownBig.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutLeft.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutLeftBig.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutRight.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutRightBig.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutUp.scss';
-@import 'stylesheets/animate/_fading-exits/_fadeOutUpBig.scss';
-@import 'stylesheets/animate/_fading-exits/fading-exits.scss';
-@import 'stylesheets/animate/_flippers/_flip.scss';
-@import 'stylesheets/animate/_flippers/_flipInX.scss';
-@import 'stylesheets/animate/_flippers/_flipInY.scss';
-@import 'stylesheets/animate/_flippers/_flipOutX.scss';
-@import 'stylesheets/animate/_flippers/_flipOutY.scss';
-@import 'stylesheets/animate/_flippers/flippers.scss';
-@import 'stylesheets/animate/_lightspeed/_lightSpeedIn.scss';
-@import 'stylesheets/animate/_lightspeed/_lightSpeedOut.scss';
-@import 'stylesheets/animate/_lightspeed/lightspeed.scss';
-@import 'stylesheets/animate/_properties.scss';
-@import 'stylesheets/animate/_rotating-entrances/_rotateIn.scss';
-@import 'stylesheets/animate/_rotating-entrances/_rotateInDownLeft.scss';
-@import 'stylesheets/animate/_rotating-entrances/_rotateInDownRight.scss';
-@import 'stylesheets/animate/_rotating-entrances/_rotateInUpLeft.scss';
-@import 'stylesheets/animate/_rotating-entrances/_rotateInUpRight.scss';
-@import 'stylesheets/animate/_rotating-entrances/rotating-entrances.scss';
-@import 'stylesheets/animate/_rotating-exits/_rotateOut.scss';
-@import 'stylesheets/animate/_rotating-exits/_rotateOutDownLeft.scss';
-@import 'stylesheets/animate/_rotating-exits/_rotateOutDownRight.scss';
-@import 'stylesheets/animate/_rotating-exits/_rotateOutUpLeft.scss';
-@import 'stylesheets/animate/_rotating-exits/_rotateOutUpRight.scss';
-@import 'stylesheets/animate/_rotating-exits/rotating-exits.scss';
-@import 'stylesheets/animate/_specials/_hinge.scss';
-@import 'stylesheets/animate/_specials/_rollIn.scss';
-@import 'stylesheets/animate/_specials/_rollOut.scss';
-@import 'stylesheets/animate/_specials/specials.scss';
-@import 'stylesheets/animate/animate.scss';
 @import 'stylesheets/base/_base.scss';
 @import 'stylesheets/base/_buttons.scss';
 @import 'stylesheets/base/_forms.scss';
@@ -207,4 +160,5 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'stylesheets/neat/settings/_grid.scss';
 @import 'stylesheets/neat/settings/_visual-grid.scss';
 @import 'works/works.scss';
+@import 'info_directive/info-box.scss';
 // endinjector
