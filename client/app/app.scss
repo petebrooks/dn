@@ -32,6 +32,7 @@ $column: golden-ratio(1em, 5) !global;
 
 .container {
   @include outer-container;
+  padding-top: 30vh;
   // margin: 0 auto;
 }
 

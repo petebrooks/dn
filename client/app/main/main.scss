@@ -258,6 +258,11 @@ glove {
       &[name="Statement"] { @include slideOutUpRight(1s); }
       &[name="Bio"] { @include slideOutBottomLeft(1s); }
     }
+    glove.active {
+      transition: all 2s;
+      width: 30vw;
+      height: 30vh;
+    }
   }
   #masterUI.ng-enter {
     glove {
