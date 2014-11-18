@@ -1,22 +1,30 @@
 'use strict';
 
 angular.module('dnApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
+  .controller('MainCtrl', function ($scope, $location) {
+    var current = $location.path().substring(1);
+    $scope.isRouteActive = function(view) {
+        // console.log($location + ": " + current);
+        if (current === '') {
+          return 'active';
+        } else {
+          return view === current ? 'active' : 'inactive';
+        };
+    }
+    $scope.active = undefined;
+    $scope.setActive = function(name) {
+      $scope.active = name;
+    }
+    $scope.isActive = function(name) {
+      if ($scope.active) {
+        if (name === $scope.active) {
+          return 'active'
+        } else {
+          return 'inactive'
+        }
+      } else {
+        return true
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    }
+    console.log($location.path().substring(1));
   });
