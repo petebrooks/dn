@@ -1,30 +1,248 @@
-.thing-form {
-    margin: 20px 0;
+/////////////////// Variables
+
+$splash-font-color: slategray;
+$splash-hover-color: silver;
+
+/////////////////// Mixins
+
+$slide-out-poz: 1000px;
+$slide-out-neg: -1000px;
+
+@include keyframes(slideOutUpLeft) {
+  0% {transform: translate(0, 0);}
+  100% {opacity: 0; transform: translate($slide-out-neg, $slide-out-neg);}
 }
 
-#banner {
-    border-bottom: none;
-    margin-top: -20px;
+@include keyframes(slideOutUpRight) {
+  0% {transform: translate(0, 0);}
+  100% {opacity: 0; transform: translate($slide-out-poz, $slide-out-neg);}
 }
 
-#banner h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+@include keyframes(slideOutBottomLeft) {
+  0% {transform: translate(0, 0);}
+  100% {opacity: 0; transform: translate($slide-out-neg, $slide-out-poz);}
 }
 
-.hero-unit {
-    position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #4393B9;
+@include keyframes(slideOutBottomRight) {
+  0% {transform: translate(0, 0);}
+  100% {opacity: 0; transform: translate($slide-out-poz, $slide-out-poz);}
 }
 
-.footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 70px;
-    border-top: 1px solid #E5E5E5;
+@mixin slideOutUpLeft($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideOutUpLeft);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
 }
+
+@mixin slideOutUpRight($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideOutUpRight);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}
+
+@mixin slideOutBottomLeft($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideOutBottomLeft);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}
+
+@mixin slideOutBottomRight($duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+  @include animation-name(slideOutBottomRight);
+  @include duration($duration);
+  @include delay($delay);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}
+
+@mixin center-children {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin center-children-vertical {
+    display: flex;
+    align-items: center;
+}
+
+@mixin pane-resize-add {
+  &.pane-resize, &.pane-resize-add.pane-resize-add-active {
+    z-index: 900;
+    @content
+  }
+}
+
+@mixin pane-resize-remove {
+  &.pane-resize-remove.pane-resize-remove-active {
+    z-index: 0;
+    @content
+  }
+}
+
+@mixin cubic-bezier($time) {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
+}
+
+@mixin quadrant($y, $x) {
+  @if $y == 'top' {
+    top: 0;
+  } @else if $y == 'bottom' {
+    bottom: 0;
+  }
+  @if $x == 'left' {
+    left: 0;
+  } @else if $x == 'right' {
+    right: 0;
+  }
+}
+
+/////////////////// Main Styles
+
+pane {
+  @include center-children;
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  float: left;
+  color: $splash-font-color;
+  h1 {
+    // display: inline-block;
+    // text-align: center;x
+  }
+  &:hover {
+    color: $splash-hover-color;
+  }
+  &.pane-resize-add, &.pane-resize-remove {
+    @include cubic-bezier(0.25s);
+  }
+
+  &[name="Works"] {
+    @include quadrant('top', 'left');
+    background: tomato;
+  }
+
+  &[name="Contact"] {
+    @include quadrant('bottom', 'right');
+    background: aqua;
+    @include pane-resize-add {
+      width: 100vw;
+      left: 0;
+    }
+    @include pane-resize-remove {
+      width: 50vw;
+      left: 50vw;
+    }
+  }
+
+  &[name="Statement"] {
+    @include quadrant('top', 'right');
+    background: oldlace;
+    @include pane-resize-add { height: 100vh; }
+    @include pane-resize-remove { height: 50vh; }
+  }
+
+  &[name="Bio"] {
+    @include quadrant('bottom', 'left');
+    background: powderblue;
+    @include pane-resize-add { width: 100vw; }
+    @include pane-resize-remove { width: 50vw; }
+  }
+
+  .info {
+    display: none;
+  }
+
+  &.active .info {
+    display: block;
+  }
+
+  &.active {
+    // width: 100%;
+    // height: 20vh;
+    // @include quadrant('bottom', 'left');
+  }
+
+  // &.inactive {
+  //   transition: all 1s;
+  //   @include lightSpeedOut;
+  // }
+
+  // &.ng-leave {
+  //   opacity: 1;
+  // }
+
+  // &.ng-leave-active {
+  //   opacity: 0;
+  // }
+}
+
+pane {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  z-index: 10;
+}
+
+#masterUI, pane {
+  // @include cubic-bezier('5s');
+}
+
+#masterUI.ng-leave {
+  pane {
+    &.active {
+      width: 100%;
+      height: 20vh;
+    }
+    &.inactive {
+      &[name="Works"] { @include slideOutUpLeft(1s); }
+      &[name="Contact"] { @include slideOutBottomRight(1s); }
+      &[name="Statement"] { @include slideOutUpRight(1s); }
+      &[name="Bio"] { @include slideOutBottomLeft(1s); }
+    }
+  }
+}
+
+pane {
+  &.active {
+    transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
+    width: 100%;
+    height: 20vh;
+  }
+  &.inactive {
+    &[name="Works"] { @include slideOutUpLeft(1s); }
+    &[name="Contact"] { @include slideOutBottomRight(1s); }
+    &[name="Statement"] { @include slideOutUpRight(1s); }
+    &[name="Bio"] { @include slideOutBottomLeft(1s); }
+  }
+}
+
+// pane.ng-hide {
+//   @include lightSpeedOut;
+//   opacity: 0;
+// }
+
+// .active.ng-leave, .active.ng-enter {
+//   @include cubic-bezier('1s');
+// }
+
+// .active.ng-enter, .active.ng-leave.ng-leave-active {
+//   opacity: 0;
+// }
+
+// .active.ng-leave, .active.ng-enter.ng-enter-active {
+//   opacity: 1;
+// }
