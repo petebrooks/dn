@@ -1,0 +1,8 @@
+.container
+  section.gallery
+    .work(ng-repeat="work in works")
+      a(ui-sref="viewWork({id: work._id})")
+        .thumb(style="background-image: url('{{ work.image }}')")
+      .hoverTitle {{ work.title }}
+
+  //- pre {{ works | json }}

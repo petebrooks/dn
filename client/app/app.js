@@ -5,7 +5,8 @@ angular.module('dnApp', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
-  'ui.router'
+  'ui.router',
+  'workControllers'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
