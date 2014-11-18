@@ -16,4 +16,28 @@ angular.module('dnApp')
         };
       }
     };
+  })
+
+  .directive('line', function() {
+    return {
+      restrict: 'E',
+      transclude: true,
+      templateUrl: 'components/info_directive/line.html'
+    }
+  })
+
+  .directive('heading', function() {
+    return {
+      restrict: 'E',
+      transclude: true,
+      templateUrl: 'components/info_directive/heading.html'
+    };
+  })
+
+  .directive('row', function() {
+    return {
+      restrict: 'E',
+      transclude: true,
+      templateUrl: 'components/info_directive/row.html'
+    };
   });

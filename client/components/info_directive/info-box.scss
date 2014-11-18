@@ -1,13 +1,37 @@
 info-box {
-  @include outer-container
+  @include outer-container;
 
   .box {
+    margin-top: 15vh;
+    @include span-columns(8);
+    @include shift(2);
+    @include media(max-width 760px) {
+      @include span-columns(10);
+      @include shift(1);
+    }
+    @include media(max-width 460px) {
+      padding: 1rem;
+      @include span-columns(12);
+      @include shift(0);
+    }
+  }
+
+  &.two-cols .info {
+    @include media(1000px) {
+      @include column-width(22rem);
+      @include column-gap(5rem);
+      @include column-count(2);
+    }
   }
 
   .title {
     @include clearfix;
     position: relative;
+    padding: 1rem 0;
     h3 {
+      @include media(max-width 680px) {
+        display: none;
+      }
       float: left;
     }
     i {
@@ -15,24 +39,43 @@ info-box {
       position: absolute;
       right: 0;
       bottom: 0;
-      padding: 0.5rem;
+      padding: 1.6rem 0;
     }
   }
   .info {
     @include clearfix;
-    border: 1px solid black;
-    min-height: 70vh;
+    @include fill-parent;
+    // border: 1px solid black;
+    // min-height: 70vh;
     width: 100%;
-    padding: 2rem;
+    // padding: 2rem;
     // @include column-count(2);
     // @include column-gap(0);
-    p {
+    @include media(max-width 460px) {
+      border-right: 0;
+      border-left: 0;
     }
+  }
+
+  .group {
+    margin: 1rem 0;
+  }
+
+  p.light {
+    margin: 0;
+    padding-left: 1rem;
+    text-indent: -1rem;
+  }
+
+  p.block {
+    line-height: 2rem;
+    margin: 0 0 1.5rem
   }
 }
 
 #masterUI.ng-enter {
   .box {
+    animation-delay: 1s;
     @include zoomIn(1s);
   }
 }
