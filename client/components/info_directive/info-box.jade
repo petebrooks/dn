@@ -1,3 +1,5 @@
-.pane(ng-hide="hidden")
-  i.fa.fa-times(ng-click="close()")
+.box
+  .title
+    h3 {{ name }}
+    i.fa.fa-times.fa-fw(ng-click="close()" ui-sref="main")
   .info(ng-transclude)

@@ -25,11 +25,30 @@ angular.module('dnApp')
 
       .state('bio', {
         url: '/bio',
-        // templateUrl: 'app/main/bio.html'
+        views: {
+          'master': {
+            templateUrl: 'app/main/bio.html'
+          }
+        }
       })
 
       .state('statement', {
         url: '/statement',
-        // templateUrl: 'app/main/statement.html'
+        views: {
+          'master': {
+            templateUrl: 'app/main/statement.html'
+          }
+        }
       })
+
+      .state('test', {
+        url: '/test',
+        views: {
+          'master': {
+            templateUrl: 'app/main/test.html'
+          }
+        }
+      })
+
+
   });
