@@ -34,6 +34,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 // injector
+@import 'main/info-box.scss';
 @import 'main/main.scss';
 @import 'stylesheets/animate/_attention/_bounce.scss';
 @import 'stylesheets/animate/_attention/_flash.scss';
