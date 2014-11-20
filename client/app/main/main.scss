@@ -251,23 +251,23 @@ glove {
 }
 
 @media screen and (min-width: 680px) {
+  glove.inactive {
+    &[name="Works"] { @include slideOutUpLeft(1s); }
+    &[name="Contact"] { @include slideOutBottomRight(1s); }
+    &[name="Statement"] { @include slideOutUpRight(1s); }
+    &[name="Bio"] { @include slideOutBottomLeft(1s); }
+  }
+  glove.active {
+    transition: all 2s;
+    width: $gloveBoxW;
+    height: $gloveBoxH;
+  }
+  info-box glove {
+    transition: all 1s;
+    width: $gloveMainW;
+    height: $gloveMainH;
+  }
   #masterUI.ng-leave {
-    glove.inactive {
-      &[name="Works"] { @include slideOutUpLeft(1s); }
-      &[name="Contact"] { @include slideOutBottomRight(1s); }
-      &[name="Statement"] { @include slideOutUpRight(1s); }
-      &[name="Bio"] { @include slideOutBottomLeft(1s); }
-    }
-    glove.active {
-      transition: all 2s;
-      width: $gloveBoxW;
-      height: $gloveBoxH;
-    }
-    info-box glove {
-      transition: all 1s;
-      width: $gloveMainW;
-      height: $gloveMainH;
-    }
   }
   #masterUI.ng-enter {
     glove {

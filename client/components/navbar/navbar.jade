@@ -1,11 +1,5 @@
-div.navbar.navbar-default.navbar-static-top(ng-controller='NavbarCtrl')
-  .glove#contact(ui-sref="contact" ui-sref-active="active")
-    | Contact
-  .glove#bio(ui-sref="bio" ui-sref-active="active")
-    | Bio
-  .glove#statement(ui-sref="statement" ui-sref-active="active")
-    | Statement
-  .glove#works(ui-sref="works" ui-sref-active="active")
-    | Works
-  .glove(ui-sref="main" ui-sref-active="active")
-    | Main
+.glove-container(ng-controller="NavbarCtrl")
+  glove(name="Works" ui-sref="allWorks" ng-class="isRouteActive('works')" ng-click="setActive('works')")
+  glove(name="Statement" ui-sref="statement" ng-class="isRouteActive('statement')" ng-click="setActive('statement')")
+  glove(name="Bio" ui-sref="bio" ng-class="isRouteActive('bio')")
+  glove(name="Contact" ui-sref="contact" ng-class="isRouteActive('contact')" ng-click="setActive('contact')")
