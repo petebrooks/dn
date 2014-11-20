@@ -250,96 +250,84 @@ glove {
   // @include cubic-bezier('5s');
 }
 
-@media screen and (min-width: 680px) {
-  glove.inactive {
-    display: none;
-    &.inactive-add {
-      &[name="Works"] { @include slideOutUpLeft(1s); }
-      &[name="Contact"] { @include slideOutBottomRight(1s); }
-      &[name="Statement"] { @include slideOutUpRight(1s); }
-      &[name="Bio"] { @include slideOutBottomLeft(1s); }
-    }
-  }
-  glove.active {
-    width: $gloveBoxW;
-    height: $gloveBoxH;
-    &.active-add {
-      transition: all 2s;
-    }
-  }
-  glove.home.home-add {
-    &[name="Works"] { @include slideInUpLeft(1s); }
-    &[name="Contact"] { @include slideInBottomRight(1s); }
-    &[name="Statement"] { @include slideInUpRight(1s); }
-    &[name="Bio"] { @include slideInBottomLeft(1s); }
-  }
-  glove.active.active-remove {
-    transition: all 1s;
-    width: $gloveMainW;
-    height: $gloveMainH;
-  }
-  #masterUI.ng-leave {
-  }
-  #masterUI.ng-enter {
-    glove {
-    }
-  }
-}
 
+glove {
+  @include media(680px) {
+    &.inactive {
+      display: none;
+      &.inactive-add {
+        &[name="Works"] { @include slideOutUpLeft(1s); }
+        &[name="Contact"] { @include slideOutBottomRight(1s); }
+        &[name="Statement"] { @include slideOutUpRight(1s); }
+        &[name="Bio"] { @include slideOutBottomLeft(1s); }
+      }
+    }
+    &.home {
+      &.home-add.inactive-remove {
+        &[name="Works"] { @include slideInUpLeft(1s); }
+        &[name="Contact"] { @include slideInBottomRight(1s); }
+        &[name="Statement"] { @include slideInUpRight(1s); }
+        &[name="Bio"] { @include slideInBottomLeft(1s); }
+      }
+      &.home-add.active-remove {
+        transition: all 1s;
+        width: $gloveMainW;
+        height: $gloveMainH;
+      }
+    }
+    &.active {
+      width: $gloveBoxW;
+      height: $gloveBoxH;
+      &.active-add {
+        transition: all 1s;
+      }
+    }
+  }
 
-@include media($smallDevice) {
-  glove {
+  @include media($smallDevice) {
     position: fixed;
     width: $gloveMobileMainW;
-  }
-  .glove-container {
-    @include clearfix;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    glove.home {
+    &.inactive.inactive-add {
+      &[name="Works"], &[name="Bio"]  { @include slideOutLeft(1.2s); }
+      &[name="Contact"], &[name="Statement"] { @include slideOutRight(1.2s); }
+    }
+
+    &.inactive {
+      display: none;
+    }
+
+    &.active.active-add {
+      transition: .5s all;
+      height: $gloveMobileBoxH;
+      top: 0;
+    }
+
+    &.active {
+      height: $gloveMobileBoxH;
+      top: 0;
+      &.active-add {
+        transition: .5s all;
+      }
+      &.active-remove {
+        @include slideOutUp(1s);
+      }
+    }
+    &.home {
       height: $gloveMobileMainH;
       &[name="Works"] { top: 0 }
       &[name="Statement"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
+      &[name="Works"], &[name="Bio"]  { @include slideInLeft(1.2s); }
+      &[name="Contact"], &[name="Statement"] { @include slideInRight(1.2s); }
     }
   }
-  // #masterUI.ng-leave .glove-container {
-  //   @include slideOutUp(2s);
-  // }
-  glove.inactive.inactive-add {
-    &[name="Works"], &[name="Bio"]  { @include slideOutLeft(1.2s); }
-    &[name="Contact"], &[name="Statement"] { @include slideOutRight(1.2s); }
-  }
+}
 
-  glove.inactive {
-    display: none;
-  }
-
-  glove.active.active-add {
-    transition: .5s all;
-    height: $gloveMobileBoxH;
-    top: 0;
-  }
-
-  glove.active {
-    height: $gloveMobileBoxH;
-    top: 0;
-    &.active-add {
-      transition: .5s all;
-    }
-    &.active-remove {
-      @include slideOutUp(1s);
-    }
-  }
-
-  #masterUI.ng-leave info-box glove {
-  }
-
-  glove.home {
-    &[name="Works"], &[name="Bio"]  { @include slideInLeft(1.2s); }
-    &[name="Contact"], &[name="Statement"] { @include slideInRight(1.2s); }
-  }
+.glove-container {
+  @include clearfix;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
