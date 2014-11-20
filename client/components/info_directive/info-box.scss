@@ -21,6 +21,7 @@ info-box {
     @include span-columns(9);
     // @include fill-parent;
     @include shift(1.5);
+    margin-top: $gloveBoxH;
     @include media($mediumDevice) {
       padding: 0 1rem;
       @include span-columns(12);

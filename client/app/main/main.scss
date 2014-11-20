@@ -1,7 +1,7 @@
 /////////////////// Variables
 
-$splash-font-color: slategray;
-$splash-hover-color: silver;
+$glove-font-color: slategray;
+$glove-hover-color: silver;
 
 /////////////////// Mixins
 
@@ -120,19 +120,19 @@ $slide-out-neg: -1000px;
   @include visibility($visibility);
 }
 
-@mixin pane-resize-add {
-  &.pane-resize, &.pane-resize-add.pane-resize-add-active {
-    z-index: 900;
-    @content
-  }
-}
+// @mixin pane-resize-add {
+//   &.pane-resize, &.pane-resize-add.pane-resize-add-active {
+//     z-index: 900;
+//     @content
+//   }
+// }
 
-@mixin pane-resize-remove {
-  &.pane-resize-remove.pane-resize-remove-active {
-    z-index: 0;
-    @content
-  }
-}
+// @mixin pane-resize-remove {
+//   &.pane-resize-remove.pane-resize-remove-active {
+//     z-index: 0;
+//     @content
+//   }
+// }
 
 @mixin cubic-bezier($time) {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
@@ -156,10 +156,6 @@ $slide-out-neg: -1000px;
 
 /////////////////// Main Styles
 
-glove {
-
-}
-
 // glove {
 //   -webkit-animation-duration: 2s;
 //   animation-duration: 2s;
@@ -175,6 +171,8 @@ glove {
   animation-duration: 2s;
   // @include cubic-bezier('5s');
 }
+
+
 /////////////////// Gloves
 
 glove {
@@ -182,32 +180,36 @@ glove {
   position: fixed;
   width: 50vw;
   height: 50vh;
-  float: left;
-  color: $splash-font-color;
+  // float: left;
+  color: $glove-font-color;
 
   &:hover {
-    color: $splash-hover-color;
+    color: $glove-hover-color;
+  }
+  &.active i {
+    display: inline-block;
+  }
+  i {
+    display: none;
   }
 
   &[name="Works"] {
     @include quadrant('top', 'left');
     background: tomato;
   }
-
   &[name="Contact"] {
     @include quadrant('bottom', 'right');
     background: aqua;
   }
-
   &[name="Statement"] {
     @include quadrant('top', 'right');
     background: oldlace;
   }
-
   &[name="Bio"] {
     @include quadrant('bottom', 'left');
     background: powderblue;
   }
+
   @include media(680px) {
     &.inactive {
       display: none;
@@ -243,7 +245,6 @@ glove {
   @include media($smallDevice) {
     position: fixed;
     width: $gloveMobileMainW;
-
     &.inactive {
       display: none;
       &.inactive-add {
@@ -255,7 +256,6 @@ glove {
         }
       }
     }
-
     &.active {
       height: $gloveMobileBoxH;
       top: 0;
@@ -278,10 +278,10 @@ glove {
   }
 }
 
-// .glove-container {
-//   @include clearfix;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: 1000;
-// }
+.glove-container {
+  @include clearfix;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
