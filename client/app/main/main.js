@@ -8,8 +8,8 @@ angular.module('dnApp')
         url: '/',
         views: {
           'master@main': {
-            templateUrl: 'app/main/main.html',
-            controller: 'MainCtrl'
+            // templateUrl: 'app/main/main.html',
+            // controller: 'MainCtrl'
           }
         }
       })
@@ -17,7 +17,7 @@ angular.module('dnApp')
       .state('contact', {
         url: '/contact',
         views: {
-          'master@contact': {
+          'master': {
             templateUrl: 'app/main/contact.html'
           }
         }
