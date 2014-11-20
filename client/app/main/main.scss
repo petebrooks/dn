@@ -157,22 +157,37 @@ $slide-out-neg: -1000px;
 /////////////////// Main Styles
 
 glove {
+
+}
+
+// glove {
+//   -webkit-animation-duration: 2s;
+//   animation-duration: 2s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+//   z-index: 1000;
+// }
+
+#masterUI {
+  // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
+  transition: all 2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  // @include cubic-bezier('5s');
+}
+/////////////////// Gloves
+
+glove {
   @include center-children;
   position: fixed;
   width: 50vw;
   height: 50vh;
   float: left;
   color: $splash-font-color;
-  // h1 {
-    // display: inline-block;
-    // text-align: center;x
-  // }
+
   &:hover {
     color: $splash-hover-color;
   }
-  // &.pane-resize-add, &.pane-resize-remove {
-  //   @include cubic-bezier(0.25s);
-  // }
 
   &[name="Works"] {
     @include quadrant('top', 'left');
@@ -182,76 +197,17 @@ glove {
   &[name="Contact"] {
     @include quadrant('bottom', 'right');
     background: aqua;
-    // @include pane-resize-add {
-    //   width: 100vw;
-    //   left: 0;
-    // }
-    // @include pane-resize-remove {
-    //   width: 50vw;
-    //   left: 50vw;
-    // }
   }
 
   &[name="Statement"] {
     @include quadrant('top', 'right');
     background: oldlace;
-    // @include pane-resize-add { height: 100vh; }
-    // @include pane-resize-remove { height: 50vh; }
   }
 
   &[name="Bio"] {
     @include quadrant('bottom', 'left');
     background: powderblue;
-    // @include pane-resize-add { width: 100vw; }
-    // @include pane-resize-remove { width: 50vw; }
   }
-
-  .info {
-    display: none;
-  }
-
-  // &.active .info {
-  //   display: block;
-  // }
-
-  // &.active {
-    // width: 100%;
-    // height: 20vh;
-    // @include quadrant('bottom', 'left');
-  // }
-
-  // &.inactive {
-  //   transition: all 1s;
-  //   @include lightSpeedOut;
-  // }
-
-  // &.ng-leave {
-  //   opacity: 1;
-  // }
-
-  // &.ng-leave-active {
-  //   opacity: 0;
-  // }
-}
-
-glove {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  z-index: 1000;
-}
-
-#masterUI {
-  // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
-  transition: all 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  // @include cubic-bezier('5s');
-}
-
-
-glove {
   @include media(680px) {
     &.inactive {
       display: none;
@@ -287,19 +243,17 @@ glove {
   @include media($smallDevice) {
     position: fixed;
     width: $gloveMobileMainW;
-    &.inactive.inactive-add {
-      &[name="Works"], &[name="Bio"]  { @include slideOutLeft(1.2s); }
-      &[name="Contact"], &[name="Statement"] { @include slideOutRight(1.2s); }
-    }
 
     &.inactive {
       display: none;
-    }
-
-    &.active.active-add {
-      transition: .5s all;
-      height: $gloveMobileBoxH;
-      top: 0;
+      &.inactive-add {
+        &[name="Works"], &[name="Bio"]  {
+          @include slideOutLeft(1.2s);
+        }
+        &[name="Contact"], &[name="Statement"] {
+          @include slideOutRight(1.2s);
+        }
+      }
     }
 
     &.active {
@@ -324,10 +278,10 @@ glove {
   }
 }
 
-.glove-container {
-  @include clearfix;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
+// .glove-container {
+//   @include clearfix;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 1000;
+// }
