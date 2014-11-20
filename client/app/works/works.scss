@@ -18,46 +18,67 @@ img.large {
   }
 }
 
+// .container .title {
+//   @include span-columns(9);
+//   @include shift(1.5);
+//   @include clearfix;
+//   position: relative;
+//   padding: 1rem 0;
+//   h3 {
+//     @include media(max-width 680px) {
+//       display: none;
+//     }
+//     float: left;
+//   }
+//   i {
+//     vertical-align: middle;
+//     position: absolute;
+//     left: -2rem;
+//     bottom: 0;
+//     padding: 1.6rem 0;
+//   }
+// }
+
 .gallery{
-  @include span-columns(9);
-  // @include fill-parent;
-  @include shift(1.5);
-  @include media(max-width 760px) {
-    @include span-columns(12);
-    @include shift(0);
+  // @include span-columns(9);
+  // // @include fill-parent;
+  // @include shift(1.5);
+  // @include media(max-width 760px) {
+  //   @include span-columns(12);
+  //   @include shift(0);
+  // }
+}
+.work {
+  background-color: blue;
+  position: relative;
+  overflow: hidden;
+  margin-top: .8rem;
+  // width: 33.333333%;
+  // float: left;
+  @include span-columns(3 of 9);
+  @include omega(3n);
+  @include media($mediumDevice) {
+    @include span-columns(5 of 12);
+    @include shift(.65);
+    @include omega(2n);
   }
-  .work {
-    background-color: blue;
-    position: relative;
-    overflow: hidden;
-    margin-top: .8rem;
-    // width: 33.333333%;
-    // float: left;
-    @include span-columns(3 of 9);
-    @include omega(3n);
-    @include media(max-width 760px) {
-      @include span-columns(5 of 12);
-      @include shift(.65);
-      @include omega(2n);
-    }
-    @include media(max-width 640px) {
-      @include span-columns(11 of 12);
-      @include shift(.5);
-      @include omega(1n);
-    }
-    // border: 0.25rem solid white;
-    .hoverTitle {
-      font-size: 3rem;
-      background: none;
-      position: absolute;
-      top: 0;
-      padding: 0.5rem;
-      z-index: 100;
-      display: none;
-    }
-    &:hover .hoverTitle {
-      display: block;
-    }
+  @include media(max-width 640px) {
+    @include span-columns(11 of 12);
+    @include shift(.5);
+    @include omega(1n);
+  }
+  // border: 0.25rem solid white;
+  .hoverTitle {
+    font-size: 3rem;
+    background: none;
+    position: absolute;
+    top: 0;
+    padding: 0.5rem;
+    z-index: 100;
+    display: none;
+  }
+  &:hover .hoverTitle {
+    display: block;
   }
 }
 

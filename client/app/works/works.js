@@ -13,13 +13,10 @@ angular.module('dnApp')
         }
       })
 
-      .state('viewWork', {
-        url: '/works/:id',
-        views: {
-          'master': {
-            templateUrl: 'app/works/viewWork.html',
-            controller: 'ViewWorkCtrl'
-          }
-        }
+      .state('viewWorks', {
+        url: '/:id',
+        templateUrl: 'app/works/viewWork.html',
+        controller: 'ViewWorkCtrl'
+
       })
   });

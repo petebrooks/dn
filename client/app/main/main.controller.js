@@ -26,5 +26,4 @@ angular.module('dnApp')
         return true
       }
     }
-    console.log($location.path().substring(1));
   });

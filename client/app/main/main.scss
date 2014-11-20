@@ -250,7 +250,7 @@ glove {
   // @include cubic-bezier('5s');
 }
 
-@media screen and (min-width: 681px) {
+@media screen and (min-width: 680px) {
   #masterUI.ng-leave {
     glove.inactive {
       &[name="Works"] { @include slideOutUpLeft(1s); }
@@ -260,8 +260,13 @@ glove {
     }
     glove.active {
       transition: all 2s;
-      width: 30vw;
-      height: 30vh;
+      width: $gloveBoxW;
+      height: $gloveBoxH;
+    }
+    info-box glove {
+      transition: all 1s;
+      width: $gloveMainW;
+      height: $gloveMainH;
     }
   }
   #masterUI.ng-enter {
@@ -275,15 +280,9 @@ glove {
 }
 
 
-@media screen and (max-width: 680px) {
-  glove {
-    position: fixed;
-    width: 100%;
-    height: 25vh;
-    &[name="Works"] { top: 0 }
-    &[name="Statement"] { top: 25vh }
-    &[name="Bio"] { top: 50vh }
-    &[name="Contact"] { top: 75vh }
+@include media($smallDevice) {
+  info-box glove {
+    top: 0;
   }
   .glove-container {
     @include clearfix;
@@ -291,6 +290,15 @@ glove {
     top: 0;
     left: 0;
     z-index: 1000;
+    glove {
+      position: fixed;
+      width: $gloveMobileMainW;
+      height: $gloveMobileMainH;
+      &[name="Works"] { top: 0 }
+      &[name="Statement"] { top: 25% }
+      &[name="Bio"] { top: 50% }
+      &[name="Contact"] { top: 75% }
+    }
   }
   // #masterUI.ng-leave .glove-container {
   //   @include slideOutUp(2s);
@@ -303,7 +311,11 @@ glove {
   #masterUI.ng-leave glove.active {
     transition: .5s all;
     top: 0;
-    height: 15vh;
+    height: $gloveMobileBoxH;
+  }
+
+  #masterUI.ng-leave info-box glove {
+    @include slideOutUp(1s);
   }
 
   #masterUI.ng-enter glove {
@@ -311,34 +323,3 @@ glove {
     &[name="Contact"], &[name="Statement"] { @include slideInRight(1.2s); }
   }
 }
-
-// pane {
-//   &.active {
-//     transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
-//     width: 100%;
-//     height: 20vh;
-//   }
-//   &.inactive {
-//     &[name="Works"] { @include slideOutUpLeft(1s); }
-//     &[name="Contact"] { @include slideOutBottomRight(1s); }
-//     &[name="Statement"] { @include slideOutUpRight(1s); }
-//     &[name="Bio"] { @include slideOutBottomLeft(1s); }
-//   }
-// }
-
-// pane.ng-hide {
-//   @include lightSpeedOut;
-//   opacity: 0;
-// }
-
-// .active.ng-leave, .active.ng-enter {
-//   @include cubic-bezier('1s');
-// }
-
-// .active.ng-enter, .active.ng-leave.ng-leave-active {
-//   opacity: 0;
-// }
-
-// .active.ng-leave, .active.ng-enter.ng-enter-active {
-//   opacity: 1;
-// }
