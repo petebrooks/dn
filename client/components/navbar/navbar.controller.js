@@ -6,7 +6,7 @@ angular.module('dnApp')
       var current = $location.path().substring(1);
       // console.log(current);
       if (current === '') {
-        return '';
+        return 'home';
       } else {
         return view === current ? 'active' : 'inactive';
       };

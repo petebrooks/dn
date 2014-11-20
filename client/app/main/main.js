@@ -7,7 +7,7 @@ angular.module('dnApp')
       .state('main', {
         url: '/',
         views: {
-          'master@main': {
+          'master': {
             // templateUrl: 'app/main/main.html',
             // controller: 'MainCtrl'
           }

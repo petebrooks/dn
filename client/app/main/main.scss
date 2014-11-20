@@ -252,17 +252,28 @@ glove {
 
 @media screen and (min-width: 680px) {
   glove.inactive {
-    &[name="Works"] { @include slideOutUpLeft(1s); }
-    &[name="Contact"] { @include slideOutBottomRight(1s); }
-    &[name="Statement"] { @include slideOutUpRight(1s); }
-    &[name="Bio"] { @include slideOutBottomLeft(1s); }
+    display: none;
+    &.inactive-add {
+      &[name="Works"] { @include slideOutUpLeft(1s); }
+      &[name="Contact"] { @include slideOutBottomRight(1s); }
+      &[name="Statement"] { @include slideOutUpRight(1s); }
+      &[name="Bio"] { @include slideOutBottomLeft(1s); }
+    }
   }
   glove.active {
-    transition: all 2s;
     width: $gloveBoxW;
     height: $gloveBoxH;
+    &.active-add {
+      transition: all 2s;
+    }
   }
-  info-box glove {
+  glove.home.home-add {
+    &[name="Works"] { @include slideInUpLeft(1s); }
+    &[name="Contact"] { @include slideInBottomRight(1s); }
+    &[name="Statement"] { @include slideInUpRight(1s); }
+    &[name="Bio"] { @include slideInBottomLeft(1s); }
+  }
+  glove.active.active-remove {
     transition: all 1s;
     width: $gloveMainW;
     height: $gloveMainH;
@@ -271,18 +282,15 @@ glove {
   }
   #masterUI.ng-enter {
     glove {
-      &[name="Works"] { @include slideInUpLeft(1s); }
-      &[name="Contact"] { @include slideInBottomRight(1s); }
-      &[name="Statement"] { @include slideInUpRight(1s); }
-      &[name="Bio"] { @include slideInBottomLeft(1s); }
     }
   }
 }
 
 
 @include media($smallDevice) {
-  info-box glove {
-    top: 0;
+  glove {
+    position: fixed;
+    width: $gloveMobileMainW;
   }
   .glove-container {
     @include clearfix;
@@ -290,9 +298,7 @@ glove {
     top: 0;
     left: 0;
     z-index: 1000;
-    glove {
-      position: fixed;
-      width: $gloveMobileMainW;
+    glove.home {
       height: $gloveMobileMainH;
       &[name="Works"] { top: 0 }
       &[name="Statement"] { top: 25% }
@@ -303,22 +309,36 @@ glove {
   // #masterUI.ng-leave .glove-container {
   //   @include slideOutUp(2s);
   // }
-  #masterUI.ng-leave glove.inactive {
+  glove.inactive.inactive-add {
     &[name="Works"], &[name="Bio"]  { @include slideOutLeft(1.2s); }
     &[name="Contact"], &[name="Statement"] { @include slideOutRight(1.2s); }
   }
 
-  #masterUI.ng-leave glove.active {
+  glove.inactive {
+    display: none;
+  }
+
+  glove.active.active-add {
     transition: .5s all;
-    top: 0;
     height: $gloveMobileBoxH;
+    top: 0;
+  }
+
+  glove.active {
+    height: $gloveMobileBoxH;
+    top: 0;
+    &.active-add {
+      transition: .5s all;
+    }
+    &.active-remove {
+      @include slideOutUp(1s);
+    }
   }
 
   #masterUI.ng-leave info-box glove {
-    @include slideOutUp(1s);
   }
 
-  #masterUI.ng-enter glove {
+  glove.home {
     &[name="Works"], &[name="Bio"]  { @include slideInLeft(1.2s); }
     &[name="Contact"], &[name="Statement"] { @include slideInRight(1.2s); }
   }
