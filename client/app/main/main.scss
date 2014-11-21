@@ -180,17 +180,24 @@ glove {
   position: fixed;
   width: 50vw;
   height: 50vh;
-  // float: left;
   color: $glove-font-color;
 
-  &:hover {
+  h1:hover, i:hover {
     color: $glove-hover-color;
   }
   &.active i {
     display: inline-block;
   }
+  &.home i {
+    display: none;
+  }
   i {
     display: none;
+    position: absolute;
+    padding: 0 2rem;
+    height: $gloveBoxH;
+    left: 0;
+    border: 1px solid black;
   }
 
   &[name="Works"] {
@@ -278,10 +285,10 @@ glove {
   }
 }
 
-.glove-container {
-  @include clearfix;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
+// .glove-container {
+//   @include clearfix;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 1000;
+// }
