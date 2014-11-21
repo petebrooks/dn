@@ -1,8 +1,18 @@
-.container
-  section.gallery
-    .work(ng-repeat="work in works")
-      a(ui-sref="viewWork({id: work._id})")
-        .thumb(style="background-image: url('{{ work.image }}')")
-      .hoverTitle {{ work.title }}
+//- .container
+//-   .title
+//-     h3 Works
+//-     i.fa.fa-arrow-left.fa-fw(ng-click="close()" ui-sref="main")
+//-   section.gallery
+//-     .work(ng-repeat="work in works")
+//-       a(ui-sref="viewWork({id: work._id})")
+//-         .thumb(style="background-image: url('{{ work.image }}')")
+//-       .hoverTitle {{ work.title }}
 
   //- pre {{ works | json }}
+
+info-box(name="Works")
+  .gallery
+    .work(ng-repeat="work in works")
+      a(ui-sref="viewWorks({id: work._id})")
+        .thumb(style="background-image: url('{{ work.image }}')")
+      .hoverTitle {{ work.title }}

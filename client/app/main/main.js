@@ -9,7 +9,7 @@ angular.module('dnApp')
         views: {
           'master': {
             templateUrl: 'app/main/main.html',
-            controller: 'MainCtrl'
+            controller: 'NavbarCtrl'
           }
         }
       })

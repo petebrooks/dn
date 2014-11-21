@@ -20,8 +20,18 @@ $max-width: 87em !global;
 $gutter: golden-ratio(1em, 1) !global;
 $column: golden-ratio(1em, 5) !global;
 
- $gloveH: 50vh;
- $gloveW: 50vw;
+$gloveMainH: 50vh;
+$gloveMainW: 50vw;
+$gloveBoxH: 20vh;
+$gloveBoxW: 100vw;
+$gloveMobileMainW: 100%;
+$gloveMobileMainH: 25vh;
+$gloveMobileBoxW: 100%;
+$gloveMobileBoxH: 10vh;
+
+$smallDevice: new-breakpoint(max-width 680px);
+$mediumDevice: new-breakpoint(max-width 760px);
+$xlScreen: new-breakpoint(1000px);
 
 .browsehappy {
     margin: 0.2em 0;

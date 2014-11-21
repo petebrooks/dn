@@ -18,26 +18,42 @@ angular.module('dnApp')
     };
   })
 
-  .directive('line', function() {
+  .directive('boxBanner', function() {
     return {
-      restrict: 'E',
-      transclude: true,
-      templateUrl: 'components/info_directive/line.html'
+      restrict: 'EAC',
+      scope: {
+        name: '@'
+      },
+      templateUrl: 'components/info_directive/title.html',
+      link: function(scope, el, attrs) {
+        scope.close = function() {
+          console.log('close');
+          scope.hidden = true;
+        };
+      }
     }
-  })
-
-  .directive('heading', function() {
-    return {
-      restrict: 'E',
-      transclude: true,
-      templateUrl: 'components/info_directive/heading.html'
-    };
-  })
-
-  .directive('row', function() {
-    return {
-      restrict: 'E',
-      transclude: true,
-      templateUrl: 'components/info_directive/row.html'
-    };
   });
+
+  // .directive('line', function() {
+  //   return {
+  //     restrict: 'E',
+  //     transclude: true,
+  //     templateUrl: 'components/info_directive/line.html'
+  //   }
+  // })
+
+  // .directive('heading', function() {
+  //   return {
+  //     restrict: 'E',
+  //     transclude: true,
+  //     templateUrl: 'components/info_directive/heading.html'
+  //   };
+  // })
+
+  // .directive('row', function() {
+  //   return {
+  //     restrict: 'E',
+  //     transclude: true,
+  //     templateUrl: 'components/info_directive/row.html'
+  //   };
+  // });

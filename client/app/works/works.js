@@ -3,7 +3,7 @@
 angular.module('dnApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('allWorks', {
+      .state('works', {
         url: '/works',
         views: {
           'master': {
@@ -13,7 +13,7 @@ angular.module('dnApp')
         }
       })
 
-      .state('viewWork', {
+      .state('viewWorks', {
         url: '/works/:id',
         views: {
           'master': {
