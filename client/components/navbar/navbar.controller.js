@@ -3,7 +3,7 @@
 angular.module('dnApp')
   .controller('NavbarCtrl', function ($scope, $location) {
     $scope.isRouteActive = function(view) {
-      var current = $location.path().substring(1);
+      var current = $location.path().substring(1).split('/')[0];
       console.log(current);
       if (current === '') {
         return 'home';
@@ -12,15 +12,6 @@ angular.module('dnApp')
       };
     }
 
-    $scope.getSref = function(name) {
-      var current = $location.path().substring(1);
-      return name;
-      // if (current === '') {
-      //   return name;
-      // } else {
-      //   return 'main';
-      // };
-    }
     // $scope.active = undefined;
     // $scope.setActive = function(name) {
     //   $scope.active = name;
