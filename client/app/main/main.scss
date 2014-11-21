@@ -174,7 +174,7 @@ $slide-out-neg: -1000px;
 
 
 /////////////////// Gloves
-
+$glove-backgrounds: false;
 glove {
   @include center-children;
   position: fixed;
@@ -202,19 +202,22 @@ glove {
 
   &[name="Works"] {
     @include quadrant('top', 'left');
-    background: tomato;
+    @if $glove-backgrounds { background: tomato; }
+    img {
+      transform: rotate(-130deg);
+    }
   }
   &[name="Contact"] {
     @include quadrant('bottom', 'right');
-    background: aqua;
+    @if $glove-backgrounds { background: aqua; }
   }
   &[name="Statement"] {
     @include quadrant('top', 'right');
-    background: oldlace;
+    @if $glove-backgrounds { background: oldlace; }
   }
   &[name="Bio"] {
     @include quadrant('bottom', 'left');
-    background: powderblue;
+    @if $glove-backgrounds { background: powderblue; }
   }
 
   @include media(680px) {
