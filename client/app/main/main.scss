@@ -154,15 +154,39 @@ $slide-out-neg: -1000px;
   }
 }
 
-/////////////////// Main Styles
+@mixin image-quadrant($pos) {
+  @if $pos == 'top left' {
+    img {
+      @include quadrant('top', 'left');
+      transform-origin: left 50%;
+      @include media(680px) { transform: translate(-10%, -80%) rotate(40deg); }
+      @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
+    }
+  } @else if $pos == 'top right' {
+    img {
+      @include quadrant('top', 'right');
+      transform-origin: right 50%;
+      @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
+      @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
+    }
+  } @else if $pos == 'bottom left' {
+    img {
+      @include quadrant('bottom', 'left');
+      transform-origin: bottom left;
+      @include media(680px) { transform: translate(0, 80%) rotate(-40deg); }
+      @include media($xlScreen) { transform: translateY(50%) rotate(-40deg); }
+    }
+  } @else if $pos == 'bottom right' {
+    img {
+      @include quadrant('bottom', 'right');
+      transform-origin: bottom right;
+      @include media(680px) { transform: translate(0, 60%) rotate(40deg); }
+      @include media($xlScreen) { transform: translateY(50%) rotate(40deg); }
+    }
+  }
+}
 
-// glove {
-//   -webkit-animation-duration: 2s;
-//   animation-duration: 2s;
-//   -webkit-animation-fill-mode: both;
-//   animation-fill-mode: both;
-//   z-index: 1000;
-// }
+/////////////////// Main Styles
 
 #masterUI {
   // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
@@ -181,6 +205,10 @@ glove {
   width: 50vw;
   height: 50vh;
   color: $glove-font-color;
+  h1 {
+    position: absolute;
+    z-index: 1000;
+  }
 
   h1:hover, i:hover {
     color: $glove-hover-color;
@@ -199,24 +227,28 @@ glove {
     left: 0;
     border: 1px solid black;
   }
+  img {
+    position: absolute;
+  }
 
   &[name="Works"] {
-    @include quadrant('top', 'left');
+    @include quadrant('top', 'right');
+    @include image-quadrant('top right');
     @if $glove-backgrounds { background: tomato; }
-    img {
-      transform: rotate(-130deg);
-    }
   }
   &[name="Contact"] {
     @include quadrant('bottom', 'right');
+    @include image-quadrant('bottom right');
     @if $glove-backgrounds { background: aqua; }
   }
   &[name="Statement"] {
-    @include quadrant('top', 'right');
+    @include quadrant('top', 'left');
+    @include image-quadrant('top left');
     @if $glove-backgrounds { background: oldlace; }
   }
   &[name="Bio"] {
     @include quadrant('bottom', 'left');
+    @include image-quadrant('bottom left');
     @if $glove-backgrounds { background: powderblue; }
   }
 
@@ -224,18 +256,26 @@ glove {
     &.inactive {
       display: none;
       &.inactive-add {
-        &[name="Works"] { @include slideOutUpLeft(1s); }
+        &[name="Works"] { @include slideOutUpRight(1s); }
         &[name="Contact"] { @include slideOutBottomRight(1s); }
-        &[name="Statement"] { @include slideOutUpRight(1s); }
+        &[name="Statement"] { @include slideOutUpLeft(1s); }
         &[name="Bio"] { @include slideOutBottomLeft(1s); }
       }
     }
     &.home {
+      &[name="Works"] {
+        @include slideInUpRight(1s);
+      }
+      &[name="Contact"] {
+        @include slideInBottomRight(1s);
+      }
+      &[name="Statement"] {
+        @include slideInUpLeft(1s);
+      }
+      &[name="Bio"] {
+        @include slideInBottomLeft(1s);
+      }
       &.home-add.inactive-remove {
-        &[name="Works"] { @include slideInUpLeft(1s); }
-        &[name="Contact"] { @include slideInBottomRight(1s); }
-        &[name="Statement"] { @include slideInUpRight(1s); }
-        &[name="Bio"] { @include slideInBottomLeft(1s); }
       }
       &.home-add.active-remove {
         transition: all 1s;
@@ -278,12 +318,15 @@ glove {
     }
     &.home {
       height: $gloveMobileMainH;
-      &[name="Works"] { top: 0 }
-      &[name="Statement"] { top: 25% }
+      img {
+        height: 100%;
+      }
+      &[name="Statement"] { top: 0 }
+      &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
-      &[name="Works"], &[name="Bio"]  { @include slideInLeft(1.2s); }
-      &[name="Contact"], &[name="Statement"] { @include slideInRight(1.2s); }
+      &[name="Works"], &[name="Contact"]  { @include slideInRight(1.2s); }
+      &[name="Bio"], &[name="Statement"] { @include slideInLeft(1.2s); }
     }
   }
 }
