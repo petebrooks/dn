@@ -164,7 +164,7 @@ $slide-out-neg: -1000px;
     }
     &.active img {
       // transition: all 1s;
-      // @include media(680px) { transform: translate(-30%, -100%) rotate(40deg); }
+      @include media(680px) { transform: translate(0, 0); }
     }
   } @else if $pos == 'top right' {
     img {
@@ -217,6 +217,12 @@ $slide-out-neg: -1000px;
       &[name="Statement"] { @include slideOutUpLeft(1s); }
       &[name="Bio"] { @include slideOutBottomLeft(1s); }
     }
+    glove.active {
+      &[name="Works"] { @include slideOutRight(1s); }
+      &[name="Contact"] { @include slideOutRight(1s); }
+      &[name="Statement"] { @include slideOutLeft(1s); }
+      &[name="Bio"] { @include slideOutLeft(1s); }
+    }
   }
   &.ng-enter {
     glove.active {
@@ -224,6 +230,12 @@ $slide-out-neg: -1000px;
       &[name="Contact"] { @include slideInRight(1s); }
       &[name="Statement"] { @include slideInLeft(1s); }
       &[name="Bio"] { @include slideInLeft(1s); }
+    }
+    glove.home {
+      &[name="Works"] { @include slideInUpRight(1s); }
+      &[name="Contact"] { @include slideInBottomRight(1s); }
+      &[name="Statement"] { @include slideInUpLeft(1s); }
+      &[name="Bio"] { @include slideInBottomLeft(1s); }
     }
   }
 }
