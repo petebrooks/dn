@@ -258,13 +258,26 @@ glove {
   height: 50vh;
   color: $glove-font-color;
   &.active {
-    background-color: white;
+    // background-color: white;
+  }
+  .title {
+    position: absolute;
+    width: 60%;
+    height: $gloveBoxH;
+    right: 0;
+    display: inline-block;
   }
   h1 {
     position: absolute;
-    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
   }
-  h1:hover, i:hover {
+  i:hover {
     color: $glove-hover-color;
   }
   &.active i {
@@ -277,9 +290,11 @@ glove {
     display: none;
     position: absolute;
     padding: 0 2rem;
-    height: $gloveBoxH;
-    left: 0;
-    border: 1px solid black;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10vw;
+    width: 10vw;
+    z-index: 200;
   }
   img {
     position: absolute;
@@ -288,6 +303,11 @@ glove {
   &.active img {
     height: 100%;
     width: auto;
+  }
+  &[name="Works"], &[name="Contact"] {
+    i, .title{
+      left: 0;
+    }
   }
   // &.home img {
   //   transition: all 1s;
@@ -357,7 +377,7 @@ glove {
   }
 
   @include media($smallDevice) {
-    position: fixed;
+    // position: fixed;
     width: $gloveMobileMainW;
 
     &.inactive {

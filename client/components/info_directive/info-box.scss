@@ -19,6 +19,8 @@ info-box {
 
   .box {
     margin-top: $gloveBoxH;
+    height: 100vh - $gloveBoxH;
+    overflow-y: scroll;
     @include span-columns(9);
     // @include fill-parent;
     @include shift(1.5);
@@ -71,6 +73,7 @@ info-box {
   .info {
     @include clearfix;
     @include fill-parent;
+    padding: 2rem 0;
     // border: 1px solid black;
     // min-height: 70vh;
     width: 100%;
