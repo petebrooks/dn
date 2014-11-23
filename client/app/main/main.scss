@@ -296,6 +296,7 @@ glove {
   // }
 
   &.home {
+    cursor: pointer;
     &[name="Works"] {
       @include quadrant('top', 'right');
       @include image-quadrant('top right');
