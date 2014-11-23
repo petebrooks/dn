@@ -252,35 +252,16 @@ $slide-out-neg: -1000px;
 /////////////////// Gloves
 $glove-backgrounds: false;
 glove {
-  @include center-children;
+  // @include center-children;
   @include outer-container;
   position: absolute;
   width: 50vw;
   height: 50vh;
   color: $glove-font-color;
-  &.active {
-    // background-color: white;
-  }
-  .title {
-    @include span-columns(9);
-    @include shift(1.5);
-    position: absolute;
-    // width: 60%;
-    height: $gloveBoxH;
-    // right: 0;
+  h1, i {
     display: inline-block;
   }
-  h1 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
-    margin: 0 auto;
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-    padding: 0 4rem;
-  }
+
   i:hover {
     color: $glove-hover-color;
   }
@@ -290,16 +271,7 @@ glove {
   &.home i {
     display: none;
   }
-  i {
-    display: none;
-    position: absolute;
-    // padding: 0 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10vw;
-    width: 10vw;
-    z-index: 200;
-  }
+
   img {
     position: absolute;
     width: auto;
@@ -323,26 +295,30 @@ glove {
   //   transition: all 1s;
   // }
 
-  &[name="Works"] {
-    @include quadrant('top', 'right');
-    @include image-quadrant('top right');
-    @if $glove-backgrounds { background: tomato; }
+  &.home {
+    cursor: pointer;
+    &[name="Works"] {
+      @include quadrant('top', 'right');
+      @include image-quadrant('top right');
+      @if $glove-backgrounds { background: tomato; }
+    }
+    &[name="Contact"] {
+      @include quadrant('bottom', 'right');
+      @include image-quadrant('bottom right');
+      @if $glove-backgrounds { background: aqua; }
+    }
+    &[name="Statement"] {
+      @include quadrant('top', 'left');
+      @include image-quadrant('top left');
+      @if $glove-backgrounds { background: oldlace; }
+    }
+    &[name="Bio"] {
+      @include quadrant('bottom', 'left');
+      @include image-quadrant('bottom left');
+      @if $glove-backgrounds { background: powderblue; }
+    }
   }
-  &[name="Contact"] {
-    @include quadrant('bottom', 'right');
-    @include image-quadrant('bottom right');
-    @if $glove-backgrounds { background: aqua; }
-  }
-  &[name="Statement"] {
-    @include quadrant('top', 'left');
-    @include image-quadrant('top left');
-    @if $glove-backgrounds { background: oldlace; }
-  }
-  &[name="Bio"] {
-    @include quadrant('bottom', 'left');
-    @include image-quadrant('bottom left');
-    @if $glove-backgrounds { background: powderblue; }
-  }
+
 
   @include media(680px) {
     &.inactive {
@@ -378,7 +354,6 @@ glove {
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
-      // transition: all 1s;
       top: 0;
     }
   }
@@ -386,30 +361,52 @@ glove {
   @include media($smallDevice) {
     // position: fixed;
     width: $gloveMobileMainW;
+    .title, img {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    h1, i {
+      // position: absolute;
+    }
 
     &.inactive {
       display: none;
     }
-    // &.home-remove {
-    //   &[name="Works"], &[name="Contact"]  {
-    //     @include slideOutRight(1.2s);
-    //   }
-    //   &[name="Bio"], &[name="Statement"] {
-    //     @include slideOutLeft(1.2s);
-    //   }
-    // }
     &.active {
       height: $gloveMobileBoxH;
       img {
         max-width: 90%;
       }
       top: 0;
-      // &.active-add {
-      //   transition: .5s all;
-      // }
-      // &.active-remove {
-      //   @include slideOutUp(1s);
-      // }
+      img { top: 50%; }
+      &[name="Statement"], &[name="Bio"] {
+        img { transform: translate(-30%, -50%); }
+        .title {
+          float: right;
+        }
+        i {
+          float: right;
+          margin-left: 1rem;
+        }
+        h1 {
+          float: left;
+        }
+      }
+      &[name="Contact"], &[name="Works"] {
+        img { transform: translate(110%, -50%); }
+        .title {
+          float: left;
+        }
+        i {
+          float: left;
+          margin-right: 1rem;
+        }
+        h1 {
+          float: right;
+        }
+      }
     }
     &.home {
       height: $gloveMobileMainH;
