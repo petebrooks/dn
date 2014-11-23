@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var WorkSchema = new Schema({
+  _id: String,
   title: String,
   year: Number,
   dimensions: String,
