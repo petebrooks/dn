@@ -175,7 +175,7 @@ $slide-out-neg: -1000px;
     }
     &.active img {
       // transition: all 1s;
-      @include media(680px) { transform: translate(0, 0); }
+      @include media(680px) { transform: translate(30%, 0); }
     }
   } @else if $pos == 'bottom left' {
     img {
@@ -253,6 +253,7 @@ $slide-out-neg: -1000px;
 $glove-backgrounds: false;
 glove {
   @include center-children;
+  @include outer-container;
   position: absolute;
   width: 50vw;
   height: 50vh;
@@ -261,10 +262,12 @@ glove {
     // background-color: white;
   }
   .title {
+    @include span-columns(9);
+    @include shift(1.5);
     position: absolute;
-    width: 60%;
+    // width: 60%;
     height: $gloveBoxH;
-    right: 0;
+    // right: 0;
     display: inline-block;
   }
   h1 {
@@ -275,7 +278,8 @@ glove {
     margin: 0 auto;
     display: inline-block;
     width: 100%;
-    text-align: center;
+    text-align: left;
+    padding: 0 4rem;
   }
   i:hover {
     color: $glove-hover-color;
@@ -289,7 +293,7 @@ glove {
   i {
     display: none;
     position: absolute;
-    padding: 0 2rem;
+    // padding: 0 2rem;
     top: 50%;
     transform: translateY(-50%);
     right: 10vw;
@@ -298,15 +302,21 @@ glove {
   }
   img {
     position: absolute;
-    // max-height: 100%;
+    width: auto;
+    height: auto;
   }
   &.active img {
-    height: 100%;
-    width: auto;
+    max-height: 100%;
+    max-width: 50%;
   }
   &[name="Works"], &[name="Contact"] {
     i, .title{
       left: 0;
+    }
+  }
+  &[name="Bio"], &[name="Statement"] {
+    i, .title{
+      right: 0;
     }
   }
   // &.home img {
@@ -370,9 +380,6 @@ glove {
       height: $gloveBoxH;
       // transition: all 1s;
       top: 0;
-      img {
-        width: 40%;
-      }
     }
   }
 
