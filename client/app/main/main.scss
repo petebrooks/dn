@@ -163,8 +163,8 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
     }
     &.active img {
-      transition: all 1s;
-      @include media(680px) { transform: translate(-30%, -100%) rotate(40deg); }
+      // transition: all 1s;
+      // @include media(680px) { transform: translate(-30%, -100%) rotate(40deg); }
     }
   } @else if $pos == 'top right' {
     img {
@@ -185,8 +185,8 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translateY(50%) rotate(-40deg); }
     }
     &.active img {
-      transition: all 1s;
-      @include media(680px) { transform: translate(-10%, 100%) rotate(-40deg); }
+      // transition: all 1s;
+      @include media(680px) { transform: translate(-10%, 0); }
     }
   } @else if $pos == 'bottom right' {
     img {
@@ -206,10 +206,26 @@ $slide-out-neg: -1000px;
 
 #masterUI {
   // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
-  transition: all 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+  transition: all 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   // @include cubic-bezier('5s');
+  &.ng-leave{
+    glove.home {
+      &[name="Works"] { @include slideOutUpRight(1s); }
+      &[name="Contact"] { @include slideOutBottomRight(1s); }
+      &[name="Statement"] { @include slideOutUpLeft(1s); }
+      &[name="Bio"] { @include slideOutBottomLeft(1s); }
+    }
+  }
+  &.ng-enter {
+    glove.active {
+      &[name="Works"] { @include slideInRight(1s); }
+      &[name="Contact"] { @include slideInRight(1s); }
+      &[name="Statement"] { @include slideInLeft(1s); }
+      &[name="Bio"] { @include slideInLeft(1s); }
+    }
+  }
 }
 
 
@@ -313,8 +329,7 @@ glove {
       width: $gloveBoxW;
       height: $gloveBoxH;
       // transition: all 1s;
-      &.active-add {
-      }
+      top: 0;
       img {
         width: 40%;
       }
