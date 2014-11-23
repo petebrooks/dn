@@ -1,6 +1,12 @@
-.container(ng-controller="ViewWorkCtrl")
-  section.detail
-    .title
-      h3 {{ work.title }}
-      small {{ work.year }}
-    img.large(src=" {{ work.image }} ")
+<div ng-include='"components/navbar/navbar.html"'></div>
+//- .container(ng-controller="ViewWorkCtrl")
+//-   section.detail
+info-box.workView
+  .work
+    h3 {{ work.title }}
+    small {{ work.year }}
+    br
+    img(src=" {{ work.image }} ")
+  .gallery
+    .work
+    .work
