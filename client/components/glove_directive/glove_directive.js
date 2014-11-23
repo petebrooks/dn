@@ -5,7 +5,8 @@ angular.module('dnApp')
     return {
       restrict: 'E',
       scope: {
-        name: '@'
+        name: '@',
+        image: '@'
       },
       templateUrl: 'components/glove_directive/glove.html',
       link: function(scope, el, attrs) {

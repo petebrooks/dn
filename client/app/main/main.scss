@@ -154,35 +154,130 @@ $slide-out-neg: -1000px;
   }
 }
 
-/////////////////// Main Styles
+@mixin image-quadrant($pos) {
+  @if $pos == 'top left' {
+    img {
+      @include quadrant('top', 'left');
+      transform-origin: left 50%;
+      @include media(680px) { transform: translate(-10%, -80%) rotate(40deg); }
+      @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
+    }
+    &.active img {
+      // transition: all 1s;
+      @include media(680px) { transform: translate(0, 0); }
+    }
+  } @else if $pos == 'top right' {
+    &.home img {
+      @include quadrant('top', 'right');
+      transform-origin: right 50%;
+      @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
+      @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
+    }
+    &.active img {
+      // transition: all 1s;
+      @include media(680px) { transform: translate(0, 0); }
+    }
+  } @else if $pos == 'bottom left' {
+    img {
+      @include quadrant('bottom', 'left');
+      transform-origin: bottom left;
+      @include media(680px) { transform: translate(0, 80%) rotate(-40deg); }
+      @include media($xlScreen) { transform: translateY(50%) rotate(-40deg); }
+    }
+    &.active img {
+      // transition: all 1s;
+      @include media(680px) { transform: translate(-10%, 0); }
+    }
+  } @else if $pos == 'bottom right' {
+    img {
+      @include quadrant('bottom', 'right');
+      transform-origin: bottom right;
+      @include media(680px) { transform: translate(0, 60%) rotate(40deg); }
+      @include media($xlScreen) { transform: translateY(50%) rotate(40deg); }
+    }
+    &.active img {
+      // transition: all 1s;
+      @include media(680px) { transform: translate(0, 0); }
+    }
+  }
+}
 
-// glove {
-//   -webkit-animation-duration: 2s;
-//   animation-duration: 2s;
-//   -webkit-animation-fill-mode: both;
-//   animation-fill-mode: both;
-//   z-index: 1000;
-// }
+/////////////////// Main Styles
 
 #masterUI {
   // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
-  transition: all 2s;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+  transition: all 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   // @include cubic-bezier('5s');
+  &.ng-leave{
+    glove.home {
+      &[name="Works"] { @include slideOutUpRight(1s); }
+      &[name="Contact"] { @include slideOutBottomRight(1s); }
+      &[name="Statement"] { @include slideOutUpLeft(1s); }
+      &[name="Bio"] { @include slideOutBottomLeft(1s); }
+      @include media($smallDevice) {
+        &[name="Works"], &[name="Contact"]  { @include slideOutRight(1.2s); }
+        &[name="Bio"], &[name="Statement"] { @include slideOutLeft(1.2s); }
+      }
+    }
+    glove.active {
+      &[name="Works"] { @include slideOutRight(1s); }
+      &[name="Contact"] { @include slideOutRight(1s); }
+      &[name="Statement"] { @include slideOutLeft(1s); }
+      &[name="Bio"] { @include slideOutLeft(1s); }
+    }
+  }
+  &.ng-enter {
+    glove.active {
+      &[name="Works"] { @include slideInRight(1s); }
+      &[name="Contact"] { @include slideInRight(1s); }
+      &[name="Statement"] { @include slideInLeft(1s); }
+      &[name="Bio"] { @include slideInLeft(1s); }
+    }
+    glove.home {
+      &[name="Works"] { @include slideInUpRight(1s); }
+      &[name="Contact"] { @include slideInBottomRight(1s); }
+      &[name="Statement"] { @include slideInUpLeft(1s); }
+      &[name="Bio"] { @include slideInBottomLeft(1s); }
+      @include media($smallDevice) {
+        &[name="Works"], &[name="Contact"]  { @include slideInRight(1s); }
+        &[name="Bio"], &[name="Statement"] { @include slideInLeft(1s); }
+      }
+    }
+  }
 }
 
 
 /////////////////// Gloves
-
+$glove-backgrounds: false;
 glove {
   @include center-children;
-  position: fixed;
+  position: absolute;
   width: 50vw;
   height: 50vh;
   color: $glove-font-color;
-
-  h1:hover, i:hover {
+  &.active {
+    // background-color: white;
+  }
+  .title {
+    position: absolute;
+    width: 60%;
+    height: $gloveBoxH;
+    right: 0;
+    display: inline-block;
+  }
+  h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  i:hover {
     color: $glove-hover-color;
   }
   &.active i {
@@ -195,92 +290,128 @@ glove {
     display: none;
     position: absolute;
     padding: 0 2rem;
-    height: $gloveBoxH;
-    left: 0;
-    border: 1px solid black;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10vw;
+    width: 10vw;
+    z-index: 200;
   }
+  img {
+    position: absolute;
+    // max-height: 100%;
+  }
+  &.active img {
+    height: 100%;
+    width: auto;
+  }
+  &[name="Works"], &[name="Contact"] {
+    i, .title{
+      left: 0;
+    }
+  }
+  // &.home img {
+  //   transition: all 1s;
+  // }
 
   &[name="Works"] {
-    @include quadrant('top', 'left');
-    background: tomato;
+    @include quadrant('top', 'right');
+    @include image-quadrant('top right');
+    @if $glove-backgrounds { background: tomato; }
   }
   &[name="Contact"] {
     @include quadrant('bottom', 'right');
-    background: aqua;
+    @include image-quadrant('bottom right');
+    @if $glove-backgrounds { background: aqua; }
   }
   &[name="Statement"] {
-    @include quadrant('top', 'right');
-    background: oldlace;
+    @include quadrant('top', 'left');
+    @include image-quadrant('top left');
+    @if $glove-backgrounds { background: oldlace; }
   }
   &[name="Bio"] {
     @include quadrant('bottom', 'left');
-    background: powderblue;
+    @include image-quadrant('bottom left');
+    @if $glove-backgrounds { background: powderblue; }
   }
 
   @include media(680px) {
     &.inactive {
       display: none;
-      &.inactive-add {
-        &[name="Works"] { @include slideOutUpLeft(1s); }
-        &[name="Contact"] { @include slideOutBottomRight(1s); }
-        &[name="Statement"] { @include slideOutUpRight(1s); }
-        &[name="Bio"] { @include slideOutBottomLeft(1s); }
-      }
+      // &.inactive-add {
+      //   &[name="Works"] { @include slideOutUpRight(1s); }
+      //   &[name="Contact"] { @include slideOutBottomRight(1s); }
+      //   &[name="Statement"] { @include slideOutUpLeft(1s); }
+      //   &[name="Bio"] { @include slideOutBottomLeft(1s); }
+      // }
     }
     &.home {
-      &.home-add.inactive-remove {
-        &[name="Works"] { @include slideInUpLeft(1s); }
-        &[name="Contact"] { @include slideInBottomRight(1s); }
-        &[name="Statement"] { @include slideInUpRight(1s); }
-        &[name="Bio"] { @include slideInBottomLeft(1s); }
+      &.inactive-remove {
+        &[name="Works"] {
+          @include slideInUpRight(1s);
+        }
+        &[name="Contact"] {
+          @include slideInBottomRight(1s);
+        }
+        &[name="Statement"] {
+          @include slideInUpLeft(1s);
+        }
+        &[name="Bio"] {
+          @include slideInBottomLeft(1s);
+        }
       }
-      &.home-add.active-remove {
-        transition: all 1s;
-        width: $gloveMainW;
-        height: $gloveMainH;
-      }
+      // &.home-add.active-remove {
+      //   // transition: all 1s;
+      //   width: $gloveMainW;
+      //   height: $gloveMainH;
+      // }
     }
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
-      &.active-add {
-        transition: all 1s;
+      // transition: all 1s;
+      top: 0;
+      img {
+        width: 40%;
       }
     }
   }
 
   @include media($smallDevice) {
-    position: fixed;
+    // position: fixed;
     width: $gloveMobileMainW;
+
     &.inactive {
       display: none;
-      &.inactive-add {
-        &[name="Works"], &[name="Bio"]  {
-          @include slideOutLeft(1.2s);
-        }
-        &[name="Contact"], &[name="Statement"] {
-          @include slideOutRight(1.2s);
-        }
-      }
     }
+    // &.home-remove {
+    //   &[name="Works"], &[name="Contact"]  {
+    //     @include slideOutRight(1.2s);
+    //   }
+    //   &[name="Bio"], &[name="Statement"] {
+    //     @include slideOutLeft(1.2s);
+    //   }
+    // }
     &.active {
       height: $gloveMobileBoxH;
       top: 0;
-      &.active-add {
-        transition: .5s all;
-      }
-      &.active-remove {
-        @include slideOutUp(1s);
-      }
+      // &.active-add {
+      //   transition: .5s all;
+      // }
+      // &.active-remove {
+      //   @include slideOutUp(1s);
+      // }
     }
     &.home {
       height: $gloveMobileMainH;
-      &[name="Works"] { top: 0 }
-      &[name="Statement"] { top: 25% }
+      // img {
+      //   height: 100%;
+      // }
+      &[name="Statement"] { top: 0 }
+      &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
-      &[name="Works"], &[name="Bio"]  { @include slideInLeft(1.2s); }
-      &[name="Contact"], &[name="Statement"] { @include slideInRight(1.2s); }
+      // &[name="Works"], &[name="Contact"]  { @include slideInRight(1.2s); }
+      // &[name="Bio"], &[name="Statement"] { @include slideInLeft(1.2s); }
     }
   }
 }

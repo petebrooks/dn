@@ -9,13 +9,14 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
   'animate.css-scss/_properties',
   'animate.css-scss/_fading-entrances/fading-entrances',
   'animate.css-scss/_zooming-entrances/zooming-entrances',
+  'animate.css-scss/_zooming-exits/zooming-exits',
   'animate.css-scss/_sliders/sliders';
 
 
 /**
  * App-wide Styles
  */
-$visual-grid: true;
+$visual-grid: false;
 $max-width: 87em !global;
 $gutter: golden-ratio(1em, 1) !global;
 $column: golden-ratio(1em, 5) !global;
@@ -27,12 +28,23 @@ $gloveBoxW: 100vw;
 $gloveMobileMainW: 100%;
 $gloveMobileMainH: 25vh;
 $gloveMobileBoxW: 100%;
-$gloveMobileBoxH: 10vh;
+$gloveMobileBoxH: 20vh;
 
 $smallDevice: new-breakpoint(max-width 680px);
 $mediumDevice: new-breakpoint(max-width 760px);
 $xlScreen: new-breakpoint(1000px);
 
+img#background {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  background-image: url("../assets/images/background.png");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
