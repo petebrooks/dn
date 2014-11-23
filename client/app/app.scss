@@ -15,7 +15,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 /**
  * App-wide Styles
  */
-$visual-grid: true;
+$visual-grid: false;
 $max-width: 87em !global;
 $gutter: golden-ratio(1em, 1) !global;
 $column: golden-ratio(1em, 5) !global;

@@ -162,12 +162,20 @@ $slide-out-neg: -1000px;
       @include media(680px) { transform: translate(-10%, -80%) rotate(40deg); }
       @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
     }
+    &.active img {
+      transition: all 1s;
+      @include media(680px) { transform: translate(-30%, -100%) rotate(40deg); }
+    }
   } @else if $pos == 'top right' {
     img {
       @include quadrant('top', 'right');
       transform-origin: right 50%;
       @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
       @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
+    }
+    &.active img {
+      transition: all 1s;
+      @include media(680px) { transform: translate(30%, -100%) rotate(-40deg); }
     }
   } @else if $pos == 'bottom left' {
     img {
@@ -176,12 +184,20 @@ $slide-out-neg: -1000px;
       @include media(680px) { transform: translate(0, 80%) rotate(-40deg); }
       @include media($xlScreen) { transform: translateY(50%) rotate(-40deg); }
     }
+    &.active img {
+      transition: all 1s;
+      @include media(680px) { transform: translate(-10%, 100%) rotate(-40deg); }
+    }
   } @else if $pos == 'bottom right' {
     img {
       @include quadrant('bottom', 'right');
       transform-origin: bottom right;
       @include media(680px) { transform: translate(0, 60%) rotate(40deg); }
       @include media($xlScreen) { transform: translateY(50%) rotate(40deg); }
+    }
+    &.active img {
+      transition: all 1s;
+      @include media(680px) { transform: translate(20%, 100%) rotate(40deg); }
     }
   }
 }
@@ -205,11 +221,13 @@ glove {
   width: 50vw;
   height: 50vh;
   color: $glove-font-color;
+  &.active {
+    background-color: white;
+  }
   h1 {
     position: absolute;
     z-index: 1000;
   }
-
   h1:hover, i:hover {
     color: $glove-hover-color;
   }
@@ -229,7 +247,15 @@ glove {
   }
   img {
     position: absolute;
+    // max-height: 100%;
   }
+  &.active img, &.active-add img  {
+    // height: 100%;
+    // width: auto;
+  }
+  // &.home img {
+  //   transition: all 1s;
+  // }
 
   &[name="Works"] {
     @include quadrant('top', 'right');
@@ -263,22 +289,22 @@ glove {
       }
     }
     &.home {
-      &[name="Works"] {
-        @include slideInUpRight(1s);
-      }
-      &[name="Contact"] {
-        @include slideInBottomRight(1s);
-      }
-      &[name="Statement"] {
-        @include slideInUpLeft(1s);
-      }
-      &[name="Bio"] {
-        @include slideInBottomLeft(1s);
-      }
-      &.home-add.inactive-remove {
+      &.inactive-remove {
+        &[name="Works"] {
+          @include slideInUpRight(1s);
+        }
+        &[name="Contact"] {
+          @include slideInBottomRight(1s);
+        }
+        &[name="Statement"] {
+          @include slideInUpLeft(1s);
+        }
+        &[name="Bio"] {
+          @include slideInBottomLeft(1s);
+        }
       }
       &.home-add.active-remove {
-        transition: all 1s;
+        // transition: all 1s;
         width: $gloveMainW;
         height: $gloveMainH;
       }
@@ -286,8 +312,11 @@ glove {
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
+      // transition: all 1s;
       &.active-add {
-        transition: all 1s;
+      }
+      img {
+        width: 40%;
       }
     }
   }
@@ -295,32 +324,33 @@ glove {
   @include media($smallDevice) {
     position: fixed;
     width: $gloveMobileMainW;
+
     &.inactive {
       display: none;
-      &.inactive-add {
-        &[name="Works"], &[name="Bio"]  {
-          @include slideOutLeft(1.2s);
-        }
-        &[name="Contact"], &[name="Statement"] {
-          @include slideOutRight(1.2s);
-        }
+    }
+    &.home-remove {
+      &[name="Works"], &[name="Contact"]  {
+        @include slideOutRight(1.2s);
+      }
+      &[name="Bio"], &[name="Statement"] {
+        @include slideOutLeft(1.2s);
       }
     }
     &.active {
       height: $gloveMobileBoxH;
       top: 0;
-      &.active-add {
-        transition: .5s all;
-      }
+      // &.active-add {
+      //   transition: .5s all;
+      // }
       &.active-remove {
         @include slideOutUp(1s);
       }
     }
     &.home {
       height: $gloveMobileMainH;
-      img {
-        height: 100%;
-      }
+      // img {
+      //   height: 100%;
+      // }
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
