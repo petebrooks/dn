@@ -167,8 +167,8 @@ $slide-out-neg: -1000px;
       @include media(680px) { transform: translate(0, 0); }
     }
   } @else if $pos == 'top right' {
-    &.home img {
       @include quadrant('top', 'right');
+    &.home img {
       transform-origin: right 50%;
       @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
       @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
@@ -216,6 +216,10 @@ $slide-out-neg: -1000px;
       &[name="Contact"] { @include slideOutBottomRight(1s); }
       &[name="Statement"] { @include slideOutUpLeft(1s); }
       &[name="Bio"] { @include slideOutBottomLeft(1s); }
+      @include media($smallDevice) {
+        &[name="Works"], &[name="Contact"]  { @include slideOutRight(1.2s); }
+        &[name="Bio"], &[name="Statement"] { @include slideOutLeft(1.2s); }
+      }
     }
     glove.active {
       &[name="Works"] { @include slideOutRight(1s); }
@@ -236,6 +240,10 @@ $slide-out-neg: -1000px;
       &[name="Contact"] { @include slideInBottomRight(1s); }
       &[name="Statement"] { @include slideInUpLeft(1s); }
       &[name="Bio"] { @include slideInBottomLeft(1s); }
+      @include media($smallDevice) {
+        &[name="Works"], &[name="Contact"]  { @include slideInRight(1s); }
+        &[name="Bio"], &[name="Statement"] { @include slideInLeft(1s); }
+      }
     }
   }
 }
@@ -277,9 +285,9 @@ glove {
     position: absolute;
     // max-height: 100%;
   }
-  &.active img, &.active-add img  {
-    // height: 100%;
-    // width: auto;
+  &.active img {
+    height: 100%;
+    width: auto;
   }
   // &.home img {
   //   transition: all 1s;
@@ -309,12 +317,12 @@ glove {
   @include media(680px) {
     &.inactive {
       display: none;
-      &.inactive-add {
-        &[name="Works"] { @include slideOutUpRight(1s); }
-        &[name="Contact"] { @include slideOutBottomRight(1s); }
-        &[name="Statement"] { @include slideOutUpLeft(1s); }
-        &[name="Bio"] { @include slideOutBottomLeft(1s); }
-      }
+      // &.inactive-add {
+      //   &[name="Works"] { @include slideOutUpRight(1s); }
+      //   &[name="Contact"] { @include slideOutBottomRight(1s); }
+      //   &[name="Statement"] { @include slideOutUpLeft(1s); }
+      //   &[name="Bio"] { @include slideOutBottomLeft(1s); }
+      // }
     }
     &.home {
       &.inactive-remove {
@@ -331,11 +339,11 @@ glove {
           @include slideInBottomLeft(1s);
         }
       }
-      &.home-add.active-remove {
-        // transition: all 1s;
-        width: $gloveMainW;
-        height: $gloveMainH;
-      }
+      // &.home-add.active-remove {
+      //   // transition: all 1s;
+      //   width: $gloveMainW;
+      //   height: $gloveMainH;
+      // }
     }
     &.active {
       width: $gloveBoxW;
@@ -355,23 +363,23 @@ glove {
     &.inactive {
       display: none;
     }
-    &.home-remove {
-      &[name="Works"], &[name="Contact"]  {
-        @include slideOutRight(1.2s);
-      }
-      &[name="Bio"], &[name="Statement"] {
-        @include slideOutLeft(1.2s);
-      }
-    }
+    // &.home-remove {
+    //   &[name="Works"], &[name="Contact"]  {
+    //     @include slideOutRight(1.2s);
+    //   }
+    //   &[name="Bio"], &[name="Statement"] {
+    //     @include slideOutLeft(1.2s);
+    //   }
+    // }
     &.active {
       height: $gloveMobileBoxH;
       top: 0;
       // &.active-add {
       //   transition: .5s all;
       // }
-      &.active-remove {
-        @include slideOutUp(1s);
-      }
+      // &.active-remove {
+      //   @include slideOutUp(1s);
+      // }
     }
     &.home {
       height: $gloveMobileMainH;
@@ -382,8 +390,8 @@ glove {
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
-      &[name="Works"], &[name="Contact"]  { @include slideInRight(1.2s); }
-      &[name="Bio"], &[name="Statement"] { @include slideInLeft(1.2s); }
+      // &[name="Works"], &[name="Contact"]  { @include slideInRight(1.2s); }
+      // &[name="Bio"], &[name="Statement"] { @include slideInLeft(1.2s); }
     }
   }
 }
