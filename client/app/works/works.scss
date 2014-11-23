@@ -47,8 +47,22 @@ img.large {
   //   @include span-columns(12);
   //   @include shift(0);
   // }
+  .work {
+    cursor: pointer;
+  }
 }
-.work {
+
+.workView {
+  .work {
+    img {
+      margin-top: 2rem;
+    }
+  }
+  .gallery .work {
+    @include span-columns(4 of 12);
+  }
+}
+.work, .large {
   // background-color: blue;
   position: relative;
   overflow: hidden;
@@ -62,7 +76,7 @@ img.large {
     @include shift(.65);
     @include omega(2n);
   }
-  @include media(max-width 640px) {
+  @include media($smallDevice) {
     @include span-columns(11 of 12);
     @include shift(.5);
     @include omega(1n);

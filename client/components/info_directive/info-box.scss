@@ -52,24 +52,24 @@ info-box {
     }
   }
 
-  .title {
-    @include clearfix;
-    position: relative;
-    padding: 1rem 0;
-    h3 {
-      @include media($smallDevice) {
-        display: none;
-      }
-      float: left;
-    }
-    i {
-      vertical-align: middle;
-      position: absolute;
-      left: -2rem;
-      bottom: 0;
-      padding: 1.6rem 0;
-    }
-  }
+  // .title {
+  //   @include clearfix;
+  //   position: relative;
+  //   padding: 1rem 0;
+  //   h3 {
+  //     @include media($smallDevice) {
+  //       display: none;
+  //     }
+  //     float: left;
+  //   }
+  //   i {
+  //     vertical-align: middle;
+  //     position: absolute;
+  //     left: -2rem;
+  //     bottom: 0;
+  //     padding: 1.6rem 0;
+  //   }
+  // }
   .info {
     @include clearfix;
     @include fill-parent;
@@ -80,9 +80,8 @@ info-box {
     // padding: 2rem;
     // @include column-count(2);
     // @include column-gap(0);
-    @include media(max-width 460px) {
-      border-right: 0;
-      border-left: 0;
+    @include media($smallDevice) {
+      padding: 0;
     }
   }
 
