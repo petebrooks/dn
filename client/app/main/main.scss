@@ -267,7 +267,7 @@ glove {
     position: absolute;
     // width: 60%;
     height: $gloveBoxH;
-    right: 0;
+    // right: 0;
     display: inline-block;
   }
   h1 {
@@ -278,7 +278,8 @@ glove {
     margin: 0 auto;
     display: inline-block;
     width: 100%;
-    text-align: center;
+    text-align: left;
+    padding: 0 4rem;
   }
   i:hover {
     color: $glove-hover-color;
@@ -301,15 +302,21 @@ glove {
   }
   img {
     position: absolute;
-    // max-height: 100%;
+    width: auto;
+    height: auto;
   }
   &.active img {
-    height: 100%;
-    width: auto;
+    max-height: 100%;
+    max-width: 50%;
   }
   &[name="Works"], &[name="Contact"] {
     i, .title{
       left: 0;
+    }
+  }
+  &[name="Bio"], &[name="Statement"] {
+    i, .title{
+      right: 0;
     }
   }
   // &.home img {
@@ -373,9 +380,6 @@ glove {
       height: $gloveBoxH;
       // transition: all 1s;
       top: 0;
-      img {
-        width: 40%;
-      }
     }
   }
 
