@@ -16,14 +16,9 @@ info-box {
   //     @include shift(0);
   //   }
   // }
-  &[name="Works"] .box, &[name="Statement"] .box {
-    margin-top: $gloveBoxH;
-  }
-  &[name="Bio"] .box, &[name="Contact"] .box {
-    margin-bottom: $gloveBoxH;
-  }
 
   .box {
+    margin-top: $gloveBoxH;
     @include span-columns(9);
     // @include fill-parent;
     @include shift(1.5);
@@ -108,6 +103,12 @@ info-box {
   .box {
     // animation-delay: 1s;
     @include zoomIn(1s);
+  }
+}
+
+#masterUI.ng-leave {
+  .box {
+    @include zoomOut(1s);
   }
 }
 

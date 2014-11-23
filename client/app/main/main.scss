@@ -167,15 +167,15 @@ $slide-out-neg: -1000px;
       @include media(680px) { transform: translate(0, 0); }
     }
   } @else if $pos == 'top right' {
-    img {
+    &.home img {
       @include quadrant('top', 'right');
       transform-origin: right 50%;
       @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
       @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
     }
     &.active img {
-      transition: all 1s;
-      @include media(680px) { transform: translate(30%, -100%) rotate(-40deg); }
+      // transition: all 1s;
+      @include media(680px) { transform: translate(0, 0); }
     }
   } @else if $pos == 'bottom left' {
     img {
@@ -196,8 +196,8 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translateY(50%) rotate(40deg); }
     }
     &.active img {
-      transition: all 1s;
-      @include media(680px) { transform: translate(20%, 100%) rotate(40deg); }
+      // transition: all 1s;
+      @include media(680px) { transform: translate(0, 0); }
     }
   }
 }
