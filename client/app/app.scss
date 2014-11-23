@@ -25,10 +25,10 @@ $gloveMainH: 50vh;
 $gloveMainW: 50vw;
 $gloveBoxH: 20vh;
 $gloveBoxW: 100vw;
-$gloveMobileMainW: 100%;
+$gloveMobileMainW: 100vw;
 $gloveMobileMainH: 25vh;
-$gloveMobileBoxW: 100%;
-$gloveMobileBoxH: 20vh;
+$gloveMobileBoxW: 100vw;
+$gloveMobileBoxH: 15vh;
 
 $smallDevice: new-breakpoint(max-width 680px);
 $mediumDevice: new-breakpoint(max-width 760px);
