@@ -7,6 +7,7 @@ var WorkSchema = new Schema({
   _id: String,
   title: String,
   year: Number,
+  hidden: Boolean,
   dimensions: String,
   description: String,
   media: String,

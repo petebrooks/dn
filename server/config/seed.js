@@ -17,16 +17,16 @@ Work.find({}).remove(function() {
   })
 });
 
-// Photo.find({}).remove(function() {
-//   photos_collection().forEach(function(photo_data) {
-//     Photo.create(photo_data);
-//   });
-// });
+Photo.find({}).remove(function() {
+  photos_collection().forEach(function(photo_data) {
+    Photo.create(photo_data);
+  });
+});
 // Work.findOne({_id: 'idyll_hands'})
 //   .populate('photos');
 
-Work.findOne({_id: 'urchin_1'})
-  .populate('photos');
+// Work.findOne({_id: 'urchin_1'})
+//   .populate('photos');
 
 
 // Work.findOne({_id: 'urchin_1'}, function(w) {

@@ -11,7 +11,7 @@ workControllers
 
   .controller('ViewWorkCtrl', function ($scope, $stateParams, Work) {
     $scope.work = Work.get({id: $stateParams.id});
-    console.log($scope.work);
+    $scope.photos = Photos.get({id: $stateParams.id});
   })
 
   .controller('NewWorkCtrl', function ($scope, $state, $stateParams, $location, $upload, Work) {

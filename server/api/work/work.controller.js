@@ -5,7 +5,15 @@ var Work = require('./work.model');
 
 // Get list of works
 exports.index = function(req, res) {
-  Work.find(function (err, works) {
+  Work.find({hidden: false}, function (err, works) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, works);
+  });
+};
+
+// Get hidden works
+exports.hidden = function(req, res) {
+  Work.find({hidden: true}, function (err, works) {
     if(err) { return handleError(res, err); }
     return res.json(200, works);
   });
