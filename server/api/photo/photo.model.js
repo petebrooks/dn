@@ -7,8 +7,8 @@ var PhotoSchema = new Schema({
   name: String,
   filepath: String,
   type: String,
-  work: { type: mongoose.Schema.Types.ObjectId, ref: 'Work'},
   work_id: String
+  // work_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Work' }
 });
 
 module.exports = mongoose.model('Photo', PhotoSchema);
