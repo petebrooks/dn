@@ -21,7 +21,7 @@ info-box {
   .box {
     margin-top: $gloveBoxH + 2vh;
     // padding-bottom: 5vh;
-    height: 95vh - $gloveBoxH;
+    height: 100vh - $gloveBoxH;
     overflow-y: scroll;
     @include span-columns(9);
     // @include fill-parent;
@@ -32,7 +32,9 @@ info-box {
       @include shift(0);
     }
     @include media($smallDevice) {
+      // padding: 0;
       margin-top: $gloveMobileBoxH;
+      height: 100vh - $gloveMobileBoxH;
     }
   }
 

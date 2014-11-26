@@ -381,12 +381,6 @@ glove {
   @include media($smallDevice) {
     // position: fixed;
     width: $gloveMobileMainW;
-    .title, img {
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
     h1, i {
       // position: absolute;
     }
@@ -396,35 +390,32 @@ glove {
     }
     &.active {
       height: $gloveMobileBoxH;
+      top: 0;
+      .title, img {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
       img {
         max-width: 90%;
       }
-      top: 0;
-      img { top: 50%; }
       &[name="Statement"], &[name="Bio"] {
         img { transform: translate(-30%, -50%); }
-        .title {
-          float: right;
-        }
+        img { left: 0; }
+        .title { right: 0; }
         i {
           float: right;
           margin-left: 1rem;
         }
-        h1 {
-          float: left;
-        }
       }
       &[name="Contact"], &[name="Works"] {
-        img { transform: translate(110%, -50%); }
-        .title {
-          float: left;
-        }
+        img { transform: translate(30%, -50%); }
+        img { right: 0; }
+        .title { left: 0; }
         i {
           float: left;
           margin-right: 1rem;
-        }
-        h1 {
-          float: right;
         }
       }
     }
