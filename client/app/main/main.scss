@@ -317,6 +317,9 @@ glove {
       @include image-quadrant('bottom left');
       @if $glove-backgrounds { background: powderblue; }
     }
+    h1 {
+      display: none;
+    }
   }
 
 
@@ -351,10 +354,27 @@ glove {
       //   height: $gloveMainH;
       // }
     }
+    .title, img {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
+      min-height: 130px;
       top: 0;
+      // img, .title { position: absolute; }
+
+      &[name="Statement"], &[name="Bio"] {
+        img { left: 0; }
+        .title { right: 12.63406%; }
+      }
+      &[name="Contact"], &[name="Works"] {
+        img { right: 0; }
+        .title { left: 12.63406%; }
+      }
     }
   }
 

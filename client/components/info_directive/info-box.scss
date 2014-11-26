@@ -18,8 +18,9 @@ info-box {
   // }
 
   .box {
-    margin-top: $gloveBoxH;
-    height: 100vh - $gloveBoxH;
+    margin-top: $gloveBoxH + 2vh;
+    // padding-bottom: 5vh;
+    height: 95vh - $gloveBoxH;
     overflow-y: scroll;
     @include span-columns(9);
     // @include fill-parent;
