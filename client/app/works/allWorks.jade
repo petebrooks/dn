@@ -15,5 +15,5 @@ info-box(name="Works")
   .gallery
     .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})")
       //- a(ui-sref="viewWorks({id: work._id})")
-      .thumb(style="background-image: url('{{ work.image }}')")
+      .thumb(style="background-image: url('{{ work.photo_thumb }}')")
       .hoverTitle {{ work.title }}

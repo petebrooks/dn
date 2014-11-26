@@ -5,57 +5,31 @@
 
 'use strict';
 
-var Work = require('../api/work/work.model');
-// var User = require('../api/user/user.model');
-// var Photo = require('../api/photo/photo.model');
+var Work = require('../api/work/work.model'),
+    Photo = require('../api/photo/photo.model'),
+    works_collection = require('./works_collection'),
+    photos_collection = require('./photos_collection');
+
 
 Work.find({}).remove(function() {
-  Work.create({
-    title: "Vroomb",
-    year: 2014,
-    image: "assets/images/vromb_main.jpg"
-  }, {
-    title: "Unlimited Intimacy",
-    year: 2012,
-    image: "assets/images/unlimited-intimacy_main.jpg"
-  }, {
-    title: "Fish",
-    image: "assets/images/fish_main.jpg"
-  }, {
-    title: "Not A Grave",
-    image: "assets/images/not-a-grave_main.jpg"
-  }, {
-    title: "Monkey",
-    image: "assets/images/monkey_main.jpg"
-  }, {
-    title: "Come On Down",
-    image: "assets/images/come-on-down_detail.jpg"
-  }, {
-    title: "Plastic Case",
-    image: "assets/images/case_detail-3.jpg"
-  }, {
-    title: "A Spot",
-    image: "assets/images/a-spot_main.jpg"
-  }, function() {
-      console.log('finished populating works');
-    }
-  );
+  works_collection().forEach(function(work_data) {
+    Work.create(work_data);
+  })
 });
 
-// User.find({}).remove(function() {
-//   User.create({
-//     provider: 'local',
-//     name: 'Test User',
-//     email: 'test@test.com',
-//     password: 'test'
-//   }, {
-//     provider: 'local',
-//     role: 'admin',
-//     name: 'Admin',
-//     email: 'admin@admin.com',
-//     password: 'admin'
-//   }, function() {
-//       console.log('finished populating users');
-//     }
-//   );
-// });
+Photo.find({}).remove(function() {
+  photos_collection().forEach(function(photo_data) {
+    Photo.create(photo_data);
+  });
+});
+// Work.findOne({_id: 'idyll_hands'})
+//   .populate('photos');
+
+// Work.findOne({_id: 'urchin_1'})
+//   .populate('photos');
+
+
+// Work.findOne({_id: 'urchin_1'}, function(w) {
+//   console.log(w._id);
+//   console.log(w.photos);
+// })

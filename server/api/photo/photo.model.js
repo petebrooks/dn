@@ -5,8 +5,10 @@ var mongoose = require('mongoose'),
 
 var PhotoSchema = new Schema({
   name: String,
-  path: String,
-  work: { type: mongoose.Schema.Types.ObjectId, ref: 'Work'}
+  filepath: String,
+  type: String,
+  work_id: String
+  // work_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Work' }
 });
 
 module.exports = mongoose.model('Photo', PhotoSchema);
