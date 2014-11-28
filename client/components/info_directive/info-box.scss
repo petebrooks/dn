@@ -17,10 +17,11 @@ info-box {
   //   }
   // }
 
+
   .box {
     margin-top: $gloveBoxH + 2vh;
     // padding-bottom: 5vh;
-    height: 95vh - $gloveBoxH;
+    height: 100vh - $gloveBoxH;
     overflow-y: scroll;
     @include span-columns(9);
     // @include fill-parent;
@@ -31,18 +32,15 @@ info-box {
       @include shift(0);
     }
     @include media($smallDevice) {
+      // padding: 0;
       margin-top: $gloveMobileBoxH;
+      height: 100vh - $gloveMobileBoxH;
     }
   }
 
-  glove {
-    width: $gloveBoxW;
-    height: $gloveBoxH;
-    @include media($smallDevice) {
-      width: $gloveMobileBoxW;
-      height: $gloveMobileBoxH;
-      top: 0;
-    }
+  &[name='Works'] .box {
+    @include span-columns(10);
+    @include shift(1);
   }
 
   &.two-cols .info {
@@ -53,34 +51,11 @@ info-box {
     }
   }
 
-  // .title {
-  //   @include clearfix;
-  //   position: relative;
-  //   padding: 1rem 0;
-  //   h3 {
-  //     @include media($smallDevice) {
-  //       display: none;
-  //     }
-  //     float: left;
-  //   }
-  //   i {
-  //     vertical-align: middle;
-  //     position: absolute;
-  //     left: -2rem;
-  //     bottom: 0;
-  //     padding: 1.6rem 0;
-  //   }
-  // }
   .info {
     @include clearfix;
     @include fill-parent;
     padding: 2rem 0;
-    // border: 1px solid black;
-    // min-height: 70vh;
     width: 100%;
-    // padding: 2rem;
-    // @include column-count(2);
-    // @include column-gap(0);
     @include media($smallDevice) {
       padding: 0;
     }
@@ -104,7 +79,6 @@ info-box {
 
 #masterUI.ng-enter {
   .box {
-    // animation-delay: 1s;
     @include zoomIn(1s);
   }
 }
@@ -115,29 +89,26 @@ info-box {
   }
 }
 
-box-banner {
-  @include clearfix;
-  position: relative;
-  padding: 1rem 0;
-  // &[position='top'] {
+// box-banner {
+//   @include clearfix;
+//   position: relative;
+//   padding: 1rem 0;
 
-  // }
-
-  &[name='Bio'] {
-    position: fixed;
-    bottom: 0;
-  }
-  h3 {
-    @include media($smallDevice) {
-      display: none;
-    }
-    float: left;
-  }
-  i {
-    vertical-align: middle;
-    position: absolute;
-    left: -2rem;
-    bottom: 0;
-    padding: 1.6rem 0;
-  }
-}
+//   &[name='Bio'] {
+//     position: fixed;
+//     bottom: 0;
+//   }
+//   h3 {
+//     @include media($smallDevice) {
+//       display: none;
+//     }
+//     float: left;
+//   }
+//   i {
+//     vertical-align: middle;
+//     position: absolute;
+//     left: -2rem;
+//     bottom: 0;
+//     padding: 1.6rem 0;
+//   }
+// }
