@@ -1,4 +1,7 @@
-.title
-  i.fa.fa-2x.fa-step-backward.fa-fw(ui-sref="main")
-  h1(ui-sref="{{ name.toLowerCase() }}") {{ text || name }}
+.title-container
+  .title
+    span DAVID NASCA
+    span.heading {{ text || name.toUpperCase() }}
+    .buttons
+      i.fa.fa-arrow-left.fa-fw(ng-click="close()" ui-sref="main")
 img.glove_img(src="{{ image }}" ui-sref="{{ name.toLowerCase() }}")

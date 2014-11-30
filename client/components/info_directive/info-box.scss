@@ -1,46 +1,57 @@
 info-box {
-  @include outer-container;
 
 
   // .box {
   //   margin-top: 5%;
-  //   @include span-columns(8);
-  //   @include shift(2);
   //   @include media(max-width 760px) {
-  //     @include span-columns(10);
-  //     @include shift(1);
   //   }
   //   @include media(max-width 460px) {
   //     padding: 1rem;
-  //     @include span-columns(12);
-  //     @include shift(0);
   //   }
   // }
 
 
   .box {
-    margin-top: $gloveBoxH + 2vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: $gloveBoxH;
     // padding-bottom: 5vh;
     height: 100vh - $gloveBoxH;
     overflow-y: scroll;
-    @include span-columns(9);
-    // @include fill-parent;
-    @include shift(1.5);
     @include media($mediumDevice) {
       padding: 0 1rem;
-      @include span-columns(12);
-      @include shift(0);
     }
     @include media($smallDevice) {
-      // padding: 0;
+      width: 90%;
+      padding: 0;
       margin-top: $gloveMobileBoxH;
       height: 100vh - $gloveMobileBoxH;
     }
   }
 
-  &[name='Works'] .box {
-    @include span-columns(10);
-    @include shift(1);
+  .title {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    h3 {
+      font-family: $title-font;
+      color: $title-font-color;
+    }
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &[name="Works"], &[name="Contact"] {
+    h3 { float: right; }
+    i { left: 0; }
+  }
+  &[name="Bio"], &[name="Statement"] {
+    h3 { float: left; }
+    i { right: 0; }
   }
 
   &.two-cols .info {
@@ -54,7 +65,6 @@ info-box {
   .info {
     @include clearfix;
     @include fill-parent;
-    padding: 2rem 0;
     width: 100%;
     @include media($smallDevice) {
       padding: 0;
@@ -88,27 +98,3 @@ info-box {
     @include zoomOut(1s);
   }
 }
-
-// box-banner {
-//   @include clearfix;
-//   position: relative;
-//   padding: 1rem 0;
-
-//   &[name='Bio'] {
-//     position: fixed;
-//     bottom: 0;
-//   }
-//   h3 {
-//     @include media($smallDevice) {
-//       display: none;
-//     }
-//     float: left;
-//   }
-//   i {
-//     vertical-align: middle;
-//     position: absolute;
-//     left: -2rem;
-//     bottom: 0;
-//     padding: 1.6rem 0;
-//   }
-// }

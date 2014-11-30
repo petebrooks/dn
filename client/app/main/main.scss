@@ -1,8 +1,3 @@
-/////////////////// Variables
-
-$glove-font-color: slategray;
-$glove-hover-color: silver;
-
 /////////////////// Mixins
 
 $slide-out-poz: 1000px;
@@ -248,47 +243,56 @@ $slide-out-neg: -1000px;
   }
 }
 
-
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
 /////////////////// Gloves
 $glove-backgrounds: false;
 glove {
   // @include center-children;
-  @include outer-container;
   position: absolute;
-  width: 50vw;
-  height: 50vh;
-  color: $glove-font-color;
-  h1, i {
-    display: inline-block;
-  }
 
-  i:hover {
-    color: $glove-hover-color;
-  }
-  &.active i {
-    display: inline-block;
-  }
-  &.home i {
-    display: none;
-  }
-
-  img {
-    position: absolute;
-    width: auto;
-    height: auto;
-  }
-  &.active img {
-    max-height: 100%;
-    max-width: 50%;
-  }
-  &[name="Works"], &[name="Contact"] {
-    i, .title{
-      left: 0;
+  &.active {
+    .title-container {
+      width: 80%;
+      margin: 0 auto;
+      display: inline-block;
+      // border: 1px solid black;
     }
-  }
-  &[name="Bio"], &[name="Statement"] {
-    i, .title{
-      right: 0;
+    .title {
+      float: right;
+      width: 50%;
+      // border: 1px solid black;
+      span {
+        // font-size: 2.1rem;
+        font-size: 3.4vw;
+        font-family: $glove-font;
+        color: $glove-font-color;
+      }
+      span.heading:before { content: ' '; }
+      .buttons i {
+        color: $button-color;
+        &:hover {
+          color: $button-hover-color;
+        }
+      }
+    }
+    &[name="Works"] { span.heading { color: $works-font-color; } }
+    &[name="Statement"] { span.heading { color: $statement-font-color; } }
+    &[name="Contact"] { span.heading { color: $contact-font-color; } }
+    &[name="Bio"] { span.heading { color: $bio-font-color; } }
+
+    &[name="Works"], &[name="Contact"] {
+      .title { text-align: left; }
+    }
+    &[name="Bio"], &[name="Statement"] {
+      .title { text-align: right; }
+    }
+
+    img {
+      position: absolute;
+      width: auto;
+      height: auto;
+      max-height: 100%;
+      max-width: 40%;
     }
   }
   // &.home img {
@@ -296,7 +300,10 @@ glove {
   // }
 
   &.home {
+    width: 50vw;
+    height: 50vh;
     cursor: pointer;
+
     &[name="Works"] {
       @include quadrant('top', 'right');
       @include image-quadrant('top right');
@@ -317,7 +324,7 @@ glove {
       @include image-quadrant('bottom left');
       @if $glove-backgrounds { background: powderblue; }
     }
-    h1 {
+    .title {
       display: none;
     }
   }
