@@ -24,35 +24,35 @@ info-box {
     @include media($smallDevice) {
       width: 90%;
       padding: 0;
-      margin-top: $gloveMobileBoxH;
+      margin-top: $gloveMobileBoxH * 1.5;
       height: 100vh - $gloveMobileBoxH;
     }
   }
 
-  .title {
-    width: 100%;
-    display: inline-block;
-    position: relative;
-    h3 {
-      font-family: $title-font;
-      color: $title-font-color;
-    }
-    i {
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
+  // .title {
+  //   width: 100%;
+  //   display: inline-block;
+  //   position: relative;
+  //   h3 {
+  //     font-family: $title-font;
+  //     color: $title-font-color;
+  //   }
+  //   i {
+  //     display: inline-block;
+  //     position: absolute;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //   }
+  // }
 
-  &[name="Works"], &[name="Contact"] {
-    h3 { float: right; }
-    i { left: 0; }
-  }
-  &[name="Bio"], &[name="Statement"] {
-    h3 { float: left; }
-    i { right: 0; }
-  }
+  // &[name="Works"], &[name="Contact"] {
+  //   h3 { float: right; }
+  //   i { left: 0; }
+  // }
+  // &[name="Bio"], &[name="Statement"] {
+  //   h3 { float: left; }
+  //   i { right: 0; }
+  // }
 
   &.two-cols .info {
     @include media($xlScreen) {

@@ -258,7 +258,6 @@ glove {
       // border: 1px solid black;
     }
     .title {
-      float: right;
       width: 50%;
       // border: 1px solid black;
       span {
@@ -280,15 +279,7 @@ glove {
     &[name="Contact"] { span.heading { color: $contact-font-color; } }
     &[name="Bio"] { span.heading { color: $bio-font-color; } }
 
-    &[name="Works"], &[name="Contact"] {
-      .title { text-align: left; }
-    }
-    &[name="Bio"], &[name="Statement"] {
-      .title { text-align: right; }
-    }
-
     img {
-      position: absolute;
       width: auto;
       height: auto;
       max-height: 100%;
@@ -372,15 +363,20 @@ glove {
       height: $gloveBoxH;
       min-height: 130px;
       top: 0;
-      // img, .title { position: absolute; }
 
       &[name="Statement"], &[name="Bio"] {
         img { left: 0; }
-        .title { right: 12.63406%; }
+        .title {
+          right: 12%;
+          text-align: right;
+        }
       }
       &[name="Contact"], &[name="Works"] {
         img { right: 0; }
-        .title { left: 12.63406%; }
+        .title {
+          text-align: left;
+          left: 12%;
+        }
       }
     }
   }
@@ -399,38 +395,30 @@ glove {
       height: $gloveMobileBoxH;
       top: 0;
       .title, img {
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        display: block;
+        max-width: 100%;
+        width: 100%;
       }
-      img {
-        max-width: 90%;
+      .title {
+        text-align: center;
+        span {
+          font-size: 6.5vw;
+        }
       }
+
       &[name="Statement"], &[name="Bio"] {
-        img { transform: translate(-30%, -50%); }
-        img { left: 0; }
-        .title { right: 0; }
-        i {
-          float: right;
-          margin-left: 1rem;
+        // img { transform: translate(-30%, -50%); }
+        img {
+          left: 0;
         }
       }
       &[name="Contact"], &[name="Works"] {
-        img { transform: translate(30%, -50%); }
         img { right: 0; }
-        .title { left: 0; }
-        i {
-          float: left;
-          margin-right: 1rem;
-        }
       }
     }
     &.home {
       height: $gloveMobileMainH;
-      // img {
-      //   height: 100%;
-      // }
+      width: 100vw;
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }

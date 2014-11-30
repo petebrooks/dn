@@ -1,7 +1,6 @@
-.title-container
-  .title
-    span DAVID NASCA
-    span.heading {{ text || name.toUpperCase() }}
-    .buttons
-      i.fa.fa-arrow-left.fa-fw(ng-click="close()" ui-sref="main")
 img.glove_img(src="{{ image }}" ui-sref="{{ name.toLowerCase() }}")
+.title
+  span DAVID NASCA
+  span.heading {{ text || name.toUpperCase() }}
+  .buttons
+    i.fa.fa-arrow-left.fa-fw(ng-click="close()" ui-sref="main")
