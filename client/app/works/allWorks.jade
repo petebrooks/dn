@@ -1,20 +1,15 @@
-<div ng-include='"components/navbar/navbar.html"'></div>
-//- .container
-//-   .title
-//-     h3 Works
-//-     i.fa.fa-arrow-left.fa-fw(ng-click="close()" ui-sref="main")
-//-   section.gallery
-//-     .work(ng-repeat="work in works")
-//-       a(ui-sref="viewWork({id: work._id})")
-//-         .thumb(style="background-image: url('{{ work.image }}')")
-//-       .hoverTitle {{ work.title }}
-
-  //- pre {{ works | json }}
+.glove-container
+  glove.active(name="Works" image="assets/images/red_glove.png")
 
 info-box(name="Works")
   .gallery
     .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})")
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('{{ work.photo_thumb }}')")
+      .hoverTitle
+        .title {{ work.title }}
+    .work(ng-click="loadHidden()")
+      //- a(ui-sref="viewWorks({id: work._id})")
+      .thumb(style="background-image: url('=')")
       .hoverTitle
         .title {{ work.title }}

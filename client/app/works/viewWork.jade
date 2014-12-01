@@ -1,12 +1,17 @@
-<div ng-include='"components/navbar/navbar.html"'></div>
-//- .container(ng-controller="ViewWorkCtrl")
-//-   section.detail
-info-box.workView
-  .work
-    h3 {{ work.title }}
-    small {{ work.year }}
-    br
-    img(src=" {{ work.image }} ")
-  .gallery
-    .work
-    .work
+.glove-container
+  glove.active(name="Works" image="assets/images/red_glove.png")
+
+info-box
+  .display
+    img(src=" {{ allPhotos()[selected] }} " ng-click="open()")
+    .wall-text
+      h3 {{ work.title }}
+      p {{ work.dimensions }}
+      p {{ work.media }}
+      p {{ work.year }}
+      p {{ work.description }}
+  .detail-gallery(ng-if="allPhotos().length > 1")
+    //- .detail
+    //-   img(src="{{ work.photo_main }}" ng-class="isSelected('main')")
+    .detail(ng-repeat="photo in allPhotos()" ng-class="isSelected({{ $index }})" ng-click="setSelected($index)")
+      .thumb(style="background-image: url('{{ photo }}')")

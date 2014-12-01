@@ -23,15 +23,43 @@ img.large {
   }
 }
 
-.workView {
-  .work {
-    img {
-      margin-top: 2rem;
+.detail-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  .detail {
+    cursor: pointer;
+    width: 20vmin;
+    background-color: blue;
+    &:hover, &.selected {
+      opacity: .6;
     }
   }
-  .gallery .work {
+}
+
+.display {
+  @include clearfix;
+  margin-bottom: 2rem;
+  max-height: 50vh;
+  img, .wall-text {
+    width: 50%;
+    display: inline-block;
+  }
+  .wall-text {
+    float: right;
+    padding-left: 1rem;
+  }
+  img {
+    float: left;
+    height: auto;
+    width: auto;
+    max-width: 50%;
+    max-height: 50vh;
+    cursor: pointer;
   }
 }
+
 .work, .large {
   // background-color: blue;
   position: relative;

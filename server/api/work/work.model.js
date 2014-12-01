@@ -14,7 +14,7 @@ var WorkSchema = new Schema({
   photo_main: String,
   photo_thumb: String,
   // photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }]
-  photos: [String]
+  photos: [String],
 });
 
 module.exports = mongoose.model('Work', WorkSchema);
