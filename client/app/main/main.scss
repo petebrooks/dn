@@ -291,10 +291,7 @@ glove {
   // }
 
   &.home {
-    width: 50vw;
-    height: 50vh;
     cursor: pointer;
-
     &[name="Works"] {
       @include quadrant('top', 'right');
       @include image-quadrant('top right');
@@ -318,6 +315,9 @@ glove {
     .title {
       display: none;
     }
+    img {
+      max-width: 130%;
+    }
   }
 
 
@@ -332,6 +332,8 @@ glove {
       // }
     }
     &.home {
+      width: 50vw;
+      height: 50vh;
       &.inactive-remove {
         &[name="Works"] {
           @include slideInUpRight(1s);
@@ -346,6 +348,7 @@ glove {
           @include slideInBottomLeft(1s);
         }
       }
+
       // &.home-add.active-remove {
       //   // transition: all 1s;
       //   width: $gloveMainW;
@@ -408,23 +411,20 @@ glove {
 
       &[name="Statement"], &[name="Bio"] {
         // img { transform: translate(-30%, -50%); }
-        img {
-          left: 0;
-        }
+        img { left: 0; }
       }
       &[name="Contact"], &[name="Works"] {
         img { right: 0; }
       }
     }
     &.home {
-      height: $gloveMobileMainH;
       width: 100vw;
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
-      // &[name="Works"], &[name="Contact"]  { @include slideInRight(1.2s); }
-      // &[name="Bio"], &[name="Statement"] { @include slideInLeft(1.2s); }
+      &[name="Works"], &[name="Contact"]  { transform: translateX(-20%); }
+      &[name="Bio"], &[name="Statement"] { transform: translateX(-30%); }
     }
   }
 }
