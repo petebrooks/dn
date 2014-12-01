@@ -154,7 +154,7 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('top', 'left');
       transform-origin: left 50%;
-      @include media(680px) { transform: translate(-10%, -80%) rotate(40deg); }
+      @include media(680px) { transform: translate(-10%, -70%) rotate(40deg); }
       @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
     }
     &.active img {
@@ -165,8 +165,8 @@ $slide-out-neg: -1000px;
     &.home img {
       @include quadrant('top', 'right');
       transform-origin: right 50%;
-      @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
-      @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
+      @include media(680px) { transform: translateY(-80%) rotate(-40deg); }
+      @include media($xlScreen) { transform: translate(-5%, -65%) rotate(-40deg); }
     }
     &.active img {
       // transition: all 1s;
@@ -176,8 +176,8 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('bottom', 'left');
       transform-origin: bottom left;
-      @include media(680px) { transform: translate(0, 80%) rotate(-40deg); }
-      @include media($xlScreen) { transform: translateY(50%) rotate(-40deg); }
+      @include media(680px) { transform: translateY(50%) rotate(-40deg); }
+      @include media($xlScreen) { transform: translate(10%, 30%) rotate(-40deg); }
     }
     &.active img {
       // transition: all 1s;
@@ -187,8 +187,8 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('bottom', 'right');
       transform-origin: bottom right;
-      @include media(680px) { transform: translate(0, 60%) rotate(40deg); }
-      @include media($xlScreen) { transform: translateY(50%) rotate(40deg); }
+      @include media(680px) { transform: translateY(50%) rotate(40deg); }
+      @include media($xlScreen) { transform: translate(-5%, 20%) rotate(40deg); }
     }
     &.active img {
       // transition: all 1s;
@@ -295,22 +295,18 @@ glove {
     &[name="Works"] {
       @include quadrant('top', 'right');
       @include image-quadrant('top right');
-      @if $glove-backgrounds { background: tomato; }
     }
     &[name="Contact"] {
       @include quadrant('bottom', 'right');
       @include image-quadrant('bottom right');
-      @if $glove-backgrounds { background: aqua; }
     }
     &[name="Statement"] {
       @include quadrant('top', 'left');
       @include image-quadrant('top left');
-      @if $glove-backgrounds { background: oldlace; }
     }
     &[name="Bio"] {
       @include quadrant('bottom', 'left');
       @include image-quadrant('bottom left');
-      @if $glove-backgrounds { background: powderblue; }
     }
     .title {
       display: none;
