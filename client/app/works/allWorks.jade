@@ -8,3 +8,8 @@ info-box(name="Works")
       .thumb(style="background-image: url('{{ work.photo_thumb }}')")
       .hoverTitle
         .title {{ work.title }}
+    .work(ng-click="loadHidden()")
+      //- a(ui-sref="viewWorks({id: work._id})")
+      .thumb(style="background-image: url('=')")
+      .hoverTitle
+        .title {{ work.title }}

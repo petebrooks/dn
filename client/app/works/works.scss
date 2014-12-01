@@ -23,15 +23,34 @@ img.large {
   }
 }
 
-.workView {
-  .work {
-    img {
-      margin-top: 2rem;
-    }
-  }
-  .gallery .work {
+.detail-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  .detail {
+    cursor: pointer;
+    width: 25%;
   }
 }
+
+.display {
+  @include clearfix;
+  margin-bottom: 3rem;
+  img, .wall-text {
+    width: 50%;
+    display: inline-block;
+  }
+  .wall-text {
+    float: right;
+    padding-left: 1rem;
+  }
+  img {
+    float: left;
+    height: auto;
+  }
+}
+
 .work, .large {
   // background-color: blue;
   position: relative;
