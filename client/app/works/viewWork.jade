@@ -13,5 +13,5 @@ info-box
   .detail-gallery(ng-if="allPhotos().length > 1")
     //- .detail
     //-   img(src="{{ work.photo_main }}" ng-class="isSelected('main')")
-    .detail(ng-repeat="photo in allPhotos()" ng-class="isSelected({{ $index }})" ng-click="setSelected($index)")
-      .thumb(style="background-image: url('{{ photo }}')")
+    .detail(ng-repeat="photo in allPhotos()" ng-click="setSelected($index)")
+      .thumb(style="background-image: url('{{ photo }}')" ng-class="isSelected({{ $index }})")
