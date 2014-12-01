@@ -23,7 +23,11 @@ workControllers
     $scope.allPhotos = function() {
       return [$scope.work.photo_main].concat($scope.work.photos)
     }
-    console.log($scope.work);
+    $scope.open = function() {
+      var url = $scope.allPhotos()[$scope.selected];
+      window.open(url);
+    }
+    console.log($scope.allPhotos());
   })
 
   .controller('NewWorkCtrl', function ($scope, $state, $stateParams, $location, $upload, Work) {

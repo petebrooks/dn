@@ -3,14 +3,14 @@
 
 info-box
   .display
-    img(src=" {{ allPhotos()[selected] }} ")
+    img(src=" {{ allPhotos()[selected] }} " ng-click="open()")
     .wall-text
       h3 {{ work.title }}
       p {{ work.dimensions }}
       p {{ work.media }}
       p {{ work.year }}
       p {{ work.description }}
-  .detail-gallery
+  .detail-gallery(ng-if="allPhotos().length > 1")
     //- .detail
     //-   img(src="{{ work.photo_main }}" ng-class="isSelected('main')")
     .detail(ng-repeat="photo in allPhotos()" ng-class="isSelected({{ $index }})" ng-click="setSelected($index)")
