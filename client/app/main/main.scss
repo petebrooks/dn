@@ -267,16 +267,13 @@ glove {
 
   &.home {
     cursor: pointer;
-    img {
-      max-width: 130%;
-    }
     .title {
       display: none;
     }
   }
   img { position: absolute; }
 
-  @include media(680px) {
+  @include media(681px) {
     &.inactive {
       display: none;
     }
@@ -312,6 +309,9 @@ glove {
       &[name="Bio"] {
         @include quadrant('bottom', 'left');
         @include image-quadrant('bottom left');
+      }
+      img {
+        max-width: 130%;
       }
     }
     &.active {
@@ -389,22 +389,27 @@ glove {
     }
     &.home {
       width: 100vw;
-      // img { max-width: 100%; }
+      img { max-width: 730px; }
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
       &[name="Works"], &[name="Contact"]  {
-        img {
-          right: 0;
-          transform: translateX(5%);
-        }
+        img { right: 0; }
       }
       &[name="Bio"], &[name="Statement"] {
-        img {
-          left: 0;
-          transform: translateX(-25%);
-        }
+        img { left: 0; }
+      }
+      &[name="Statement"] { img { transform: translate(-25%, -15%); } }
+      &[name="Works"] { img { transform: translate(5%, -30%); } }
+      &[name="Bio"] { img { transform: translate(-15%, -14%); } }
+      &[name="Contact"] { img { transform: translate(5%, -19%); } }
+      @include media(max-width 536px) {
+        img { max-width: 580px; }
+        &[name="Statement"] { img { transform: translate(-30%, -15%); } }
+        &[name="Works"] { img { transform: translate(10%, -30%); } }
+        &[name="Bio"] { img { transform: translate(-20%, -14%); } }
+        &[name="Contact"] { img { transform: translate(10%, -19%); } }
       }
       // &[name="Works"], &[name="Contact"]  { transform: translateX(-20%) translateY(-20%); }
       // &[name="Bio"], &[name="Statement"] { transform: translateX(-30%) translateY(-10%); }
