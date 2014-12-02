@@ -1,21 +1,10 @@
 info-box {
-
-
-  // .box {
-  //   margin-top: 5%;
-  //   @include media(max-width 760px) {
-  //   }
-  //   @include media(max-width 460px) {
-  //     padding: 1rem;
-  //   }
-  // }
-
-
+  @include clearfix;
   .box {
+    @include fill-parent;
     width: 80%;
     margin: 0 auto;
     margin-top: $gloveBoxH;
-    // padding-bottom: 5vh;
     height: 100vh - $gloveBoxH;
     overflow-y: scroll;
     @include media($mediumDevice) {
@@ -24,35 +13,10 @@ info-box {
     @include media($smallDevice) {
       width: 90%;
       padding: 0;
-      margin-top: $gloveMobileBoxH * 1.5;
+      margin-top: $gloveMobileBoxH;
       height: 100vh - $gloveMobileBoxH;
     }
   }
-
-  // .title {
-  //   width: 100%;
-  //   display: inline-block;
-  //   position: relative;
-  //   h3 {
-  //     font-family: $title-font;
-  //     color: $title-font-color;
-  //   }
-  //   i {
-  //     display: inline-block;
-  //     position: absolute;
-  //     top: 50%;
-  //     transform: translateY(-50%);
-  //   }
-  // }
-
-  // &[name="Works"], &[name="Contact"] {
-  //   h3 { float: right; }
-  //   i { left: 0; }
-  // }
-  // &[name="Bio"], &[name="Statement"] {
-  //   h3 { float: left; }
-  //   i { right: 0; }
-  // }
 
   &.two-cols .info {
     @include media($xlScreen) {
@@ -64,7 +28,6 @@ info-box {
 
   .info {
     @include clearfix;
-    @include fill-parent;
     width: 100%;
     @include media($smallDevice) {
       padding: 0;
