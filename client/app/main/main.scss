@@ -154,8 +154,8 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('top', 'left');
       transform-origin: left 50%;
-      @include media(680px) { transform: translate(-10%, -70%) rotate(40deg); }
-      @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
+      // @include media(680px) { transform: translate(-10%, -70%) rotate(40deg); }
+      @include media(680px) { transform: translateY(-50%) rotate(40deg); }
     }
     &.active img {
       @include media(680px) { transform: translate(0, 0); }
@@ -164,8 +164,8 @@ $slide-out-neg: -1000px;
     &.home img {
       @include quadrant('top', 'right');
       transform-origin: right 50%;
-      @include media(680px) { transform: translateY(-80%) rotate(-40deg); }
-      @include media($xlScreen) { transform: translate(-5%, -65%) rotate(-40deg); }
+      // @include media(680px) { transform: translateY(-80%) rotate(-40deg); }
+      @include media(680px) { transform: translate(-5%, -65%) rotate(-40deg); }
     }
     &.active img {
       @include media(680px) { transform: translate(30%, 0); }
@@ -174,8 +174,8 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('bottom', 'left');
       transform-origin: bottom left;
-      @include media(680px) { transform: translateY(50%) rotate(-40deg); }
-      @include media($xlScreen) { transform: translate(10%, 30%) rotate(-40deg); }
+      // @include media(680px) { transform: translateY(50%) rotate(-40deg); }
+      @include media(680px) { transform: translate(12%, 35%) rotate(-40deg); }
     }
     &.active img {
       @include media(680px) { transform: translate(-10%, 0); }
@@ -184,8 +184,8 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('bottom', 'right');
       transform-origin: bottom right;
-      @include media(680px) { transform: translateY(50%) rotate(40deg); }
-      @include media($xlScreen) { transform: translate(-5%, 20%) rotate(40deg); }
+      // @include media(680px) { transform: translateY(50%) rotate(40deg); }
+      @include media(680px) { transform: translate(-10%, 22%) rotate(40deg); }
     }
     &.active img {
       @include media(680px) { transform: translate(0, 0); }
@@ -216,6 +216,9 @@ $slide-out-neg: -1000px;
       &[name="Statement"] { @include slideOutLeft(1s); }
       &[name="Bio"] { @include slideOutLeft(1s); }
     }
+    h1.main {
+      @include slideOutUp(1s);
+    }
   }
   &.ng-enter {
     glove.active {
@@ -234,13 +237,25 @@ $slide-out-neg: -1000px;
         &[name="Bio"], &[name="Statement"] { @include slideInLeft(1s); }
       }
     }
+    h1.main {
+      @include slideInDown(1s);
+    }
   }
 }
 
-@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
+h1.main {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 5%;
+  // left: 50%;
+  // transform: translate(-50%, 0);
+  font-family: $glove-font;
+  color: $glove-font-color;
+  font-size: 4rem;
+}
 
 /////////////////// Gloves
-$glove-backgrounds: false;
 glove {
   position: absolute;
 
@@ -314,16 +329,17 @@ glove {
         max-width: 130%;
       }
     }
+    .title, img {
+      display: inline-block;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
       min-height: 130px;
       top: 0;
-      .title, img {
-        display: inline-block;
-        top: 50%;
-        transform: translateY(-50%);
-      }
       .title { width: 50%; }
       .title-container {
         width: 80%;
