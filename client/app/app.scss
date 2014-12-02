@@ -14,8 +14,9 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 /**
  * App-wide Styles
  */
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
 $glove-font: 'Fredoka One', Helvetica, sans-serif;
-$glove-font-color: gray;
+$glove-font-color: lightgray;
 
 $title-font: 'Fredoka One', Helvetica, sans-serif;
 $title-font-color: slategray;
@@ -23,10 +24,10 @@ $title-font-color: slategray;
 $button-color: $title-font-color;
 $button-hover-color: black;
 
-$statement-font-color: red;
-$works-font-color: slategray;
-$contact-font-color: slategray;
-$bio-font-color: slategray;
+$statement-font-color: rgb(95, 60, 49);
+$works-font-color: rgb(90, 74, 148);
+$contact-font-color: rgb(139, 79, 85);
+$bio-font-color: rgb(80, 102, 96);
 
 $visual-grid: false;
 $max-width: 87em !global;
@@ -40,7 +41,7 @@ $gloveBoxW: 100vw;
 $gloveMobileMainW: 100vw;
 $gloveMobileMainH: 25vh;
 $gloveMobileBoxW: 100vw;
-$gloveMobileBoxH: 15vh;
+$gloveMobileBoxH: 10vh;
 
 $smallDevice: new-breakpoint(max-width 680px);
 $mediumDevice: new-breakpoint(max-width 760px);
@@ -53,9 +54,9 @@ img#background {
 body {
   background: url("../assets/images/background.png") no-repeat center center fixed;
   background-size: cover;
-  // width: 100vw;
-  // height: 100vh;
-  // overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 .browsehappy {
     margin: 0.2em 0;

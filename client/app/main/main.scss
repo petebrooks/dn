@@ -154,44 +154,40 @@ $slide-out-neg: -1000px;
     img {
       @include quadrant('top', 'left');
       transform-origin: left 50%;
-      @include media(680px) { transform: translate(-10%, -80%) rotate(40deg); }
-      @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
+      // @include media(680px) { transform: translate(-10%, -70%) rotate(40deg); }
+      @include media(680px) { transform: translateY(-50%) rotate(40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(0, 0); }
     }
   } @else if $pos == 'top right' {
     &.home img {
       @include quadrant('top', 'right');
       transform-origin: right 50%;
-      @include media(680px) { transform: translate(5%, -80%) rotate(-40deg); }
-      @include media($xlScreen) { transform: translateY(-50%) rotate(-40deg); }
+      // @include media(680px) { transform: translateY(-80%) rotate(-40deg); }
+      @include media(680px) { transform: translate(-5%, -65%) rotate(-40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(30%, 0); }
     }
   } @else if $pos == 'bottom left' {
     img {
       @include quadrant('bottom', 'left');
       transform-origin: bottom left;
-      @include media(680px) { transform: translate(0, 80%) rotate(-40deg); }
-      @include media($xlScreen) { transform: translateY(50%) rotate(-40deg); }
+      // @include media(680px) { transform: translateY(50%) rotate(-40deg); }
+      @include media(680px) { transform: translate(12%, 35%) rotate(-40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(-10%, 0); }
     }
   } @else if $pos == 'bottom right' {
     img {
       @include quadrant('bottom', 'right');
-      transform-origin: bottom right;
-      @include media(680px) { transform: translate(0, 60%) rotate(40deg); }
-      @include media($xlScreen) { transform: translateY(50%) rotate(40deg); }
+      transform-origin: 80% 150%;
+      // @include media(680px) { transform: translateY(50%) rotate(40deg); }
+      @include media(680px) { transform: translate(-15%, -22%) rotate(40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(0, 0); }
     }
   }
@@ -200,11 +196,9 @@ $slide-out-neg: -1000px;
 /////////////////// Main Styles
 
 #masterUI {
-  // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
   transition: all 1s;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  // @include cubic-bezier('5s');
   &.ng-leave{
     glove.home {
       &[name="Works"] { @include slideOutUpRight(1s); }
@@ -221,6 +215,9 @@ $slide-out-neg: -1000px;
       &[name="Contact"] { @include slideOutRight(1s); }
       &[name="Statement"] { @include slideOutLeft(1s); }
       &[name="Bio"] { @include slideOutLeft(1s); }
+    }
+    h1.main {
+      @include slideOutUp(1s);
     }
   }
   &.ng-enter {
@@ -240,28 +237,36 @@ $slide-out-neg: -1000px;
         &[name="Bio"], &[name="Statement"] { @include slideInLeft(1s); }
       }
     }
+    h1.main {
+      @include slideInDown(1s);
+    }
   }
 }
 
-@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
+h1.main {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 5%;
+  // left: 50%;
+  // transform: translate(-50%, 0);
+  font-family: $glove-font;
+  color: $glove-font-color;
+  font-size: 4rem;
+  @include media(max-width 536px) {
+    font-size: 3.5rem;
+    top: 2%;
+  }
+}
+
 /////////////////// Gloves
-$glove-backgrounds: false;
 glove {
-  // @include center-children;
+  @include clearfix;
   position: absolute;
 
   &.active {
-    .title-container {
-      width: 80%;
-      margin: 0 auto;
-      display: inline-block;
-      // border: 1px solid black;
-    }
     .title {
-      width: 50%;
-      // border: 1px solid black;
       span {
-        // font-size: 2.1rem;
         font-size: 3.4vw;
         font-family: $glove-font;
         color: $glove-font-color;
@@ -278,58 +283,19 @@ glove {
     &[name="Statement"] { span.heading { color: $statement-font-color; } }
     &[name="Contact"] { span.heading { color: $contact-font-color; } }
     &[name="Bio"] { span.heading { color: $bio-font-color; } }
-
-    img {
-      width: auto;
-      height: auto;
-      max-height: 100%;
-      max-width: 40%;
-    }
   }
-  // &.home img {
-  //   transition: all 1s;
-  // }
 
   &.home {
     cursor: pointer;
-    &[name="Works"] {
-      @include quadrant('top', 'right');
-      @include image-quadrant('top right');
-      @if $glove-backgrounds { background: tomato; }
-    }
-    &[name="Contact"] {
-      @include quadrant('bottom', 'right');
-      @include image-quadrant('bottom right');
-      @if $glove-backgrounds { background: aqua; }
-    }
-    &[name="Statement"] {
-      @include quadrant('top', 'left');
-      @include image-quadrant('top left');
-      @if $glove-backgrounds { background: oldlace; }
-    }
-    &[name="Bio"] {
-      @include quadrant('bottom', 'left');
-      @include image-quadrant('bottom left');
-      @if $glove-backgrounds { background: powderblue; }
-    }
     .title {
       display: none;
     }
-    img {
-      max-width: 130%;
-    }
   }
+  img { position: absolute; }
 
-
-  @include media(680px) {
+  @include media(681px) {
     &.inactive {
       display: none;
-      // &.inactive-add {
-      //   &[name="Works"] { @include slideOutUpRight(1s); }
-      //   &[name="Contact"] { @include slideOutBottomRight(1s); }
-      //   &[name="Statement"] { @include slideOutUpLeft(1s); }
-      //   &[name="Bio"] { @include slideOutBottomLeft(1s); }
-      // }
     }
     &.home {
       width: 50vw;
@@ -348,25 +314,49 @@ glove {
           @include slideInBottomLeft(1s);
         }
       }
-
-      // &.home-add.active-remove {
-      //   // transition: all 1s;
-      //   width: $gloveMainW;
-      //   height: $gloveMainH;
-      // }
+      &[name="Works"] {
+        @include quadrant('top', 'right');
+        @include image-quadrant('top right');
+      }
+      &[name="Contact"] {
+        @include quadrant('bottom', 'right');
+        @include image-quadrant('bottom right');
+      }
+      &[name="Statement"] {
+        @include quadrant('top', 'left');
+        @include image-quadrant('top left');
+      }
+      &[name="Bio"] {
+        @include quadrant('bottom', 'left');
+        @include image-quadrant('bottom left');
+      }
+      img {
+        max-width: 130%;
+      }
     }
     .title, img {
       display: inline-block;
-      position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      position: absolute;
     }
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
       min-height: 130px;
       top: 0;
-
+      .title { width: 50%; }
+      .title-container {
+        width: 80%;
+        margin: 0 auto;
+        display: inline-block;
+      }
+      img {
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 40%;
+      }
       &[name="Statement"], &[name="Bio"] {
         img { left: 0; }
         .title {
@@ -387,6 +377,7 @@ glove {
   @include media($smallDevice) {
     // position: fixed;
     width: $gloveMobileMainW;
+    height: $gloveMobileMainH;
     h1, i {
       // position: absolute;
     }
@@ -400,15 +391,30 @@ glove {
       .title, img {
         display: block;
         max-width: 100%;
-        width: 100%;
+        width: auto;
+        height: auto;
+        max-height: 100%;
       }
       .title {
         text-align: center;
+        position: absolute;
+        width: 100%;
+        margin-top: 5%;
+        // margin-left: 5%;
+        // top: $gloveMobileBoxH + 5vh;
         span {
-          font-size: 6.5vw;
+          font-size: 7vw;
+        }
+        .buttons {
+          display: none;
+          text-align: left;
+          position: absolute;
+          top: 50%;
+          left: 3%;
+          transform: translateY(-50%);
         }
       }
-
+      img { display: none; }
       &[name="Statement"], &[name="Bio"] {
         // img { transform: translate(-30%, -50%); }
         img { left: 0; }
@@ -419,12 +425,30 @@ glove {
     }
     &.home {
       width: 100vw;
+      img { max-width: 700px; }
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
-      &[name="Works"], &[name="Contact"]  { transform: translateX(-20%); }
-      &[name="Bio"], &[name="Statement"] { transform: translateX(-30%); }
+      &[name="Works"], &[name="Contact"]  {
+        img { right: 0; }
+      }
+      &[name="Bio"], &[name="Statement"] {
+        img { left: 0; }
+      }
+      &[name="Statement"] { img { transform: translate(-25%, 25%); } }
+      &[name="Works"] { img { transform: translate(5%, 0); } }
+      &[name="Bio"] { img { transform: translate(-15%, 0); } }
+      &[name="Contact"] { img { transform: translate(5%, -15%); } }
+      @include media(max-width 536px) {
+        img { max-width: 580px; }
+        &[name="Statement"] { img { transform: translate(-30%, 20%); } }
+        &[name="Works"] { img { transform: translate(10%, -10%); } }
+        &[name="Bio"] { img { transform: translate(-20%, -4%); } }
+        &[name="Contact"] { img { transform: translate(10%, -9%); } }
+      }
+      // &[name="Works"], &[name="Contact"]  { transform: translateX(-20%) translateY(-20%); }
+      // &[name="Bio"], &[name="Statement"] { transform: translateX(-30%) translateY(-10%); }
     }
   }
 }
