@@ -158,7 +158,6 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translateY(-50%) rotate(40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(0, 0); }
     }
   } @else if $pos == 'top right' {
@@ -169,7 +168,6 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translate(-5%, -65%) rotate(-40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(30%, 0); }
     }
   } @else if $pos == 'bottom left' {
@@ -180,7 +178,6 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translate(10%, 30%) rotate(-40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(-10%, 0); }
     }
   } @else if $pos == 'bottom right' {
@@ -191,7 +188,6 @@ $slide-out-neg: -1000px;
       @include media($xlScreen) { transform: translate(-5%, 20%) rotate(40deg); }
     }
     &.active img {
-      // transition: all 1s;
       @include media(680px) { transform: translate(0, 0); }
     }
   }
@@ -200,11 +196,9 @@ $slide-out-neg: -1000px;
 /////////////////// Main Styles
 
 #masterUI {
-  // transition: width 1s, height 1s, top 1s, bottom 1s, opacity 1s;
   transition: all 1s;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  // @include cubic-bezier('5s');
   &.ng-leave{
     glove.home {
       &[name="Works"] { @include slideOutUpRight(1s); }
@@ -244,24 +238,15 @@ $slide-out-neg: -1000px;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Fredoka+One);
+
 /////////////////// Gloves
 $glove-backgrounds: false;
 glove {
-  // @include center-children;
   position: absolute;
 
   &.active {
-    .title-container {
-      width: 80%;
-      margin: 0 auto;
-      display: inline-block;
-      // border: 1px solid black;
-    }
     .title {
-      width: 50%;
-      // border: 1px solid black;
       span {
-        // font-size: 2.1rem;
         font-size: 3.4vw;
         font-family: $glove-font;
         color: $glove-font-color;
@@ -278,54 +263,22 @@ glove {
     &[name="Statement"] { span.heading { color: $statement-font-color; } }
     &[name="Contact"] { span.heading { color: $contact-font-color; } }
     &[name="Bio"] { span.heading { color: $bio-font-color; } }
-
-    img {
-      width: auto;
-      height: auto;
-      max-height: 100%;
-      max-width: 40%;
-    }
   }
-  // &.home img {
-  //   transition: all 1s;
-  // }
 
   &.home {
     cursor: pointer;
-    &[name="Works"] {
-      @include quadrant('top', 'right');
-      @include image-quadrant('top right');
-    }
-    &[name="Contact"] {
-      @include quadrant('bottom', 'right');
-      @include image-quadrant('bottom right');
-    }
-    &[name="Statement"] {
-      @include quadrant('top', 'left');
-      @include image-quadrant('top left');
-    }
-    &[name="Bio"] {
-      @include quadrant('bottom', 'left');
-      @include image-quadrant('bottom left');
+    img {
+      max-width: 130%;
     }
     .title {
       display: none;
     }
-    img {
-      max-width: 130%;
-    }
   }
-
+  img { position: absolute; }
 
   @include media(680px) {
     &.inactive {
       display: none;
-      // &.inactive-add {
-      //   &[name="Works"] { @include slideOutUpRight(1s); }
-      //   &[name="Contact"] { @include slideOutBottomRight(1s); }
-      //   &[name="Statement"] { @include slideOutUpLeft(1s); }
-      //   &[name="Bio"] { @include slideOutBottomLeft(1s); }
-      // }
     }
     &.home {
       width: 50vw;
@@ -344,25 +297,45 @@ glove {
           @include slideInBottomLeft(1s);
         }
       }
-
-      // &.home-add.active-remove {
-      //   // transition: all 1s;
-      //   width: $gloveMainW;
-      //   height: $gloveMainH;
-      // }
-    }
-    .title, img {
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      &[name="Works"] {
+        @include quadrant('top', 'right');
+        @include image-quadrant('top right');
+      }
+      &[name="Contact"] {
+        @include quadrant('bottom', 'right');
+        @include image-quadrant('bottom right');
+      }
+      &[name="Statement"] {
+        @include quadrant('top', 'left');
+        @include image-quadrant('top left');
+      }
+      &[name="Bio"] {
+        @include quadrant('bottom', 'left');
+        @include image-quadrant('bottom left');
+      }
     }
     &.active {
       width: $gloveBoxW;
       height: $gloveBoxH;
       min-height: 130px;
       top: 0;
-
+      .title, img {
+        display: inline-block;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .title { width: 50%; }
+      .title-container {
+        width: 80%;
+        margin: 0 auto;
+        display: inline-block;
+      }
+      img {
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 40%;
+      }
       &[name="Statement"], &[name="Bio"] {
         img { left: 0; }
         .title {
@@ -383,6 +356,7 @@ glove {
   @include media($smallDevice) {
     // position: fixed;
     width: $gloveMobileMainW;
+    height: $gloveMobileMainH;
     h1, i {
       // position: absolute;
     }
@@ -415,12 +389,25 @@ glove {
     }
     &.home {
       width: 100vw;
+      // img { max-width: 100%; }
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
       &[name="Contact"] { top: 75% }
-      &[name="Works"], &[name="Contact"]  { transform: translateX(-20%); }
-      &[name="Bio"], &[name="Statement"] { transform: translateX(-30%); }
+      &[name="Works"], &[name="Contact"]  {
+        img {
+          right: 0;
+          transform: translateX(5%);
+        }
+      }
+      &[name="Bio"], &[name="Statement"] {
+        img {
+          left: 0;
+          transform: translateX(-25%);
+        }
+      }
+      // &[name="Works"], &[name="Contact"]  { transform: translateX(-20%) translateY(-20%); }
+      // &[name="Bio"], &[name="Statement"] { transform: translateX(-30%) translateY(-10%); }
     }
   }
 }
