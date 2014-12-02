@@ -183,9 +183,9 @@ $slide-out-neg: -1000px;
   } @else if $pos == 'bottom right' {
     img {
       @include quadrant('bottom', 'right');
-      transform-origin: bottom right;
+      transform-origin: 80% 150%;
       // @include media(680px) { transform: translateY(50%) rotate(40deg); }
-      @include media(680px) { transform: translate(-10%, 22%) rotate(40deg); }
+      @include media(680px) { transform: translate(-15%, -22%) rotate(40deg); }
     }
     &.active img {
       @include media(680px) { transform: translate(0, 0); }
@@ -253,6 +253,10 @@ h1.main {
   font-family: $glove-font;
   color: $glove-font-color;
   font-size: 4rem;
+  @include media(max-width 536px) {
+    font-size: 3.5rem;
+    top: 2%;
+  }
 }
 
 /////////////////// Gloves
@@ -405,7 +409,7 @@ glove {
     }
     &.home {
       width: 100vw;
-      img { max-width: 730px; }
+      img { max-width: 700px; }
       &[name="Statement"] { top: 0 }
       &[name="Works"] { top: 25% }
       &[name="Bio"] { top: 50% }
@@ -416,16 +420,16 @@ glove {
       &[name="Bio"], &[name="Statement"] {
         img { left: 0; }
       }
-      &[name="Statement"] { img { transform: translate(-25%, -15%); } }
-      &[name="Works"] { img { transform: translate(5%, -30%); } }
-      &[name="Bio"] { img { transform: translate(-15%, -14%); } }
-      &[name="Contact"] { img { transform: translate(5%, -19%); } }
+      &[name="Statement"] { img { transform: translate(-25%, 25%); } }
+      &[name="Works"] { img { transform: translate(5%, 0); } }
+      &[name="Bio"] { img { transform: translate(-15%, 0); } }
+      &[name="Contact"] { img { transform: translate(5%, -15%); } }
       @include media(max-width 536px) {
         img { max-width: 580px; }
-        &[name="Statement"] { img { transform: translate(-30%, -15%); } }
-        &[name="Works"] { img { transform: translate(10%, -30%); } }
-        &[name="Bio"] { img { transform: translate(-20%, -14%); } }
-        &[name="Contact"] { img { transform: translate(10%, -19%); } }
+        &[name="Statement"] { img { transform: translate(-30%, 20%); } }
+        &[name="Works"] { img { transform: translate(10%, -10%); } }
+        &[name="Bio"] { img { transform: translate(-20%, -4%); } }
+        &[name="Contact"] { img { transform: translate(10%, -9%); } }
       }
       // &[name="Works"], &[name="Contact"]  { transform: translateX(-20%) translateY(-20%); }
       // &[name="Bio"], &[name="Statement"] { transform: translateX(-30%) translateY(-10%); }
