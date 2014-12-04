@@ -1,4 +1,3 @@
-
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'font-awesome/scss/font-awesome',
@@ -29,10 +28,10 @@ $works-font-color: rgb(90, 74, 148);
 $contact-font-color: rgb(139, 79, 85);
 $bio-font-color: rgb(80, 102, 96);
 
-$visual-grid: false;
-$max-width: 87em !global;
-$gutter: golden-ratio(1em, 1) !global;
-$column: golden-ratio(1em, 5) !global;
+// $visual-grid: false;
+// $max-width: 87em !global;
+// $gutter: golden-ratio(1em, 1) !global;
+// $column: golden-ratio(1em, 5) !global;
 
 $gloveMainH: 50vh;
 $gloveMainW: 50vw;

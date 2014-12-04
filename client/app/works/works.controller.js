@@ -6,7 +6,9 @@ workControllers
 
   .controller('AllWorkCtrl', function ($scope, $stateParams, Work) {
     $scope.works = Work.query();
+    $scope.hidden = Work.query({id:'hidden'});
     $scope.orderProp = 'year';
+    // $scope.showHidden = false;
   })
 
   .controller('ViewWorkCtrl', function ($scope, $stateParams, Work) {
@@ -27,7 +29,6 @@ workControllers
       var url = $scope.allPhotos()[$scope.selected];
       window.open(url);
     }
-    console.log($scope.allPhotos());
   })
 
   .controller('NewWorkCtrl', function ($scope, $state, $stateParams, $location, $upload, Work) {
