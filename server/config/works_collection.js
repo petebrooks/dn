@@ -307,8 +307,8 @@ var works_collection =
   description: '',
   media: 'Wet-formed tooling leather, thread',
   dimensions: 'Approximately 8" high',
-  photo_thumb: 'assets/images/tumbleweed-thumb.jpg',
-  photo_main: 'assets/images/tumbleweed-main.jpg',
+  photo_thumb: 'assets/images/tumbleweed_thumb.jpg',
+  photo_main: 'assets/images/tumbleweed_main.jpg',
   photos: []
 },
 
@@ -334,6 +334,7 @@ var works_collection =
   media: 'Polychromed tooled leather, paper',
   dimensions: '3 elements, each 8"x2"x5"',
   photo_main: 'assets/images/pagemaster-main.jpg',
+  photo_thumb: 'assets/images/pagemaster-thumb.jpg',
   photos: ['assets/images/pagemaster-detail.jpg']
 },
 
