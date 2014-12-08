@@ -9,7 +9,7 @@ angular.module('dnApp')
       },
       transclude: true,
       templateUrl: 'components/info_directive/info-box.html',
-      link: function(scope, el, attrs) {
+      link: function(scope) {
         scope.close = function() {
           console.log('close');
           scope.hidden = true;
@@ -25,13 +25,13 @@ angular.module('dnApp')
         name: '@'
       },
       templateUrl: 'components/info_directive/title.html',
-      link: function(scope, el, attrs) {
+      link: function(scope) {
         scope.close = function() {
           console.log('close');
           scope.hidden = true;
         };
       }
-    }
+    };
   });
 
   // .directive('line', function() {
