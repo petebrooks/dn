@@ -15,39 +15,18 @@ workControllers
     $scope.work = Work.get({id: $stateParams.id});
     $scope.selected = 0;
     $scope.isSelected = function(index) {
-      if (index == $scope.selected) {
-        return 'selected'
+      if (index === $scope.selected) {
+        return 'selected';
       }
-    }
+    };
     $scope.setSelected = function(index) {
       $scope.selected = index;
-    }
+    };
     $scope.allPhotos = function() {
-      return [$scope.work.photo_main].concat($scope.work.photos)
-    }
+      return [$scope.work.photo_main].concat($scope.work.photos);
+    };
     $scope.open = function() {
       var url = $scope.allPhotos()[$scope.selected];
       window.open(url);
-    }
-  })
-
-  .controller('NewWorkCtrl', function ($scope, $state, $stateParams, $location, $upload, Work) {
-    $scope.work = new Work();
-    $scope.save = function() {
-      $scope.work.$save(function(params, success, error) {
-        console.log('saved');
-        $location.path('/admin');
-      });
-
-    // $scope.onFileSelect = function($files) {
-    //   for (var i = 0; i < $files.length; i++) {
-    //     var file = $files[i];
-    //     $scope.upload = $upload.upload({
-
-    //     })
-    // }
-    };
-    $scope.isUnchanged = function(w) {
-      w = new Work();
     };
   });

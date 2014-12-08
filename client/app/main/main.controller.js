@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('dnApp')
-  .controller('MainCtrl', function ($scope, $location) {
+// angular.module('dnApp')
+  // .controller('MainCtrl', function ($scope, $location) {
     // var current = $location.path().substring(1);
     // $scope.isRouteActive = function(view) {
     //     // console.log($location + ": " + current);
@@ -26,4 +26,4 @@ angular.module('dnApp')
     //     return true
     //   }
     // }
-  });
+  // });

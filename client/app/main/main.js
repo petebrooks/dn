@@ -48,7 +48,7 @@ angular.module('dnApp')
             templateUrl: 'app/main/test.html'
           }
         }
-      })
+      });
 
 
   });
