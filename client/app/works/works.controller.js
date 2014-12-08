@@ -23,7 +23,7 @@ workControllers
       $scope.selected = index;
     };
     $scope.allPhotos = function() {
-      return [$scope.work.photo_main].concat($scope.work.photos);
+      return [$scope.work.photoMain].concat($scope.work.photos);
     };
     $scope.open = function() {
       var url = $scope.allPhotos()[$scope.selected];

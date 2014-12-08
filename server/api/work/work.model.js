@@ -11,8 +11,8 @@ var WorkSchema = new Schema({
   dimensions: String,
   description: String,
   media: String,
-  photo_main: String,
-  photo_thumb: String,
+  photoMain: String,
+  photoThumb: String,
   // photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }]
   photos: [String],
 });

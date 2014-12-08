@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dnApp')
-  .directive('glove', function($animate) {
+  .directive('glove', function() {
     return {
       restrict: 'E',
       scope: {
@@ -9,7 +9,7 @@ angular.module('dnApp')
         image: '@'
       },
       templateUrl: 'components/glove_directive/glove.html',
-      link: function(scope, el, attrs) {
+      link: function(scope) {
         scope.close = function() {
           console.log('close');
           scope.hidden = true;
