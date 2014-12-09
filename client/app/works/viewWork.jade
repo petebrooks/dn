@@ -1,17 +1,18 @@
 .grid.glovebox
   glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
 
-info-box
-  .display
-    img(src=" {{ allPhotos()[selected] }} " ng-click="open()")
-    .wall-text
+.worksbox
+  .display.grid.grid-pad
+    .imgbox.col-1-2
+      img(src=" {{ allPhotos()[selected] }} " ng-click="open()")
+    .wall-text.col-1-2
       h3 {{ work.title }}
       p {{ work.dimensions }}
       p {{ work.media }}
       p {{ work.year }}
       p {{ work.description }}
-  .detail-gallery(ng-if="allPhotos().length > 1")
+  .detail-gallery.grid.grid-pad(ng-if="allPhotos().length > 1")
     //- .detail
     //-   img(src="{{ work.photoMain }}" ng-class="isSelected('main')")
-    .detail(ng-repeat="photo in allPhotos()" ng-click="setSelected($index)")
+    .detail.col-1-6.mobile-col-1-3(ng-repeat="photo in allPhotos()" ng-click="setSelected($index)")
       .thumb(style="background-image: url('{{ photo }}')" ng-class="isSelected({{ $index }})")

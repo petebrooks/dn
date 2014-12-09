@@ -10,49 +10,35 @@
 //   }
 // }
 
-// .detail-gallery {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: flex-start;
-//   align-content: flex-start;
-//   margin-left: -0.4rem;
-//   .detail {
-//     cursor: pointer;
-//     width: 20vmin;
-//     background-color: black;
-//     margin: 0.4rem;
-//     .thumb {
-//       &:hover {
-//         opacity: .8;
-//       }
-//       &.selected {
-//         opacity: .6;
-//       }
-//     }
-//   }
-// }
+.detail {
+  cursor: pointer;
+  width: 20vmin;
+  background-color: black;
+  background-clip: content-box;
+  margin: 0.4rem;
+  .thumb {
+    &:hover {
+      opacity: .8;
+    }
+    &.selected {
+      opacity: .6;
+    }
+  }
+}
 
-// .display {
-//   @include clearfix;
-//   margin-bottom: 2rem;
-//   max-height: 50vh;
-//   img, .wall-text {
-//     width: 50%;
-//     display: inline-block;
-//   }
-//   .wall-text {
-//     float: right;
-//     padding-left: 1rem;
-//   }
-//   img {
-//     float: left;
-//     height: auto;
-//     width: auto;
-//     max-width: 50%;
-//     max-height: 50vh;
-//     cursor: pointer;
-//   }
-// }
+.display {
+  margin-bottom: 2rem;
+  img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 50vh;
+    @include media($smallDevice) {
+      max-height: 150vh;
+    }
+    cursor: pointer;
+  }
+}
 
 .worksbox {
   width: 90%;
