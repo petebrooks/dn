@@ -1,19 +1,11 @@
 info-box {
   @include clearfix;
   .box {
-    @include fill-parent;
-    width: 80%;
+    // width: 80%;
     margin: 0 auto;
     height: 100vh - $gloveBoxH;
     overflow-y: scroll;
-    @include media($mediumDevice) {
-      padding: 0 1rem;
-    }
-    @include media($smallDevice) {
-      width: 90%;
-      padding: 0;
-      height: 100vh - $gloveMobileBoxH;
-    }
+
   }
 
   &.two-cols .info {
