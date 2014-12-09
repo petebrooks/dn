@@ -1,6 +1,9 @@
-glove.active(name="Works" image="assets/images/red_glove.png")
 
-info-box(name="Works")
+//- info-box(name="Works")
+.grid
+  //- .glovebox.col-1-1
+  glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
+.worksbox
   .gallery.grid.grid-pad
     .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
@@ -10,8 +13,8 @@ info-box(name="Works")
     .work(ng-click="showHidden=true" ng-show="!showHidden").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('=')")
-      .hoverTitle
-        .title Show Extra
+        .hoverTitle
+          .title Show Extra
     .work(ng-repeat="work in hidden" ng-show="showHidden")
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
       .hoverTitle

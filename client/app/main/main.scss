@@ -262,7 +262,7 @@ h1.main {
 /////////////////// Gloves
 glove {
   @include clearfix;
-  position: absolute;
+  position: relative;
 
   &.active {
     .title {
@@ -286,6 +286,7 @@ glove {
   }
 
   &.home {
+    position: absolute;
     cursor: pointer;
     .title {
       display: none;
@@ -360,7 +361,7 @@ glove {
       &[name="Statement"], &[name="Bio"] {
         img { left: 0; }
         .title {
-          right: 12%;
+          right: 7%;
           text-align: right;
         }
       }
@@ -368,7 +369,7 @@ glove {
         img { right: 0; }
         .title {
           text-align: left;
-          left: 12%;
+          left: 7%;
         }
       }
     }
