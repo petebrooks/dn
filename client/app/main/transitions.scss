@@ -1,0 +1,61 @@
+/////////////////// Transitions
+
+#masterUI {
+  transition: all 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+
+
+/////////////////// ng-leave
+
+  &.ng-leave{
+    glove.home {
+      &[name="Works"] { @include slideOutUpRight(1s); }
+      &[name="Contact"] { @include slideOutBottomRight(1s); }
+      &[name="Statement"] { @include slideOutUpLeft(1s); }
+      &[name="Bio"] { @include slideOutBottomLeft(1s); }
+    }
+    glove.active {
+      &[name="Works"], &[name="Contact"] { @include slideOutRight(1s); }
+      &[name="Statement"], &[name="Bio"] { @include slideOutLeft(1s); }
+    }
+    @include media($smallDevice) {
+      .title { @include slideOutUp(1s); }
+      glove.home {
+        &[name="Works"], &[name="Contact"]  { @include slideOutRight(1.2s); }
+        &[name="Bio"], &[name="Statement"] { @include slideOutLeft(1.2s); }
+      }
+    }
+    h1.main { @include slideOutUp(1s); }
+    .box, .worksbox {
+      @include zoomOut(1s);
+    }
+  }
+
+
+/////////////////// ng-enter
+
+  &.ng-enter {
+    glove.active {
+      &[name="Works"], &[name="Contact"] { @include slideInRight(1s); }
+      &[name="Statement"], &[name="Bio"] { @include slideInLeft(1s); }
+    }
+    glove.home {
+      &[name="Works"] { @include slideInUpRight(1s); }
+      &[name="Contact"] { @include slideInBottomRight(1s); }
+      &[name="Statement"] { @include slideInUpLeft(1s); }
+      &[name="Bio"] { @include slideInBottomLeft(1s); }
+    }
+    @include media($smallDevice) {
+      .title { @include slideInDown(1s); }
+      glove.home {
+        &[name="Works"], &[name="Contact"]  { @include slideInRight(1s); }
+        &[name="Bio"], &[name="Statement"] { @include slideInLeft(1s); }
+      }
+    }
+    h1.main { @include slideInDown(1s); }
+    .box, .worksbox {
+      @include zoomIn(1s);
+    }
+  }
+}
