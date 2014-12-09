@@ -95,6 +95,7 @@ body {
 // Component styles are injected through grunt
 // injector
 @import 'main/main.scss';
+@import 'main/transitions.scss';
 @import 'stylesheets/_grid.scss';
 @import 'stylesheets/base/_base.scss';
 @import 'stylesheets/base/_buttons.scss';

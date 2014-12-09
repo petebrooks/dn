@@ -59,18 +59,6 @@ info-box {
   }
 }
 
-#masterUI.ng-enter {
-  .box, .worksbox {
-    @include zoomIn(1s);
-  }
-}
-
-#masterUI.ng-leave {
-  .box, .worksbox {
-    @include zoomOut(1s);
-  }
-}
-
 .content {
   background: #ccc;
   padding: 30px;
