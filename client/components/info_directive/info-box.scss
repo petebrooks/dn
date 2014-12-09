@@ -3,9 +3,8 @@ info-box {
   .box {
     // width: 80%;
     margin: 0 auto;
-    height: 100vh - $gloveBoxH;
+    height: 90vh;
     overflow-y: scroll;
-
   }
 
   &.two-cols .info {
@@ -17,11 +16,7 @@ info-box {
   }
 
   .info {
-    @include clearfix;
     width: 100%;
-    @include media($smallDevice) {
-      padding: 0;
-    }
   }
 
   .group {
