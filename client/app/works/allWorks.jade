@@ -1,7 +1,7 @@
-.grid.glovebox
+.glovebox
   glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
 .worksbox
-  .gallery.grid.grid-pad
+  .gallery
     .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('{{ work.photoThumb }}')")

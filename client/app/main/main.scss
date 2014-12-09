@@ -198,6 +198,8 @@ h1.main {
 }
 
 .glovebox {
+  @extend .grid;
+  @extend .no-max;
   width: 90%;
 }
 
