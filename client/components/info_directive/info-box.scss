@@ -62,13 +62,13 @@ info-box {
 }
 
 #masterUI.ng-enter {
-  .box {
+  .box, .worksbox {
     @include zoomIn(1s);
   }
 }
 
 #masterUI.ng-leave {
-  .box {
+  .box, .worksbox {
     @include zoomOut(1s);
   }
 }
