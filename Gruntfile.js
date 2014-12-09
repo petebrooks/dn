@@ -267,7 +267,8 @@ module.exports = function (grunt) {
         '!<%= yeoman.dist %>/public/bower_components/normalize.css',
         '<%= yeoman.dist %>/public/bower_components/normalize.css/normalize.css'
         ],
-      js: ['<%= yeoman.dist %>/public/{,*/}*.js'],
+      js: ['<%= yeoman.dist %>/public/{,*/}*.js', '<%= yeoman.dist %>/server/config/works_collection.js',
+],
       options: {
         assetsDirs: [
           '<%= yeoman.dist %>/public',
