@@ -8,8 +8,7 @@ angular.module('dnApp')
         url: '/',
         views: {
           'master': {
-            templateUrl: 'app/main/main.html',
-            controller: 'NavbarCtrl'
+            templateUrl: 'app/main/main.html'
           }
         }
       })
@@ -48,7 +47,7 @@ angular.module('dnApp')
             templateUrl: 'app/main/test.html'
           }
         }
-      })
+      });
 
 
   });

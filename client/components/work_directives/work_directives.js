@@ -10,5 +10,5 @@ angular.module('dnApp')
       },
       transclude: true,
       templateUrl: 'components/work_directives/works-box.jade',
-    }
+    };
   });

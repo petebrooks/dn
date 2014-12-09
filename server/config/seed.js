@@ -6,9 +6,9 @@
 'use strict';
 
 var Work = require('../api/work/work.model'),
-    Photo = require('../api/photo/photo.model'),
-    works_collection = require('./works_collection'),
-    photos_collection = require('./photos_collection');
+    works_collection = require('./works_collection');
+    // Photo = require('../api/photo/photo.model'),
+    // photos_collection = require('./photos_collection');
 
 
 Work.find({}).remove(function() {
@@ -17,11 +17,12 @@ Work.find({}).remove(function() {
   })
 });
 
-Photo.find({}).remove(function() {
-  photos_collection().forEach(function(photo_data) {
-    Photo.create(photo_data);
-  });
-});
+// Photo.find({}).remove(function() {
+//   photos_collection().forEach(function(photo_data) {
+//     Photo.create(photo_data);
+//   });
+// });
+
 // Work.findOne({_id: 'idyll_hands'})
 //   .populate('photos');
 

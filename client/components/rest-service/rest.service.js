@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('dnApp')
   .factory('Work', ['$resource',
   function($resource) {
