@@ -4,7 +4,7 @@ info-box(name="Works")
   .gallery
     .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})")
       //- a(ui-sref="viewWorks({id: work._id})")
-      .thumb(style="background-image: url('{{ work.photoThumb }}')")
+      .thumb(style="background-image: url({{ work.photoThumb }})")
       .hoverTitle
         .title {{ work.title }}
     .work(ng-click="showHidden=true" ng-show="!showHidden")
@@ -13,7 +13,7 @@ info-box(name="Works")
       .hoverTitle
         .title Show Extra
     .work(ng-repeat="work in hidden" ng-show="showHidden")
-      .thumb(style="background-image: url('{{ work.photoThumb }}')")
+      .thumb(style="background-image: url({{ work.photoThumb }})")
       .hoverTitle
         .title {{ work.title }}
     .work(ng-click="showHidden=false" ng-show="showHidden")
