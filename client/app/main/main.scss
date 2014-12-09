@@ -115,20 +115,6 @@ $slide-out-neg: -1000px;
   @include visibility($visibility);
 }
 
-// @mixin pane-resize-add {
-//   &.pane-resize, &.pane-resize-add.pane-resize-add-active {
-//     z-index: 900;
-//     @content
-//   }
-// }
-
-// @mixin pane-resize-remove {
-//   &.pane-resize-remove.pane-resize-remove-active {
-//     z-index: 0;
-//     @content
-//   }
-// }
-
 @mixin cubic-bezier($time) {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
   -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) $time;
@@ -223,7 +209,7 @@ glove {
   &.active {
     .title {
       span {
-        font-size: 3.4vw;
+        font-size: 2rem;
         font-family: $glove-font;
         color: $glove-font-color;
       }
@@ -302,12 +288,7 @@ glove {
       height: $gloveBoxH;
       min-height: 130px;
       top: 0;
-      .title { width: 50%; }
-      .title-container {
-        width: 80%;
-        margin: 0 auto;
-        display: inline-block;
-      }
+      // .title { width: 50%; }
       img {
         width: auto;
         height: auto;
