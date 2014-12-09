@@ -216,9 +216,10 @@ $slide-out-neg: -1000px;
       &[name="Statement"] { @include slideOutLeft(1s); }
       &[name="Bio"] { @include slideOutLeft(1s); }
     }
-    h1.main {
-      @include slideOutUp(1s);
+    @include media($smallDevice) {
+      .title { @include slideOutUp(1s); }
     }
+    h1.main { @include slideOutUp(1s); }
   }
   &.ng-enter {
     glove.active {
@@ -237,9 +238,10 @@ $slide-out-neg: -1000px;
         &[name="Bio"], &[name="Statement"] { @include slideInLeft(1s); }
       }
     }
-    h1.main {
-      @include slideInDown(1s);
+    @include media($smallDevice) {
+      .title { @include slideInDown(1s); }
     }
+    h1.main { @include slideInDown(1s); }
   }
 }
 
