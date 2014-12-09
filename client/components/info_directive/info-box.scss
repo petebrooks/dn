@@ -4,7 +4,6 @@ info-box {
     @include fill-parent;
     width: 80%;
     margin: 0 auto;
-    margin-top: $gloveBoxH;
     height: 100vh - $gloveBoxH;
     overflow-y: scroll;
     @include media($mediumDevice) {
@@ -13,7 +12,6 @@ info-box {
     @include media($smallDevice) {
       width: 90%;
       padding: 0;
-      margin-top: $gloveMobileBoxH;
       height: 100vh - $gloveMobileBoxH;
     }
   }
