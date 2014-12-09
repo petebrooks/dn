@@ -42,7 +42,7 @@ $gloveMobileMainH: 25vh;
 $gloveMobileBoxW: 100vw;
 $gloveMobileBoxH: 10vh;
 
-$smallDevice: new-breakpoint(max-width 680px);
+$smallDevice: new-breakpoint(max-width 767px);
 $mediumDevice: new-breakpoint(max-width 760px);
 $xlScreen: new-breakpoint(1000px);
 

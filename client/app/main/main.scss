@@ -259,6 +259,10 @@ h1.main {
   }
 }
 
+.glovebox {
+  width: 90%;
+}
+
 /////////////////// Gloves
 glove {
   @include clearfix;
@@ -294,7 +298,7 @@ glove {
   }
   img { position: absolute; }
 
-  @include media(681px) {
+  @include media(768px) {
     &.inactive {
       display: none;
     }
@@ -385,7 +389,10 @@ glove {
       display: none;
     }
     &.active {
-      .title span { font-size: 2rem; }
+      .title {
+        text-align: center;
+        span { font-size: 2rem; }
+      }
       img { display: none; }
     }
     &.home {
