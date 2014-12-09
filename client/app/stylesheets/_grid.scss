@@ -24,7 +24,7 @@ body {
 .grid {
   width: 100%;
   max-width: 1140px;
-  min-width: 755px;
+  // min-width: 755px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -176,7 +176,7 @@ body {
 @media handheld, only screen and (max-width: 767px) {
   .grid {
     width: 100%;
-    min-width: 0;
+    // min-width: 0;
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 20px; /* grid-space to left */
