@@ -72,3 +72,18 @@ info-box {
     @include zoomOut(1s);
   }
 }
+
+.test .content {
+  background: #ccc;
+  padding: 30px;
+}
+.test {
+  width: 90%;
+  // display: inline-block;
+  margin: 0 auto;
+  div {
+    border: 1px solid black;
+  }
+  .grid {
+  }
+}

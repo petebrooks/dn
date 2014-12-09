@@ -1,13 +1,13 @@
 glove.active(name="Works" image="assets/images/red_glove.png")
 
 info-box(name="Works")
-  .gallery
-    .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})")
+  .gallery.grid.grid-pad
+    .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
-      .hoverTitle
-        .title {{ work.title }}
-    .work(ng-click="showHidden=true" ng-show="!showHidden")
+        .hoverTitle
+          .title {{ work.title }}
+    .work(ng-click="showHidden=true" ng-show="!showHidden").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('=')")
       .hoverTitle

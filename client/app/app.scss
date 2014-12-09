@@ -3,11 +3,11 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'font-awesome/scss/font-awesome',
   'stylesheets/bourbon/bourbon',
   'stylesheets/neat/neat',
-
   'animate.css-scss/_properties',
   'animate.css-scss/_zooming-entrances/zooming-entrances',
   'animate.css-scss/_zooming-exits/zooming-exits',
-  'animate.css-scss/_sliders/sliders';
+  'animate.css-scss/_sliders/sliders',
+  'stylesheets/_grid';
 
 
 /**
@@ -95,6 +95,7 @@ body {
 // Component styles are injected through grunt
 // injector
 @import 'main/main.scss';
+@import 'stylesheets/_grid.scss';
 @import 'stylesheets/base/_base.scss';
 @import 'stylesheets/base/_buttons.scss';
 @import 'stylesheets/base/_forms.scss';
