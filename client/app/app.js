@@ -14,3 +14,5 @@ angular.module('dnApp', [
 
     $locationProvider.html5Mode(true);
   });
+
+window.viewportUnitsBuggyfill.init();

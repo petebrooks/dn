@@ -48,6 +48,17 @@ info-box {
     line-height: 2rem;
     margin: 0 0 1.5rem
   }
+
+  footer {
+    position: relative;
+    top: 2rem;
+    :last-child {
+      float: right;
+    }
+    :first-child {
+      float: left;
+    }
+  }
 }
 
 #masterUI.ng-enter {
