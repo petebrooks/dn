@@ -1,17 +1,17 @@
-glove.active(name="Works" image="assets/images/red_glove.png")
-
-info-box(name="Works")
+.glovebox
+  glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
+.worksbox
   .gallery
-    .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})")
+    .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
-      .hoverTitle
-        .title {{ work.title }}
-    .work(ng-click="showHidden=true" ng-show="!showHidden")
+        .hoverTitle
+          .title {{ work.title }}
+    .work(ng-click="showHidden=true" ng-show="!showHidden").col-1-3
       //- a(ui-sref="viewWorks({id: work._id})")
       .thumb(style="background-image: url('=')")
-      .hoverTitle
-        .title Show Extra
+        .hoverTitle
+          .title Show Extra
     .work(ng-repeat="work in hidden" ng-show="showHidden")
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
       .hoverTitle

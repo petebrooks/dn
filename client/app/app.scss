@@ -3,11 +3,11 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'font-awesome/scss/font-awesome',
   'stylesheets/bourbon/bourbon',
   'stylesheets/neat/neat',
-
   'animate.css-scss/_properties',
   'animate.css-scss/_zooming-entrances/zooming-entrances',
   'animate.css-scss/_zooming-exits/zooming-exits',
-  'animate.css-scss/_sliders/sliders';
+  'animate.css-scss/_sliders/sliders',
+  'stylesheets/_grid';
 
 
 /**
@@ -42,9 +42,9 @@ $gloveMobileMainH: 25vh;
 $gloveMobileBoxW: 100vw;
 $gloveMobileBoxH: 10vh;
 
-$smallDevice: new-breakpoint(max-width 680px);
+$smallDevice: new-breakpoint(max-width 767px);
 $mediumDevice: new-breakpoint(max-width 760px);
-$xlScreen: new-breakpoint(1000px);
+$xlScreen: new-breakpoint(900px);
 
 img#background {
   width: 100vw;
@@ -95,6 +95,8 @@ body {
 // Component styles are injected through grunt
 // injector
 @import 'main/main.scss';
+@import 'main/transitions.scss';
+@import 'stylesheets/_grid.scss';
 @import 'stylesheets/base/_base.scss';
 @import 'stylesheets/base/_buttons.scss';
 @import 'stylesheets/base/_forms.scss';

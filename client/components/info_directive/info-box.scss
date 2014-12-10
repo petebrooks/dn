@@ -1,21 +1,10 @@
 info-box {
   @include clearfix;
   .box {
-    @include fill-parent;
-    width: 80%;
+    @extend .grid-pad;
     margin: 0 auto;
-    margin-top: $gloveBoxH;
-    height: 100vh - $gloveBoxH;
+    height: 90vh;
     overflow-y: scroll;
-    @include media($mediumDevice) {
-      padding: 0 1rem;
-    }
-    @include media($smallDevice) {
-      width: 90%;
-      padding: 0;
-      margin-top: $gloveMobileBoxH;
-      height: 100vh - $gloveMobileBoxH;
-    }
   }
 
   &.two-cols .info {
@@ -27,11 +16,8 @@ info-box {
   }
 
   .info {
-    @include clearfix;
+    @extend .col-1-1;
     width: 100%;
-    @include media($smallDevice) {
-      padding: 0;
-    }
   }
 
   .group {
@@ -50,6 +36,7 @@ info-box {
   }
 
   footer {
+    @extend .col-1-1;
     position: relative;
     top: 2rem;
     :last-child {
@@ -61,14 +48,17 @@ info-box {
   }
 }
 
-#masterUI.ng-enter {
-  .box {
-    @include zoomIn(1s);
-  }
+.content {
+  background: #ccc;
+  padding: 30px;
 }
-
-#masterUI.ng-leave {
-  .box {
-    @include zoomOut(1s);
+.test {
+  width: 90%;
+  // display: inline-block;
+  margin: 0 auto;
+  div {
+    border: 1px solid black;
+  }
+  .grid {
   }
 }
