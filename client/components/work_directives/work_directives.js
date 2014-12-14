@@ -2,13 +2,15 @@
 
 angular.module('dnApp')
 
-  .directive('worksBox', function() {
+  .directive('workthumb', function() {
     return {
       restrict: 'E',
       scope: {
-        name: '@'
+        title: '@',
+        photo: '@',
+        work: '@'
       },
-      transclude: true,
-      templateUrl: 'components/work_directives/works-box.jade',
+      // transclude: true,
+      templateUrl: 'components/work_directives/work_thumb.jade',
     };
   });
