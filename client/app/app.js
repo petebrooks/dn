@@ -16,3 +16,11 @@ angular.module('dnApp', [
   });
 
 window.viewportUnitsBuggyfill.init();
+
+
+function ready() {
+  var gloves = $('glove.home');
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
