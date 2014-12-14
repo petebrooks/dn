@@ -1,7 +1,7 @@
 info-box {
   @include clearfix;
   .box {
-    @extend .grid-pad;
+    @extend .grid;
     margin: 0 auto;
     height: 75vh;
     @include media($smallDevice) { height: 90vh; };
@@ -16,9 +16,9 @@ info-box {
     }
   }
 
-  .info {
-    @extend .col-1-1;
-    width: 100%;
+  .info, footer {
+    width: 86%;
+    margin-left: 7%;
   }
 
   .group {
@@ -37,7 +37,6 @@ info-box {
   }
 
   footer {
-    @extend .col-1-1;
     position: relative;
     top: 2rem;
     :last-child {
