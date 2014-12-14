@@ -332,30 +332,11 @@ glove {
     }
     &.home {
       width: 100vw;
-      img { max-width: 700px; }
-      &[name="Statement"] { top: 0 }
-      &[name="Works"] { top: 25% }
-      &[name="Bio"] { top: 50% }
-      &[name="Contact"] { top: 75% }
-      &[name="Works"], &[name="Contact"]  {
-        img { right: 0; }
-      }
-      &[name="Bio"], &[name="Statement"] {
-        img { left: 0; }
-      }
-      &[name="Statement"] { img { transform: translate(-25%, 25%); } }
-      &[name="Works"] { img { transform: translate(5%, 0); } }
-      &[name="Bio"] { img { transform: translate(-15%, 0); } }
-      &[name="Contact"] { img { transform: translate(5%, -15%); } }
-      @include media(max-width 536px) {
-        img { max-width: 580px; }
-        &[name="Statement"] { img { transform: translate(-30%, 20%); } }
-        &[name="Works"] { img { transform: translate(10%, -10%); } }
-        &[name="Bio"] { img { transform: translate(-20%, -4%); } }
-        &[name="Contact"] { img { transform: translate(10%, -9%); } }
-      }
-      // &[name="Works"], &[name="Contact"]  { transform: translateX(-20%) translateY(-20%); }
-      // &[name="Bio"], &[name="Statement"] { transform: translateX(-30%) translateY(-10%); }
+      img { max-width: 130%; max-height: 20vh; }
+      &[name='Works'] {  top: 10vh; }
+      &[name='Statement'] {  top: 35vh; }
+      &[name='Contact'] {  top: 55vh; }
+      &[name='Bio'] {  top: 75vh; }
     }
   }
 }
