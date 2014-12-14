@@ -3,7 +3,8 @@ info-box {
   .box {
     @extend .grid-pad;
     margin: 0 auto;
-    height: 90vh;
+    height: 75vh;
+    @include media($smallDevice) { height: 90vh; };
     overflow-y: scroll;
   }
 
