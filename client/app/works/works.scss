@@ -47,7 +47,8 @@
   width: 90%;
   margin: 0 auto;
   overflow-y: scroll;
-  height: 90vh;
+  height: 75vh;
+  @include media($smallDevice) { height: 90vh; };
 }
 
 .work, .large {
