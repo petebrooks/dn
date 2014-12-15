@@ -13,7 +13,7 @@ workControllers
   .controller('ViewWorkCtrl', function ($scope, $stateParams, Work) {
     $scope.work = Work.get({id: $stateParams.id});
     $scope.isSelected = function(index) {
-      if (index === $scope.selected) {
+      if (index === $scope.selectedIndex) {
         return 'selected';
       }
     };
