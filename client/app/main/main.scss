@@ -191,7 +191,7 @@ h1.main {
   font-family: $glove-font;
   color: $glove-font-color;
   font-size: 4rem;
-  @include media(max-width 536px) {
+  @include media($smallDevice) {
     font-size: 3.5rem;
     top: 2%;
   }
@@ -276,7 +276,7 @@ glove {
         @include image-quadrant('bottom left');
       }
       img {
-        max-width: 140%;
+        max-width: 130%;
       }
     }
     .title, img {
@@ -312,6 +312,10 @@ glove {
         }
       }
     }
+  }
+
+  @include media(1100px) {
+    &.home { img { max-width: 100%; } }
   }
 
   @include media($smallDevice) {
