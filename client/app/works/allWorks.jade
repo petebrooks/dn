@@ -6,11 +6,11 @@
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
         .hoverTitle
           .title {{ work.title }}
-  .expand.col-1-1(ng-show="showHidden!==''")
+  .expand.col-1-1(ng-show="showHidden!==''" ng-click="showHidden=''")
     span Show More
-    i.icon-right-open-outline.down(ng-click="showHidden=''")
-  .expand.col-1-1(ng-show="showHidden===''")
+    i.icon-right-open-outline.down
+  .expand.col-1-1(ng-show="showHidden===''" ng-click="showHidden='false'")
     span Hide
-    i.icon-right-open-outline.up(ng-click="showHidden='false'")
+    i.icon-right-open-outline.up
   footer
     small &copy 2014 David Nasca
