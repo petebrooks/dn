@@ -340,9 +340,13 @@ glove {
       h1 { font-size: 2rem; }
       &[name='Works'], &[name='Contact'] { img { right: 0; } }
       &[name='Works'] {  top: 12vh; }
-      &[name='Statement'] {  top: 35vh; transform: translateX(-20%); }
+      &[name='Statement'] {  top: 35vh; }
       &[name='Contact'] {  top: 55vh; }
-      &[name='Bio'] {  top: 75vh; transform: translateX(-10%); }
+      &[name='Bio'] {  top: 75vh; }
+      @include media(max-width 620px) {
+        &[name='Statement'] { transform: translateX(-20%); }
+        &[name='Bio'] { transform: translateX(-10%) }
+      }
     }
   }
 }
