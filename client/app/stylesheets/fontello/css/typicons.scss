@@ -50,10 +50,29 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-th-outline:before { content: '\e800'; } /* '' */
-.icon-rewind-outline:before { content: '\e801'; } /* '' */
+.icon-th-outline:before {
+  content: '\e800';
+  font-size: 2rem;
+  text-align: center;
+/*  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+*/} /* ''
+*/.icon-rewind-outline:before { content: '\e801'; } /* '' */
 .icon-play-outline:before {
   content: '\e802';
   transform: rotate(180deg);
 } /* '' */
-.icon-right-open-outline:before { content: '\e803'; } /* '' */
+.icon-right-open-outline:before {
+  content: '\e803';
+  /*font-size: 2rem;*/
+  font-size: 1rem;
+  text-align: center;
+} /* '' */
+.up:before {
+  transform: rotate(-90deg);
+}
+.down:before {
+  transform: rotate(90deg);
+}

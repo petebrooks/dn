@@ -51,6 +51,11 @@
   @include media($smallDevice) { height: 90vh; };
 }
 
+.expand {
+  padding: 20px;
+  text-align: right;
+}
+
 .work, .large {
   @extend .col-1-3;
   overflow: hidden;

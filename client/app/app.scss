@@ -1,14 +1,11 @@
-$fa-font-path: "/bower_components/font-awesome/fonts";
-
-@import 'font-awesome/scss/font-awesome',
-  'stylesheets/bourbon/bourbon',
+@import 'stylesheets/bourbon/bourbon',
   'stylesheets/neat/neat',
   'animate.css-scss/_properties',
   'animate.css-scss/_zooming-entrances/zooming-entrances',
   'animate.css-scss/_zooming-exits/zooming-exits',
   'animate.css-scss/_sliders/sliders',
   'stylesheets/_grid',
-  'stylesheets/fontello/css/typicons.css';
+  'stylesheets/fontello/css/typicons.scss';
 
 
 /**
@@ -180,6 +177,7 @@ body {
 @import 'stylesheets/bourbon/settings/_asset-pipeline.scss';
 @import 'stylesheets/bourbon/settings/_prefixer.scss';
 @import 'stylesheets/bourbon/settings/_px-to-em.scss';
+@import 'stylesheets/fontello/css/typicons.scss';
 @import 'stylesheets/neat/_neat-helpers.scss';
 @import 'stylesheets/neat/_neat.scss';
 @import 'stylesheets/neat/functions/_new-breakpoint.scss';
