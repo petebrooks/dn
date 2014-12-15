@@ -12,11 +12,14 @@
  * App-wide Styles
  */
 @import url(http://fonts.googleapis.com/css?family=Fredoka+One);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 $glove-font: 'Fredoka One', Helvetica, sans-serif;
 $glove-font-color: #fcfcfc;
 
 $title-font: 'Fredoka One', Helvetica, sans-serif;
 $title-font-color: $glove-font-color;
+
+$text-font: 300 1rem 'Lato', Helvetica, sans-serif;
 
 $button-color: $title-font-color;
 $button-hover-color: black;
