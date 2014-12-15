@@ -1,0 +1,34 @@
+{
+  "name": "typicons",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "a0af0ba081a37bac0783788042ea1774",
+      "css": "th-outline",
+      "code": 59392,
+      "src": "typicons"
+    },
+    {
+      "uid": "813cb2527308990d4870591d9d76f8cd",
+      "css": "right-open-outline",
+      "code": 59395,
+      "src": "typicons"
+    },
+    {
+      "uid": "8d2b91edcad12992a96fc5eac674700d",
+      "css": "play-outline",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "f54874f26664ff241013d7b74b930b3f",
+      "css": "rewind-outline",
+      "code": 59393,
+      "src": "typicons"
+    }
+  ]
+}

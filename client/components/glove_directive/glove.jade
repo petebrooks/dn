@@ -3,5 +3,5 @@ img.glove_img(src="{{ image }}")
   span DAVID NASCA
   span.heading {{ text || name.toUpperCase() }}
   .buttons
-    i.fa.fa-fast-backward.fa-fw(ui-sref="main")
-    i.fa.fa-step-backward.fa-fw(ui-sref="works" ng-if="backbutton")
+    i.icon-rewind-outline(ui-sref="main")
+    i.icon-play-outline(ui-sref="works" ng-if="backbutton")
