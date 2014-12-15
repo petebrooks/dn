@@ -1,5 +1,9 @@
 .gallery {
   @extend .grid-pad;
+  @include media($smallDevice) {
+    padding-left: 10px;
+    padding-right: 0;
+  }
 }
 
 .detail {
@@ -36,7 +40,10 @@
   margin: 0 auto;
   overflow-y: scroll;
   height: 75vh;
-  @include media($smallDevice) { height: 90vh; };
+  @include media($smallDevice) {
+    height: 90vh;
+    width: 100%;
+  };
 }
 
 .expand {
