@@ -48,6 +48,7 @@
 
 .imgbox {
   small {
+    font: $text-font;
     color: gray;
     float: right;
   }
@@ -97,6 +98,7 @@
     }
   }
   &:hover .hoverTitle {
+    font: 400 1rem 'Lato', Helvetica, sans-serif;
     display: block;
   }
   &.ng-enter,
