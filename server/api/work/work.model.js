@@ -18,4 +18,8 @@ var WorkSchema = new Schema({
   photos: [String],
 });
 
+WorkSchema.methods.allPhotos = function() {
+  return this.photoMain.concat(this.photos);
+}
+
 module.exports = mongoose.model('Work', WorkSchema);
