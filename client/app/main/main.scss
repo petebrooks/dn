@@ -337,6 +337,7 @@ glove {
     &.home {
       width: 100vw;
       img { max-width: 130%; max-height: 20vh; }
+      h1 { font-size: 2rem; }
       &[name='Works'], &[name='Contact'] { img { right: 0; } }
       &[name='Works'] {  top: 12vh; }
       &[name='Statement'] {  top: 35vh; transform: translateX(-20%); }
