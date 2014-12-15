@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var WorkSchema = new Schema({
   _id: String,
+  num: Number,
   title: String,
   year: Number,
   hidden: Boolean,

@@ -1,10 +1,8 @@
 .glovebox
   glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
 .worksbox
-  //- input(ng-model="searcText")
-  //- code {{works}}
   .gallery
-    .work(ng-repeat="work in works | orderBy: orderProp : true | filter:{hidden:showHidden}" ui-sref="viewWorks({id: work._id})").col-1-3
+    .work(ng-repeat="work in works | orderBy: 'num' | filter:{hidden:showHidden}" ui-sref="viewWorks({id: work._id})").col-1-3
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
         .hoverTitle
           .title {{ work.title }}
