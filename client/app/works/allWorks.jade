@@ -2,34 +2,15 @@
   glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
 .worksbox
   .gallery
-    .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})").col-1-3
-      //- a(ui-sref="viewWorks({id: work._id})")
+    .work(ng-animate="'animate'" ng-repeat="work in works | orderBy: 'num' | filter:{hidden:showHidden}" ui-sref="viewWorks({id: work._id})").col-1-3
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
         .hoverTitle
           .title {{ work.title }}
-    .work(ng-click="showHidden=true" ng-show="!showHidden").col-1-3
-      //- a(ui-sref="viewWorks({id: work._id})")
-      .thumb(style="background-image: url('assets/images/portfolio.png')")
-        .hoverTitle
-          .title Show Extra
-    .work(ng-repeat="hiddenwork in hidden" ng-show="showHidden" ui-sref="viewWorks({id: hiddenwork._id})").col-1-3
-      //- a(ui-sref="viewWorks({id: work._id})")
-      .thumb(style="background-image: url({{hiddenwork.photoThumb}})")
-        .hoverTitle
-          .title {{ hiddenwork.title }}
-    .work(ng-click="showHidden=false" ng-show="showHidden").col-1-3
-      //- a(ui-sref="viewWorks({id: work._id})")
-      .thumb(style="background-image: url('assets/images/portfolio.png')")
-        .hoverTitle
-          .title Hide Extra
-
-
-    //- .work(ng-repeat="work in hidden" ng-show="showHidden")
-    //-   .thumb(style="background-image: url('{{ work.photoThumb }}')")
-    //-     .hoverTitle
-    //-       .title {{ work.title }}
-    //- .work(ng-click="showHidden=false" ng-show="showHidden")
-    //-   //- a(ui-sref="viewWorks({id: work._id})")
-    //-   .thumb(style="background-image: url('=')")
-    //-     .hoverTitle
-    //-       .title Hide Extra
+  .expand.col-1-1(ng-show="showHidden!==''" ng-click="showHidden=''")
+    span Show More
+    i.icon-right-open-outline.down
+  .expand.col-1-1(ng-show="showHidden===''" ng-click="showHidden='false'")
+    span Hide
+    i.icon-right-open-outline.up
+  footer
+    small &copy 2014 David Nasca

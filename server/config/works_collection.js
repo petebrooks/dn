@@ -2,6 +2,7 @@ var works_collection =
 [
 {
   _id: 'idyll_hands',
+  num: 1,
   hidden: false,
   title: 'Idyll Hands',
   year: 2014,
@@ -16,6 +17,7 @@ var works_collection =
 {
   _id: 'urchin_1',
   hidden: false,
+  num: 2,
   title: 'Urchin #1',
   year: 2014,
   description: '',
@@ -29,6 +31,7 @@ var works_collection =
 {
   _id: 'urchin_2',
   hidden: false,
+  num: 3,
   title: 'Urchin #2',
   year: 2014,
   description: '',
@@ -42,6 +45,7 @@ var works_collection =
 {
   _id: 'mattress',
   hidden: false,
+  num: 4,
   title: 'Mattress',
   year: 2014,
   description: '',
@@ -55,6 +59,7 @@ var works_collection =
 {
   _id: 'a_plastic_case',
   hidden: false,
+  num: 5,
   title: 'A Plastic Case',
   year: 2014,
   description: '',
@@ -68,6 +73,7 @@ var works_collection =
 {
   _id: 'pearl_apron_split',
   hidden: false,
+  num: 6,
   title: 'Pearl Apron Split',
   year: 2014,
   description: '',
@@ -81,6 +87,7 @@ var works_collection =
 {
   _id: 'diagram',
   hidden: false,
+  num: 7,
   title: 'Diagram',
   year: 2013,
   description: '',
@@ -94,6 +101,7 @@ var works_collection =
 {
   _id: 'untitled',
   hidden: false,
+  num: 8,
   title: 'Untitled',
   year: 2014 ,
   description: '',
@@ -107,6 +115,7 @@ var works_collection =
 {
   _id: 'a_spot',
   hidden: false,
+  num: 9,
   title: 'A-Spot',
   year: 2014 ,
   description: '',
@@ -120,6 +129,7 @@ var works_collection =
 {
   _id: 'vromb',
   hidden: false,
+  num: 10,
   title: 'Vromb',
   year: 2013,
   description: '',
@@ -133,6 +143,7 @@ var works_collection =
 {
   _id: 'rachel',
   hidden: false,
+  num: 11,
   title: 'Rachel',
   year: 2013,
   description: '',
@@ -146,6 +157,7 @@ var works_collection =
 {
   _id: 'pete',
   hidden: false,
+  num: 12,
   title: 'Pete',
   year: 2013,
   description: '',
@@ -159,6 +171,7 @@ var works_collection =
 {
   _id: 'xtina',
   hidden: false,
+  num: 13,
   title: 'Xtina',
   year: 2013,
   description: '',
@@ -172,6 +185,7 @@ var works_collection =
 {
   _id: 'unlimited_intimacy',
   hidden: false,
+  num: 14,
   title: 'Unlimited Intimacy',
   year: 2012,
   description: 'Detail view as installed at Logan Center Gallery and Sullivan Galleries',
@@ -185,6 +199,7 @@ var works_collection =
 {
   _id: 'quick_release_object',
   hidden: false,
+  num: 15,
   title: 'Quick Release Object',
   year: 2012,
   description: '',
@@ -198,6 +213,7 @@ var works_collection =
 {
   _id: 'it_is_what_it_isnt',
   hidden: false,
+  num: 16,
   title: 'It is what it isn\'t',
   year: 2012,
   description: '',
@@ -211,6 +227,7 @@ var works_collection =
 {
   _id: 'come_on_down',
   hidden: false,
+  num: 17,
   title: 'Come on down, try to understand',
   year: 2012,
   description: '',
@@ -224,6 +241,7 @@ var works_collection =
 {
   _id: 'not_a_grave',
   hidden: false,
+  num: 18,
   title: 'Not a Grave',
   year: 2012,
   description: '',
@@ -237,6 +255,7 @@ var works_collection =
 {
   _id: 'bonding_suits',
   hidden: true,
+  num: 19,
   title: 'Modular Affective Bonding Suits',
   year: 2012,
   description: 'Ongoing series of multiple, re-attachable, modular polar fleece garments. There is currently a US patent pending for the design of the reconfiguable polar fleece garments.',
@@ -250,6 +269,7 @@ var works_collection =
 {
   _id: 'fall_for_it',
   hidden: true,
+  num: 20,
   title: 'Fall for it',
   year: 2011,
   description: '',
@@ -263,6 +283,7 @@ var works_collection =
 {
   _id: 'anatomy_school',
   hidden: true,
+  num: 21,
   title: 'Anatomy School',
   year: 2011,
   description: '',
@@ -276,6 +297,7 @@ var works_collection =
 {
   _id: 'monkey',
   hidden: true,
+  num: 22,
   title: 'Monkey',
   year: 2011,
   description: '',
@@ -289,6 +311,7 @@ var works_collection =
 {
   _id: 'naughty_teddy',
   hidden: true,
+  num: 23,
   title: 'Naughty Teddy',
   year: 2010,
   description: '',
@@ -302,6 +325,7 @@ var works_collection =
 {
   _id: 'tumbleweed',
   hidden: true,
+  num: 24,
   title: 'Tumbleweed',
   year: 2010,
   description: '',
@@ -315,6 +339,7 @@ var works_collection =
 {
   _id: 'saddle',
   hidden: true,
+  num: 25,
   title: 'Wade tree western saddle, in use and fully functional',
   year: 2009,
   description: '',
@@ -328,6 +353,7 @@ var works_collection =
 {
   _id: 'pagemaster',
   hidden: true,
+  num: 26,
   title: 'Pagemaster notebooks',
   year: 2010,
   description: '',
@@ -341,6 +367,7 @@ var works_collection =
 {
   _id: 'inferno_scenes',
   hidden: true,
+  num: 27,
   title: 'tooled leather scenes from Dante\'s inferno',
   year: 2009,
   description: '',

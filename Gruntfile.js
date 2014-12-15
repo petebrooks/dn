@@ -243,6 +243,7 @@ module.exports = function (grunt) {
             '!<%= yeoman.dist %>/public/bower_components/normalize.css',
             '<%= yeoman.dist %>/public/bower_components/normalize.css/normalize.css',
             '<%= yeoman.dist %>/public/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '!<%= yeoman.dist %>/public/assets/images/large/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/public/assets/fonts/*'
           ]
         }

@@ -191,7 +191,7 @@ h1.main {
   font-family: $glove-font;
   color: $glove-font-color;
   font-size: 4rem;
-  @include media(max-width 536px) {
+  @include media($smallDevice) {
     font-size: 3.5rem;
     top: 2%;
   }
@@ -276,7 +276,7 @@ glove {
         @include image-quadrant('bottom left');
       }
       img {
-        max-width: 140%;
+        max-width: 130%;
       }
     }
     .title, img {
@@ -314,6 +314,10 @@ glove {
     }
   }
 
+  @include media(1100px) {
+    &.home { img { max-width: 100%; } }
+  }
+
   @include media($smallDevice) {
     // position: fixed;
     width: $gloveMobileMainW;
@@ -333,11 +337,16 @@ glove {
     &.home {
       width: 100vw;
       img { max-width: 130%; max-height: 20vh; }
+      h1 { font-size: 2rem; }
       &[name='Works'], &[name='Contact'] { img { right: 0; } }
       &[name='Works'] {  top: 12vh; }
       &[name='Statement'] {  top: 35vh; }
       &[name='Contact'] {  top: 55vh; }
       &[name='Bio'] {  top: 75vh; }
+      @include media(max-width 620px) {
+        &[name='Statement'] { transform: translateX(-20%); }
+        &[name='Bio'] { transform: translateX(-10%) }
+      }
     }
   }
 }

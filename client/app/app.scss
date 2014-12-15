@@ -1,24 +1,24 @@
-$fa-font-path: "/bower_components/font-awesome/fonts";
-
-@import 'font-awesome/scss/font-awesome',
-  'stylesheets/bourbon/bourbon',
+@import 'stylesheets/bourbon/bourbon',
   'stylesheets/neat/neat',
   'animate.css-scss/_properties',
   'animate.css-scss/_zooming-entrances/zooming-entrances',
   'animate.css-scss/_zooming-exits/zooming-exits',
   'animate.css-scss/_sliders/sliders',
-  'stylesheets/_grid';
+  'stylesheets/_grid',
+  'stylesheets/fontello/css/typicons.scss';
 
 
 /**
  * App-wide Styles
  */
-@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One|Lato:300,400);
 $glove-font: 'Fredoka One', Helvetica, sans-serif;
-$glove-font-color: white;
+$glove-font-color: #fcfcfc;
 
 $title-font: 'Fredoka One', Helvetica, sans-serif;
-$title-font-color: slategray;
+$title-font-color: $glove-font-color;
+
+$text-font: 300 1rem 'Lato', Helvetica, sans-serif;
 
 $button-color: $title-font-color;
 $button-hover-color: black;
@@ -179,6 +179,7 @@ body {
 @import 'stylesheets/bourbon/settings/_asset-pipeline.scss';
 @import 'stylesheets/bourbon/settings/_prefixer.scss';
 @import 'stylesheets/bourbon/settings/_px-to-em.scss';
+@import 'stylesheets/fontello/css/typicons.scss';
 @import 'stylesheets/neat/_neat-helpers.scss';
 @import 'stylesheets/neat/_neat.scss';
 @import 'stylesheets/neat/functions/_new-breakpoint.scss';

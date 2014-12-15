@@ -6,27 +6,31 @@ workControllers
 
   .controller('AllWorkCtrl', function ($scope, $stateParams, Work) {
     $scope.works = Work.query();
-    $scope.hidden = Work.query({id:'hidden'});
-    $scope.orderProp = 'year';
-    // $scope.showHidden = false;
+    $scope.orderProp = 'order';
+    $scope.showHidden = false;
   })
 
   .controller('ViewWorkCtrl', function ($scope, $stateParams, Work) {
     $scope.work = Work.get({id: $stateParams.id});
-    $scope.selected = 0;
     $scope.isSelected = function(index) {
-      if (index === $scope.selected) {
+      if (index === $scope.selectedIndex) {
         return 'selected';
       }
     };
     $scope.setSelected = function(index) {
-      $scope.selected = index;
+      $scope.selectedIndex = index;
     };
     $scope.allPhotos = function() {
       return [$scope.work.photoMain].concat($scope.work.photos);
     };
     $scope.open = function() {
-      var url = $scope.allPhotos()[$scope.selected];
-      window.open(url);
+      var re = /[\w\-]+\.jpg/;
+      var smallUrl = re.exec($scope.getSelected());
+      var largeUrl = 'assets/images/large/' + smallUrl;
+      window.open(largeUrl);
+    };
+    $scope.selectedIndex = 0;
+    $scope.getSelected = function() {
+      return $scope.allPhotos()[$scope.selectedIndex];
     };
   });

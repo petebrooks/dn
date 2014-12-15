@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var WorkSchema = new Schema({
   _id: String,
+  num: Number,
   title: String,
   year: Number,
   hidden: Boolean,
@@ -16,5 +17,9 @@ var WorkSchema = new Schema({
   // photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }]
   photos: [String],
 });
+
+WorkSchema.methods.allPhotos = function() {
+  return this.photoMain.concat(this.photos);
+}
 
 module.exports = mongoose.model('Work', WorkSchema);
