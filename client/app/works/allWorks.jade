@@ -1,23 +1,19 @@
 .glovebox
   glove.active.col-1-1(name="Works" image="assets/images/red_glove.png")
 .worksbox
+  //- input(ng-model="searcText")
+  //- code {{works}}
   .gallery
-    .work(ng-repeat="work in works" ui-sref="viewWorks({id: work._id})").col-1-3
-      //- a(ui-sref="viewWorks({id: work._id})")
+    .work(ng-repeat="work in works | orderBy: orderProp : true | filter:{hidden:showHidden}" ui-sref="viewWorks({id: work._id})").col-1-3
       .thumb(style="background-image: url('{{ work.photoThumb }}')")
         .hoverTitle
           .title {{ work.title }}
-  .expand.col-1-1(ng-show="!showHidden")
+  .expand.col-1-1(ng-show="showHidden!==''")
     span Show More
-    i.icon-right-open-outline.down(ng-click="showHidden=true")
-  .gallery
-    .work(ng-repeat="hiddenwork in hidden" ng-show="showHidden" ui-sref="viewWorks({id: hiddenwork._id})").col-1-3
-      .thumb(style="background-image: url({{hiddenwork.photoThumb}})")
-        .hoverTitle
-          .title {{ hiddenwork.title }}
-  .expand.col-1-3(ng-show="showHidden")
+    i.icon-right-open-outline.down(ng-click="showHidden=''")
+  .expand.col-1-1(ng-show="showHidden===''")
     span Hide
-    i.icon-right-open-outline.up(ng-click="showHidden=false")
+    i.icon-right-open-outline.up(ng-click="showHidden='false'")
 
 
     //- .work(ng-repeat="work in hidden" ng-show="showHidden")

@@ -6,9 +6,8 @@ workControllers
 
   .controller('AllWorkCtrl', function ($scope, $stateParams, Work) {
     $scope.works = Work.query();
-    $scope.hidden = Work.query({id:'hidden'});
     $scope.orderProp = 'year';
-    // $scope.showHidden = false;
+    $scope.showHidden = false;
   })
 
   .controller('ViewWorkCtrl', function ($scope, $stateParams, Work) {
