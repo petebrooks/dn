@@ -24,8 +24,9 @@ workControllers
       return [$scope.work.photoMain].concat($scope.work.photos);
     };
     $scope.open = function() {
-      var smallUrl = $scope.selected;
-      var largeUrl = [smallUrl.slice(0, 14) + 'large/' + smallUrl.slice(14)].join('');
+      var re = /[\w\-]+\.jpg/;
+      var smallUrl = re.exec($scope.getSelected());
+      var largeUrl = 'assets/images/large/' + smallUrl;
       window.open(largeUrl);
     };
     $scope.selectedIndex = 0;
