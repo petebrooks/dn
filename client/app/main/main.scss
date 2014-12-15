@@ -339,9 +339,9 @@ glove {
       img { max-width: 130%; max-height: 20vh; }
       &[name='Works'], &[name='Contact'] { img { right: 0; } }
       &[name='Works'] {  top: 12vh; }
-      &[name='Statement'] {  top: 35vh; }
+      &[name='Statement'] {  top: 35vh; transform: translateX(-20%); }
       &[name='Contact'] {  top: 55vh; }
-      &[name='Bio'] {  top: 75vh; }
+      &[name='Bio'] {  top: 75vh; transform: translateX(-10%); }
     }
   }
 }
