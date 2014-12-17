@@ -65,7 +65,7 @@
   padding: 20px;
   text-align: right;
   color: $button-color;
-  font: $text-font;
+  font: $text-font-400;
   &:hover {
     color: $button-hover-color;
   }
@@ -98,7 +98,7 @@
     }
   }
   &:hover .hoverTitle {
-    font: 400 1rem 'Lato', Helvetica, sans-serif;
+    font: $text-font-400;
     display: block;
   }
   &.ng-enter,
